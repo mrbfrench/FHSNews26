@@ -23,6 +23,70 @@
 
 	<!-- Current theme goes here -->
 	<link rel="stylesheet" href="" id="theme-style"> <!-- default theme -->
+	<!-- Hartley js-->
+	<!--
+<script>
+	// Function to show the popup
+	function showBirthdayPopup() {
+	    const popup = document.getElementById('birthday-popup');
+	    popup.classList.remove('hidden');
+	
+	    // Initialize confetti
+	    const confettiCanvas = document.getElementById('confetti-canvas');
+	    confettiCanvas.width = window.innerWidth;
+	    confettiCanvas.height = window.innerHeight;
+	    const confetti = new ConfettiGenerator({ target: 'confetti-canvas' });
+	    confetti.render();
+	
+	    // Hide the popup after 10 seconds
+	    setTimeout(() => {
+	        popup.classList.add('hidden');
+	        confetti.clear(); // Stop the confetti
+	    }, 10000);
+	}
+	
+	// Show the popup when the page loads
+	document.addEventListener('DOMContentLoaded', showBirthdayPopup);
+	</script>
+	-->
+	<!-- Include the Confetti.js library -->
+	
+	<script src="https://cdn.jsdelivr.net/npm/confetti-js/dist/index.min.js">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ50F79FHM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-XZ50F79FHM');
+    </script>
+    <!--Popup styling -->
+	<style>
+		.popup {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.8);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 1000;
+		}
+
+		.popup-content {
+		text-align: center;
+		color: white;
+		font-size: 2rem;
+		font-weight: bold;
+		}
+
+		.hidden {
+		display: none;
+		}
+</style>
 </head>
 
     <!-- Google tag (gtag.js) -->
@@ -48,13 +112,22 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
 <body>
+    <!--hartley's birthday popup
+	<div id="birthday-popup" class="popup hidden">
+		<div class="popup-content">
+		    <h1>🎉 Happy Birthday Hartley! 🎉</h1>
+		    <h3>1 more year until retirement!</h3>
+		    <canvas id="confetti-canvas"></canvas>
+		</div>
+	        </div>
+-->
 
 <div class="wrapper">
 	<header>
         <div>
-		    <div class="home-title">FHS News</div>
-            <div id="end_year_countdown">00:00:00:00</div>
+		    <div class="home-title">FHS Bell Schedule</div>
         </div>
+        <br>
 		<!-- <a href="/fishers"></a> -->
 		<a href="/info">
 			<div>
@@ -306,10 +379,16 @@
 				<div class="row" id="sub_choose">
 				</div>
 			</section>
-			<section class="row container hidden" id="lunch">
-			  <div class="row container" id="lunch__choose">
+			
+			<section class="row container" id="lunch">
+			  <div class="lunch" id="lunch__choose">
                 <!-- this is all one line because if it isn't then it will add white space between the buttons -->
+                <!-- regular lunch-->
 				<button class="container hover lunch-btn" onclick="chooseLunch('A',this)">A</button><button class="container hover lunch-btn" onclick="chooseLunch('B',this)">B</button><button class="container hover lunch-btn" onclick="chooseLunch('C',this)">C</button><button class="container hover lunch-btn" onclick="chooseLunch('D',this)">D</button>
+			
+				<!-- three lunch code A,B,C
+				<button class="container hover lunch-btn" onclick="chooseLunch('A',this)">A</button><button class="container hover lunch-btn3" onclick="chooseLunch('B',this)">B</button><button class="container hover lunch-btn" onclick="chooseLunch('C',this)">C</button>
+				-->
 			  </div>
 		  </section>
 		</section>
@@ -329,8 +408,11 @@
 			<a href="https://fisherstigertimes.com/" target="_blank" class="icon-button">
 				<img src="img/The Tiger Times-logos.jpeg" alt="TigerTimes" />
 			</a>
-			<a href="https://www.youtube.com/@The340/videos" target="_blank" class="icon-button">
-				<img src="img/the340.png" alt="340" />
+			<a href="https://www.youtube.com/@FHSRoar" target="_blank" class="icon-button">
+				<img src="img/fhsroar.jpg" alt="340" />
+			</a>
+			<a href="html/gpa.html" target="_blank" class="icon-button">
+				<img src="img/gpaPic.jpg" alt="gpa calculator" />
 			</a>
 		</section>
 		<!-- Place this button somewhere appropriate in your HTML -->

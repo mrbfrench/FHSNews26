@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background:linear-gradient(to right, rgba(255, 0, 0, 0.335) ,red) ;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .option-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .option-buttons button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option-buttons button:hover {
+            background-color: #0056b3;
+        }
+        .input-section {
+            display: none;
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button.calculate {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button.calculate:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>GPA Calculator</h1>
+  
+    <p style = "text-align:center; font-size:8px">Your guide to calculating your UNOFFICIAL gpa. If this is wrong you can blame Hartley.</p>
+    <h3 style = "text-align:center;">Make sure you have a list of all the classes you have taken in High School. <br>You can find this in skyward.</h3>
+    <div class="option-buttons">
+        <h1>GPA Calculator</h1>
+        <button onclick="toggleDiv()">GPA Calculator</button>
+        
+    </div>
+    
+   
+
+   
+    <!-- GPA  : Input Grades -->
+    <div id="grades-section" class="input-section">
+        <h2>Input All Grades</h2>
+        <label>Number of A+'s:</label>
+        <input type="number" id="aplus" value="0" min="0">
+
+        <label>Number of A's:</label>
+        <input type="number" id="a" value="0" min="0">
+
+        <label>Number of A-'s:</label>
+        <input type="number" id="aminus" value="0" min="0">
+
+        <label>Number of B+'s:</label>
+        <input type="number" id="bplus" value="0" min="0">
+
+        <label>Number of B's:</label>
+        <input type="number" id="b" value="0" min="0">
+
+        <label>Number of B-'s:</label>
+        <input type="number" id="bminus" value="0" min="0">
+
+        <label>Number of C+'s:</label>
+        <input type="number" id="cplus" value="0" min="0">
+
+        <label>Number of C's:</label>
+        <input type="number" id="c" value="0" min="0">
+
+        <label>Number of C-'s:</label>
+        <input type="number" id="cminus" value="0" min="0">
+
+        <label>Number of D+'s:</label>
+        <input type="number" id="dplus" value="0" min="0">
+
+        <label>Number of D's:</label>
+        <input type="number" id="d" value="0" min="0">
+
+        <label>Number of D-'s:</label>
+        <input type="number" id="dminus" value="0" min="0">
+
+        <label>Number of F's:</label>
+        <input type="number" id="f" value="0" min="0">
+
+        <label>Semesters Completed:</label>
+        <input type="number" id="semesters1" value="1" min="1">
+
+        <label>Honors Classes:</label>
+        <input type="number" id="honors1" value="0" min="0">
+
+        <label>AP Classes:</label>
+        <input type="number" id="ap1" value="0" min="0">
+  <!-- Result -->
+        <div class="result" id="result"></div>
+        <button class="calculate" onclick="calculateGPA()">Calculate GPA</button>
+        
+    </div>
+    <div class="option-buttons">
+        <h1>Semester Grade after Final</h1>
+        <button onclick="toggleDiv2()">Semester Grade with Final</button>
+        
+    </div>
+       <!-- GPA  : Input Grades -->
+       <div id="semester-section" class="input-section">
+        <h2>Input Semester Grade</h2>
+        <label>Class grade for Semester:</label>
+        <input type="number" id="semGrade" value="0" min="0" max="100">
+
+        <label>Grade on Final:</label>
+        <input type="number" id="finalGrade" value="0" min="0" max="100">
+
+  
+   
+  <!-- Result -->
+        <div class="result2" id="result2"></div>
+        <button class="calculate" onclick="calculateFinalGrade()">Calculate Semester Grade</button>
+        
+    </div>
+
+    <div class="option-buttons">
+        <h1>FHS News</h1>
+        <button onclick="returnBack()">Back to FHS News</button>
+        
+    </div>
+  
+    
+
+    <script >
+        // Function to toggle between input options
+function showOption() {
+    document.getElementById("grades-section").style.display = "none";
+    document.getElementById("semester-section").style.display = "none"; 
+   
+
+    
+    document.getElementById("grades-section").style.display = "block";
+    
+}
+
+// Function to calculate GPA using manual grade inputs
+function calculateGPA() {
+    // Get input values for grades
+    const aplus = parseInt(document.getElementById("aplus").value) || 0;
+    const a = parseInt(document.getElementById("a").value) || 0;
+    const aminus = parseInt(document.getElementById("aminus").value) || 0;
+    const bplus = parseInt(document.getElementById("bplus").value) || 0;
+    const b = parseInt(document.getElementById("b").value) || 0;
+    const bminus = parseInt(document.getElementById("bminus").value)|| 0; 
+    const cplus = parseInt(document.getElementById("cplus").value) || 0;
+    const c = parseInt(document.getElementById("c").value) || 0;
+    const cminus = parseInt(document.getElementById("cminus").value) || 0;
+    const dplus = parseInt(document.getElementById("dplus").value) || 0;
+    const d = parseInt(document.getElementById("d").value) || 0;
+    const dminus = parseInt(document.getElementById("dminus").value) || 0;
+    const f = parseInt(document.getElementById("f").value) || 0;
+
+    //get values for a classes final grade
+    const semGrade = parseInt(document.getElementById("semGrade").value) || 0;
+    const finalGrade = parseInt(document.getElementById("finalGrade").value)||0; 
+
+
+    // Get values for semesters, honors, and AP classes
+    const semesters = parseInt(document.getElementById("semesters1").value) || 1;
+    const honors = parseInt(document.getElementById("honors1").value) || 0;
+    const ap = parseInt(document.getElementById("ap1").value) || 0;
+
+    // GPA values for each grade
+    const gradePoints = {
+        "aplus": 4.33,
+        "a": 4.0,
+        "aminus": 3.67,
+        "bplus": 3.33,
+        "b": 3.0,
+        "bminus":2.67,
+        "cplus":2.33,
+        "c":2.0,
+        "cminus":1.67,
+        "dplus":1.33,
+        "d":1.0,
+        "dminus":0.67, 
+        "f": 0
+    };
+
+    // Calculate total grade points and total number of grades
+    const totalPoints = (aplus * gradePoints["aplus"]) + 
+                        (a * gradePoints["a"]) + 
+                        (aminus * gradePoints["aminus"]) + 
+                        (bplus * gradePoints["bplus"]) + 
+                        (b * gradePoints["b"]) + 
+                        (bminus*gradePoints["bminus"])+
+                        (cplus * gradePoints["cplus"]) + 
+                        (c * gradePoints["c"]) + 
+                        (cminus*gradePoints["cminus"])+
+                        (dplus * gradePoints["dplus"]) + 
+                        (d * gradePoints["d"]) + 
+                        (f * gradePoints["f"]);
+    const totalGrades = aplus + a + aminus + bplus + b + bminus + cplus + c + cminus + dplus + d + f;
+
+    // Calculate unweighted GPA
+    const unweightedGPA = totalGrades > 0 ? totalPoints / totalGrades : 0;
+
+    // Calculate weighted GPA adjustments
+    const honorsAdjustment = (honors * 0.096) / semesters;
+    const apAdjustment = (ap * 0.143) / semesters;
+    const weightedGPA = unweightedGPA + honorsAdjustment + apAdjustment;
+
+    // Display the results
+    displayResult(unweightedGPA, weightedGPA);
+}
+
+// Function to calculate GPA using current GPA adjustments
+function calculateQuickGPA() {
+    // Get input values
+    const currentGPA = parseFloat(document.getElementById("currentGPA").value) || 0;
+    const semesters = parseInt(document.getElementById("semesters2").value) || 1;
+    const honors = parseInt(document.getElementById("honors2").value) || 0;
+    const ap = parseInt(document.getElementById("ap2").value) || 0;
+
+    // Calculate weighted GPA adjustments
+    const honorsAdjustment = (honors * 0.096) / semesters;
+    const apAdjustment = (ap * 0.143) / semesters;
+    const weightedGPA = currentGPA + honorsAdjustment + apAdjustment;
+
+    // Display the results
+    displayResult(currentGPA, weightedGPA);
+}
+
+// Function to display the GPA results
+function displayResult(unweighted, weighted) {
+    document.getElementById("result").innerHTML = `
+        <p>Unweighted GPA: <strong>${unweighted.toFixed(3)}</strong></p>
+        <p>Weighted GPA: <strong>${weighted.toFixed(3)}</strong></p>
+    `;
+}
+function displayResult2(finalResult) {
+    document.getElementById("result2").innerHTML = `
+        <p>Unweighted GPA: <strong>${finalResult.toFixed(2)}</strong></p>
+        
+    `;
+}
+
+//function to calculate class grade 
+function finalGrade() {
+    const semGrade = parseFloat(document.getElementById("semGrade").value) || 0;
+    const finalGrade = parseFloat(document.getElementById("finalGrade").value) || 0;
+
+    // Calculate the final grade
+    const finalResult = (semGrade * 0.85) + (finalGrade * 0.15);
+
+    displayResult2(finalResult);
+}
+    
+
+function returnBack(){
+    window.location.href = "../index.html"; 
+}
+function toggleDiv() {
+    const div = document.getElementById('grades-section');
+    if (div.style.display === 'none') {
+        div.style.display = 'block'; // Show the div
+    } else {
+        div.style.display = 'none'; // Hide the div
+    }
+}
+function toggleDiv2() {
+    const div = document.getElementById('semester-section');
+    if (div.style.display === 'none') {
+        div.style.display = 'block'; // Show the div
+    } else {
+        div.style.display = 'none'; // Hide the div
+    }
+}
+    </script>
+</body>
+</html>

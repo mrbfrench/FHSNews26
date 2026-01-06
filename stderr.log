@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/opt/cloudlinux/venv/lib64/python3.11/site-packages/clcommon/clpwd.py", line 89, in get_homedir
+    return self.get_user_full_dict()[user].pw_dir
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'fhsnzrgr'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/fhsnzrgr/nodevenv/repositories/FHSNewsRemasteredv4/10/bin/set_env_vars.py", line 113, in <module>
+    env_vars = get_env_vars(app_name, sys.argv[1])
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fhsnzrgr/nodevenv/repositories/FHSNewsRemasteredv4/10/bin/set_env_vars.py", line 64, in get_env_vars
+    full_app_config = get_app_full_conf(username, _app_name, interpreter)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fhsnzrgr/nodevenv/repositories/FHSNewsRemasteredv4/10/bin/set_env_vars.py", line 94, in get_app_full_conf
+    full_user_config = manager.get_user_config_data(user)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/cloudlinux/venv/lib64/python3.11/site-packages/clselect/baseclselect/apps_manager.py", line 235, in get_user_config_data
+    user_config = self._get_path_to_user_config(user)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/cloudlinux/venv/lib64/python3.11/site-packages/clselect/baseclselect/apps_manager.py", line 318, in _get_path_to_user_config
+    user_home = self._pwd.get_homedir(username)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/cloudlinux/venv/lib64/python3.11/site-packages/clcommon/clpwd.py", line 91, in get_homedir
+    raise ClPwd.NoSuchUserException(user) from e
+clcommon.clpwd.ClPwd.NoSuchUserException: No such user (fhsnzrgr)

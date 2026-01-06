@@ -9,26 +9,96 @@ var now = new Date();
 var endTime;
 let hasAdvanced = false;  // Add this flag at the top of the file to track whether we have already advanced the period
 let manualNavigation = false; // Flag to indicate manual navigation
-
+/**
 var timePeriodMapping = [
     { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
-    { startTime: "08:30", endTime: "09:53", periodName: "Period 1" },
-    { startTime: "09:53", endTime: "10:01", periodName: "Passing Period" },
-    { startTime: "10:01", endTime: "11:24", periodName: "Period 2" },
-    { startTime: "11:24", endTime: "13:24", periodName: "Period 3 & Lunch" },
-    { startTime: "13:24", endTime: "13:32", periodName: "Passing Period" },
-    { startTime: "13:32", endTime: "15:00", periodName: "Period 4" },
+    { startTime: "08:30", endTime: "10:30", periodName: "Teacher Office Hours" },
+    { startTime: "10:30", endTime: "11:00", periodName: "Lunch" },
+    { startTime: "11:00", endTime: "11:20", periodName: "Passing Period"},
+    { startTime: "11:20", endTime: "13:05", periodName: "Exam Block 1" },
+    { startTime: "13:05", endTime: "13:15", periodName: "Passing Period" },
+    { startTime: "13:15", endTime: "15:00", periodName: "Exam Block 2" },
+   
+    
 ];
 
 var lunchTimings = {
     "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
     "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
     "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
-    "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch" },
+    "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch"}
+    
+};
+/**
+/** Period 7 final 
+var timePeriodMapping = [
+    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+    { startTime: "08:30", endTime: "10:00", periodName: "Period 5" },
+    { startTime: "10:00", endTime: "10:08", periodName: "Passing Period" },
+    { startTime: "10:08", endTime: "11:38", periodName: "Period 6"},
+    { startTime: "11:38", endTime: "13:08", periodName: "Period 7 & Lunch" },
+    { startTime: "13:08", endTime: "13:15", periodName: "Passing Period" },
+    { startTime: "13:15", endTime: "15:00", periodName: "Exam Block 7" },
+   
+    
+];
+
+var lunchTimings = {
+    "A": { startTime: "11:38", endTime: "12:08", periodName: "A Lunch" },
+    "B": { startTime: "12:08", endTime: "12:38", periodName: "B Lunch" },
+    "C": { startTime: "12:38", endTime: "13:08", periodName: "C Lunch" }
+    
+    
+};
+**/
+
+var timePeriodMapping = [
+    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+    { startTime: "08:30", endTime: "9:53", periodName: "Period 1" },
+    { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
+    { startTime: "10:01", endTime: "11:24", periodName: "Period 2" },
+    { startTime: "11:24", endTime: "11:32", periodName: "Passing Period"},
+    { startTime: "11:32", endTime: "13:24", periodName: "Period 3 & Lunch" },
+    { startTime: "13:24", endTime: "13:32", periodName: "Passing Period" },
+    { startTime: "13:32", endTime: "15:00", periodName: "Period 4" },
+   
+    
+];
+
+var lunchTimings = {
+    "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
+    "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
+    "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
+    "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch"}
+    
 };
 
+/**
+//intruder time mapping 
+var timePeriodMapping = [
+    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+    { startTime: "08:30", endTime: "9:53", periodName: "Period 1" },
+    { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
+    { startTime: "10:01", endTime: "11:44", periodName: "Period 2" },
+    { startTime: "11:24", endTime: "11:32", periodName: "Passing Period"},
+    { startTime: "11:32", endTime: "13:44", periodName: "Period 3 & Lunch" },
+    { startTime: "13:44", endTime: "13:52", periodName: "Passing Period" },
+    { startTime: "13:52", endTime: "15:00", periodName: "Period 4" },
+   
+    
+];
+
+var lunchTimings = {
+    "A": { startTime: "11:44", endTime: "12:14", periodName: "A Lunch" },
+    "B": { startTime: "12:14", endTime: "12:44", periodName: "B Lunch" },
+    "C": { startTime: "12:44", endTime: "13:14", periodName: "C Lunch" },
+    "D": { startTime: "13:14", endTime: "13:44", periodName: "D Lunch"}
+    
+};
+**/
+
 // 2 Hour Delay
-/** var timePeriodMapping = [
+ /**var timePeriodMapping = [
     { startTime: "10:00", endTime: "10:30", periodName: "Passing Period" },
     { startTime: "10:30", endTime: "11:15", periodName: "Period 1" },
     { startTime: "11:15", endTime: "13:15", periodName: "Period 2 & Lunch" },
@@ -43,8 +113,8 @@ var lunchTimings = {
     "B": { startTime: "11:45", endTime: "12:15", periodName: "B Lunch" },
     "C": { startTime: "12:15", endTime: "12:45", periodName: "C Lunch" },
     "D": { startTime: "12:45", endTime: "13:15", periodName: "D Lunch" },
-}; **/
-
+}; 
+**/
 // At the top of the file
 let currentPeriodIndex = getCurrentPeriodIndex();
 
@@ -133,21 +203,37 @@ function updatePeriod() {
     if (currentPeriodMapping) {
         // If current period is "Period 3 & Lunch"
         if (currentPeriodMapping.periodName === "Period 3 & Lunch" && selectedLunchType) {
-            currentPeriodMapping = lunchTimings[selectedLunchType];
+            const lunchPeriodMapping = lunchTimings[selectedLunchType];
+            //currentPeriodMapping = lunchTimings[selectedLunchType];
 
-            let [lunchStartHours, lunchStartMinutes] = currentPeriodMapping.startTime.split(":").map(Number);
+            //change currentPeriodMapping to the selected lunchPeriodMapping
+            let [lunchStartHours, lunchStartMinutes] = lunchPeriodMapping.startTime.split(":").map(Number);
             let lunchStartTime = new Date(now);
             lunchStartTime.setHours(lunchStartHours, lunchStartMinutes, 0, 0);
 
+            //add 3 lines for end of lunch
+            let [lunchEndHours, lunchEndMinutes] = lunchPeriodMapping.endTime.split(":").map(Number);
+            let lunchEndTime = new Date(now);
+            lunchEndTime.setHours(lunchEndHours, lunchEndMinutes, 0, 0);
+
+            //add 3 lines for end of period 3
+            let [periodEndHours, periodEndMinutes] = currentPeriodMapping.endTime.split(":").map(Number);
+            let periodEndTime = new Date(now);
+            periodEndTime.setHours(periodEndHours, periodEndMinutes, 0, 0);
+
             if (now < lunchStartTime) {
                 // If the selected lunch has not started, set endTime to its startTime
-                endTime = lunchStartTime;
-            } else {
-                // If the selected lunch has started, set endTime to its actual endTime
-                let [lunchEndHours, lunchEndMinutes] = currentPeriodMapping.endTime.split(":").map(Number);
-                endTime = new Date(now);
-                endTime.setHours(lunchEndHours, lunchEndMinutes, 0, 0);
+                endTime = lunchStartTime;}
+            // add else if
+            else if (now < lunchEndTime) {
+                // If the selected lunch is in progress, set endTime to its endTime
+                endTime = lunchEndTime;
             }
+            else {
+                // If the selected lunch has ended but period 3 hasn't ended, set endTime to periodEndTime
+                endTime = periodEndTime;
+            }
+           
         } else {
             let [endHours, endMinutes] = currentPeriodMapping.endTime.split(":").map(Number);
             let [startHours, startMinutes] = currentPeriodMapping.startTime.split(":").map(Number);
@@ -171,7 +257,7 @@ function updatePeriod() {
         periodStartTime.setHours(startHours, startMinutes, 0, 0);
 
         let lunchButtons = document.getElementById("lunch");
-        if (currentPeriodMapping.periodName === "Period 3 & Lunch" || currentPeriodMapping === lunchTimings[selectedLunchType]) {
+        if (currentPeriodMapping.periodName === "Period 7 & Lunch" || currentPeriodMapping === lunchTimings[selectedLunchType]) {
             lunchButtons.classList.remove("hidden");
         } else {
             lunchButtons.classList.add("hidden");
