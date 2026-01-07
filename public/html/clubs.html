@@ -17,7 +17,7 @@
 	  document.write('<link rel="stylesheet" href="../themes/' + savedTheme + '.css" id="theme-style">');
 	})();
 	</script>
-
+	<script src="js/TFClubs.js" defer></script>
   <!-- CSS files go here -->
   <link rel="stylesheet" href="../css/global.css">
   <link rel="stylesheet" href="../css/club.css">
@@ -45,7 +45,7 @@
       </div>
     </a>
   </header>
-  <section class="row row-club">
+<!--<section class="row row-club">
     <div id="modal-container"></div>
     <nav>
 		<div id="nav-tabs">
@@ -70,7 +70,72 @@
 		</div>
 	</nav>
   </section>
+-->
+  <section>
+	<div class="blur">
+        <h1 id="clubTitle">Clubs</h1>
 
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfONSdvX3OYml32AFaBjTFnT3xYBy98PFyc02U0ttxBHCQocQ/viewform"
+            target="_blank" class="clubForm button">
+            <button id="clubForm button">If your club is not present or does not have details fill out this
+                form</button>
+        </a>
+
+        <br>
+        <ul id="clubList" class="container"></ul>
+        <script>
+            createClubs();
+        </script>
+        <!--Search Bar Functionality -->
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+                const searchBar = document.getElementById("searchBar");
+                const clubList = document.getElementById("clubList");
+
+                function filterClubs(term) {
+                    const searchTerm = term.toLowerCase();
+                    const clubItems = clubList.querySelectorAll("li");
+
+                    clubItems.forEach(item => {
+                        const clubName = item.querySelector("h3")?.textContent.toLowerCase() || "";
+                        const staffName = item.querySelector("p")?.textContent.toLowerCase() || "";
+
+                        if (clubName.includes(searchTerm) || staffName.includes(searchTerm)) {
+                            item.style.display = "flex";
+                        } else {
+                            item.style.display = "none";
+                        }
+                    });
+                }
+
+                // Load saved search term and immediately filter
+                const savedSearch = localStorage.getItem("searchTerm") || "";
+                searchBar.value = savedSearch;
+                filterClubs(savedSearch);
+
+                // Save and re-filter when typing
+                searchBar.addEventListener("input", (e) => {
+                    const term = e.target.value;
+                    localStorage.setItem("searchTerm", term);
+                    filterClubs(term);
+                });
+            });
+        </script>
+    </div>
+    <!-- Overlay for club description -->
+    <div id="descriptionOverlay" class="overlay hidden">
+        <div class="overlay-content">
+            <span id="closeOverlay" class="close-btn">&times;</span>
+            <h2 id="overlayTitle"></h2>
+            <p id="overlayStaff"></p>
+            <p id="overlayEmail"></p>
+            <p id="overlayTime"></p>
+            <p id="overlayType"></p>
+            <p id="overlayDays"></p>
+            <div id="overlayDescription"></div>
+        </div>
+    </div>
+  </section>
   <script src="../js/DOM.js" charset="utf-8"></script>
   <script src="../js/clubs.js" charset="utf-8"></script>
 </body>
