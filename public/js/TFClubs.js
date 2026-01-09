@@ -1,7 +1,7 @@
 //New method for rendering and displaying clubs. Use this file over clubs.js
 
-const auth = firebase.auth();
-const db = firebase.firestore();
+// const auth = firebase.auth();
+// const db = firebase.firestore();
 
 let clubs = [];
 let currentUser = null;
@@ -9,13 +9,13 @@ let userFavorites = [];
 
 const LOCAL_FAVORITES_KEY = 'favorites';
 
-if (!firebase.apps.length) {
-    console.error("Firebase not initialized! Make sure firebase-config.js is loaded before club.js");
-}
+// if (!firebase.apps.length) {
+//     console.error("Firebase not initialized! Make sure firebase-config.js is loaded before club.js");
+// }
 
 async function loadClubs() {
     try {
-        const response = await fetch("clubs.json");
+        const response = await fetch("/data/clubs.json");
         if (!response.ok) throw new Error(`Failed to load clubs: ${response.status}`);
         
         clubs = await response.json();
@@ -415,7 +415,7 @@ async function renderFavorites() {
     // Load clubs data to get full descriptions
     let allClubs = [];
     try {
-        const response = await fetch("clubs.json");
+        const response = await fetch("/data/clubs.json");
         if (response.ok) {
             allClubs = await response.json();
         }

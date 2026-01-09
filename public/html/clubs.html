@@ -71,9 +71,60 @@
 	</nav>
   </section>
 -->
+  <script>
+	// Function to toggle filter overlay
+	function filterOverlay() {	
+    const overlay = document.getElementById('filterOverlay');
+    overlay.classList.toggle('show');
+
+    const main = document.querySelector(".blur");
+    main.classList.toggle('blurred');
+	
+	}
+  </script>
+  <img src="\img\filter-icon.webp" id="filterIcon" onclick="filterOverlay()" alt="Filter Icon">
+  <div id="filterOverlay">
+            <div class="filter-grid">
+                <div class="filter-catagory">
+                    <h3>Club Type</h3>
+                    <label><input type="checkbox" class="filterBox" id="checkboxAcademic"
+                            onclick="saveCheckboxStates()">Academic</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxService"
+                            onclick="saveCheckboxStates()">Service</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxSports"
+                            onclick="saveCheckboxStates()">Sports</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxArt"
+                            onclick="saveCheckboxStates()">Art</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxGames"
+                            onclick="saveCheckboxStates()">Games</label>
+                </div>
+                <div class="filter-catagory">
+                    <h3>Meeting Time</h3>
+                    <label><input type="checkbox" class="filterBox" id="checkboxBefore"
+                            onclick="saveCheckboxStates()">Before School</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxAfter"
+                            onclick="saveCheckboxStates()">After School</label>
+                </div>
+                <div class="filter-catagory">
+                    <h3>Meeting Days</h3>
+                    <label><input type="checkbox" class="filterBox" id="checkboxMonday" onclick="saveCheckboxStates()">
+                        Monday</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxTuesday" onclick="saveCheckboxStates()">
+                        Tuesday</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxWednesday"
+                            onclick="saveCheckboxStates()"> Wednesday</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxThursday"
+                            onclick="saveCheckboxStates()"> Thursday</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxFriday" onclick="saveCheckboxStates()">
+                        Friday</label>
+                    <label><input type="checkbox" class="filterBox" id="checkboxWeekend" onclick="saveCheckboxStates()">
+                        Weekend</label>
+                </div>
+            </div>
+        </div>
   <section>
 	<div class="blur">
-        <h1 id="clubTitle">Clubs</h1>
+        
 
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfONSdvX3OYml32AFaBjTFnT3xYBy98PFyc02U0ttxBHCQocQ/viewform"
             target="_blank" class="clubForm button">
