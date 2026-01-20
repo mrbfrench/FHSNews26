@@ -70,7 +70,6 @@ async function loadUserFavorites() {
         userFavorites = getLocalFavorites();
     }
 }
-
 function getLocalFavorites() {
     try {
         const favorites = localStorage.getItem(LOCAL_FAVORITES_KEY);
@@ -519,7 +518,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (closeOverlay) {
             closeOverlay.addEventListener("click", () => {
-                if (overlay) overlay.classList.add("hidden");
+                if (overlay) overlay.class.add("hidden");
             });
         }
 
