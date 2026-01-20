@@ -44,46 +44,10 @@
         <img src="../img/questionmark_white.png" alt="?" width="40" height="40">
       </div>
     </a>
-  </header>
-<!--<section class="row row-club">
-    <div id="modal-container"></div>
-    <nav>
-		<div id="nav-tabs">
-			<a id="nav-tabs__home" href="/">
-				<div>
-					<img class="svg-convert" src="../img/gradcap.svg" alt="Home" width="34" height="34">
-					<span>Home</span>
-				</div>
-			</a>
-			<a id="nav-tabs__clubs" href="/clubs" class="selected">
-				<div>
-					<img class="svg-convert" src="../img/clubs.svg" alt="Clubs" width="34" height="34">
-					<span>Clubs</span>
-				</div>
-			</a>
-			<a id="nav-tabs__cal" href="/calendar">
-				<div>
-					<img class="svg-convert" src="../img/calendar.svg" alt="Calendar" width="34" height="34">
-					<span>Calendar</span>
-				</div>
-			</a>
-		</div>
-	</nav>
-  </section>
--->
-  <script>
-	// Function to toggle filter overlay
-	function filterOverlay() {	
-    const overlay = document.getElementById('filterOverlay');
-    overlay.classList.toggle('show');
-
-    const main = document.querySelector(".blur");
-    main.classList.toggle('blurred');
-	
-	}
-  </script>
-  <img src="\img\filter-icon.webp" id="filterIcon" onclick="filterOverlay()" alt="Filter Icon">
-  <div id="filterOverlay">
+    <div  class="search-filter-container">
+      <input id="searchBar"class="searchBar" type="text" placeholder="Search for clubs">
+      <img src="\img\filter-icon.webp" id="filterIcon" onclick="filterOverlay()" alt="Filter Icon">
+      <div id="filterOverlay">
             <div class="filter-grid">
                 <div class="filter-catagory">
                     <h3>Club Type</h3>
@@ -122,6 +86,45 @@
                 </div>
             </div>
         </div>
+    </div>
+    <script>
+    // Function to toggle filter overlay
+    function filterOverlay() {	
+      const overlay = document.getElementById('filterOverlay');
+      overlay.classList.toggle('show');
+
+      const main = document.querySelector(".blur");
+      main.classList.toggle('blurred');
+    
+    }
+    </script>
+  </header>
+<!--<section class="row row-club">
+    <div id="modal-container"></div>
+    <nav>
+		<div id="nav-tabs">
+			<a id="nav-tabs__home" href="/">
+				<div>
+					<img class="svg-convert" src="../img/gradcap.svg" alt="Home" width="34" height="34">
+					<span>Home</span>
+				</div>
+			</a>
+			<a id="nav-tabs__clubs" href="/clubs" class="selected">
+				<div>
+					<img class="svg-convert" src="../img/clubs.svg" alt="Clubs" width="34" height="34">
+					<span>Clubs</span>
+				</div>
+			</a>
+			<a id="nav-tabs__cal" href="/calendar">
+				<div>
+					<img class="svg-convert" src="../img/calendar.svg" alt="Calendar" width="34" height="34">
+					<span>Calendar</span>
+				</div>
+			</a>
+		</div>
+	</nav>
+  </section>
+-->
   <section>
 	<div class="blur">
         

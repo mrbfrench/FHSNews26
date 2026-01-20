@@ -549,3 +549,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
+
+function saveCheckboxStates() {
+    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+            createClubs();  
+        });
+    });
+}
+
+function loadCheckboxStates() {
+    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+        const saved = localStorage.getItem(checkbox.id);
+        if (saved !== null) checkbox.checked = saved === 'true';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadCheckboxStates();
+    saveCheckboxStates();
+});
