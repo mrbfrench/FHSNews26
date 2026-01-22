@@ -401,7 +401,7 @@ body {
 }
 
 /*Filter*/
-#filterIcon {
+.filterIcon {
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -417,10 +417,13 @@ body {
     background-color: transparent;
     border-radius: 12px;
     border: #000 solid 0px;
-    filter: invert(100%);
+    
     top:100%;
     margin-bottom: 0.5rem;
-    
+}
+
+  #MainFilterIcon {
+    filter: invert(100%);
 }
 
 #filterOverlay {
