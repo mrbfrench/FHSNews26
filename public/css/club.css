@@ -371,7 +371,7 @@ body {
 /*Search Bar*/
 
 .blur {
-    margin-top: 15vh !important;
+    margin-top: 20vh !important;
     padding-top: 0 !important;
 }
 
@@ -416,7 +416,6 @@ body {
     background-color: transparent;
     border-radius: 12px;
     border: #000 solid 0px;
-    
     top:100%;
     margin-bottom: 0.5rem;
 }

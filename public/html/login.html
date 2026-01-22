@@ -1,81 +1,86 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="HandheldFriendly" content="true">
-	<title>FHS News</title>
-	<link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="description" content="A list of clubs for Fishers High School.">
 
-	<!-- CSS files go here -->
-	<link rel="stylesheet" href="../css/global.css">
-	<link rel="stylesheet" href="../css/login.css">
+  <title>Clubs</title>
+  <link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
 
-	<!-- Current theme goes here -->
-	<link rel="stylesheet" href="../themes/default.css">
+    	<!-- Inline script to set the theme immediately -->
+	<script>
+	(function() {
+	  var savedTheme = localStorage.getItem('selectedTheme') || 'default';
+	  document.write('<link rel="stylesheet" href="../themes/' + savedTheme + '.css" id="theme-style">');
+	})();
+	</script>
+	<script src="js/login.js" defer></script>
+  <!-- CSS files go here -->
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/login.css">
+
+  <!-- Current theme goes here -->
+  <link rel="stylesheet" href="" id="theme-style"> <!-- default theme -->
 </head>
-	<!-- Scripts go here -->
-	<script src="../js/DOM.js" charset="utf-8"></script>
-<body>
 
-<div class="wrapper">
-	<header>
-		<div class="title">Login</div>
-		<a href="info.html">
-			<div>
-				<img src="../img/questionmark_white.png" alt="?" width="40" height="40">
-			</div>
-		</a>
-	</header>
-	<nav>
-		<div id="nav-tabs">
-			<a id="nav-tabs__home" href="../index.html">
-				<div>
-					<!--gradcap here-->
-					<img class="svg-convert" src="../img/gradcap.svg" alt="Home" width="34" height="34">
-					<span>Home</span>
-                </div>
-			</a>
-			<a id="nav-tabs__clubs" href="clubs.html">
-				<div>
-					<!--settings here-->
-					<img class="svg-convert" src="../img/clubs.svg" alt="Clubs" width="34" height="34">
-					<span>Clubs</span>
-                </div>
-			</a>
-			<a id="nav-tabs__cal" href="calendar.html">
-				<div>
-					<!--calendar here-->
-					<img class="svg-convert" src="../img/calendar.svg" alt="Calendar" width="34" height="34">
-					<span>Calendar</span>
-                </div>
-			</a>
-		</div>
-	</nav>
-</div>
-</body>
-</html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ50F79FHM"></script>
 <script>
-window.addEventListener('load', function() {
-	  // Get all img tags with svg-to-inline class
-	  var imgTags = document.querySelectorAll('.svg-convert');
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-	  // Loop through each tag found
-	  imgTags.forEach(function(img) {
-		var imgURL = img.src;
-
-		// Fetch the SVG
-		fetch(imgURL)
-		  .then(response => response.text())
-		  .then(data => {
-			// Parse fetched SVG and replace img tag with it
-			var parser = new DOMParser();
-			var doc = parser.parseFromString(data, 'image/svg+xml');
-			img.parentNode.replaceChild(doc.documentElement, img);
-		  })
-		  .catch(error => {
-			console.error("Error fetching the SVG: ", error);
-		  });
-	  });
-	});
+  gtag('config', 'G-XZ50F79FHM');
 </script>
+
+<body>
+    
+  <!-- <header>
+    <div class="clubs-title">Login</div>
+    <a href="/info">
+      <div>
+        <img src="../img/questionmark_white.png" alt="?" width="40" height="40">
+      </div>
+    </a>
+  </header> -->
+    <!--Main body starts here-->
+    <div class="mainBody blur" id="headBody">
+
+        <!--Note: signInBox refers to the box used for sign ins, logInBox refers to ALL of the boxes on the page-->
+        <!--Log in-->
+
+        <div class="logInBox" id="signInBox">
+            <h2>Login</h2>
+            <input type="email" placeholder="Email" id="emailLogin">
+            <input type="password" placeholder="Password" id="passLogin">
+            <button class="signInBtn" id="logInBtn">Login</button>
+            <button class="switchBtn" onclick="switchPageCreate()">Create Account</button>
+        </div>
+        <!--Staff account creation-->
+        <div class="logInBox" id="staffBox">
+            <h2>Create Club Staff Account</h2>
+            <input type="email" placeholder="Email" class="email" id = "emailInput">
+            <input type="password" placeholder="Password" class="password" id = "passwordInput">
+            <input type="password" placeholder="Confirm Password">
+            <h2 id="logError"></h2>
+            <button class="signInBtn" onclick = "createAccount()">Sign In as Club Staff</button>
+            <button class="switchBtn" onclick="switchPageCreate()">Create Regular Account</button>
+        </div>
+        <!--Standard account creation-->
+        <div class="logInBox" id="createAccountBox">
+            <h2>Create Account</h2>
+            <input type="email" placeholder="Email" class="email">
+            <input type="password" placeholder="Password" class="password">
+            <input type="password" placeholder="Confirm Password">
+            <button class="signInBtn">Create Account</button>
+            <button class="switchBtn" onclick="switchPageOwner()">Create Club Staff Account</button>
+            <button class="switchBtn" onclick="switchPageSign()">Login</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
