@@ -30,6 +30,11 @@ app.get('/info', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/info.html'));
 });
 
+// Specific route for /login
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/login.html'));
+});
+
 // Redirect /kart to an external URL
 app.get('/kart', (req, res) => {
     res.redirect('https://mkpc.malahieude.net/mariokart.php');
