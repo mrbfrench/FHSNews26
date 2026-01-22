@@ -6,12 +6,13 @@
 let clubs = [];
 let currentUser = null;
 let userFavorites = [];
+let isFavorites = false;
 
 const LOCAL_FAVORITES_KEY = 'favorites';
 
-// if (!firebase.apps.length) {
-//     console.error("Firebase not initialized! Make sure firebase-config.js is loaded before club.js");
-// }
+// Initialize Firebase auth and db (will be undefined if Firebase not loaded)
+let auth = typeof firebase !== 'undefined' && firebase.auth ? firebase.auth() : null;
+let db = typeof firebase !== 'undefined' && firebase.firestore ? firebase.firestore() : null;
 
 async function loadClubs() {
     try {
@@ -209,7 +210,7 @@ function createClubs() {
             e.stopPropagation();
             const target = e.target;
 
-            if (!auth.currentUser) {
+            if (!auth || !auth.currentUser) {
                 target.classList.toggle("favorited");
 
                 if (target.classList.contains("favorited")) {
@@ -324,7 +325,7 @@ function showFavoritesOnly() {
 
         liElement.innerHTML = `
             <img 
-                src="img/star.png" 
+                src="img/goldStar.jpeg" 
                 alt="favorite star" 
                 class="favorite-star favorited" 
                 style="width:25px; height:25px; cursor:pointer;"
@@ -341,8 +342,8 @@ function showFavoritesOnly() {
             e.stopPropagation();
             const target = e.target;
 
-            if (!auth.currentUser) {
-                target.src = "img\star.png";
+            if (!auth || !auth.currentUser) {
+                target.src = "img/star.png";
                 target.classList.remove("favorited");
                 userFavorites = updateLocalFavorites(favClub, 'remove');
 
@@ -440,9 +441,9 @@ async function renderFavorites() {
         li.classList.add("club-box");
         li.innerHTML = `
             <img 
-                src="img\star.png" 
+                src="img/goldStar.jpeg" 
                 alt="favorite star" 
-                class="favorite-star" 
+                class="favorite-star favorited" 
                 style="width:25px; height:25px; cursor:pointer;"
             >
             <h3 class="clubBoxesFontSize">${displayClub.club}</h3>
@@ -497,12 +498,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clubList) {
         loadClubs();
 
-        auth.onAuthStateChanged((user) => {
-            currentUser = user;
+        if (auth && auth.onAuthStateChanged) {
+            auth.onAuthStateChanged((user) => {
+                currentUser = user;
+                loadUserFavorites().then(() => {
+                    createClubs();
+                });
+            });
+        } else {
+            // If Firebase is not available, just load local favorites
             loadUserFavorites().then(() => {
                 createClubs();
             });
-        });
+        }
 
         document.querySelectorAll('input[type=checkbox]').forEach(cb => {
             cb.addEventListener("change", () => {
@@ -570,3 +578,17 @@ document.addEventListener('DOMContentLoaded', () => {
     loadCheckboxStates();
     saveCheckboxStates();
 });
+
+
+// Toggle between all clubs and favorites view and change star icon
+function createFavoritesPageClubs() {
+    if (!isFavorites) {
+        showFavoritesOnly();
+        isFavorites = true;
+        starFilterIcon.src = "img/goldStar.jpeg";
+    } else {
+        createClubs();
+        isFavorites = false;
+        starFilterIcon.src = "img/star.png";
+    }
+}
