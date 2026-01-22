@@ -184,7 +184,7 @@ function createClubs() {
 
         liElement.innerHTML = `
             <img 
-                src="star.png" 
+                src="img/star.png" 
                 alt="favorite star" 
                 class="favorite-star" 
                 style="width:25px; height:25px; cursor:pointer;"
@@ -200,7 +200,7 @@ function createClubs() {
         // Check if club is favorited
         const isFavorited = userFavorites.some(fav => fav.club === club.club);
         if (isFavorited) {
-            star.src = "goldStar.jpeg";
+            star.src = "img/goldStar.jpeg";
             star.classList.add("favorited");
         }
 
@@ -212,7 +212,7 @@ function createClubs() {
                 target.classList.toggle("favorited");
 
                 if (target.classList.contains("favorited")) {
-                    target.src = "goldStar.jpeg";
+                    target.src = "img/goldStar.jpeg";
                     // Save ALL club data to localStorage
                     userFavorites = updateLocalFavorites({
                         club: club.club,
@@ -224,7 +224,7 @@ function createClubs() {
                         description: club.description || "No description available."
                     }, 'add');
                 } else {
-                    target.src = "star.png";
+                    target.src = "img/star.png";
                     userFavorites = updateLocalFavorites(club, 'remove');
                 }
                 return;
@@ -236,7 +236,7 @@ function createClubs() {
                 const userRef = db.collection('users').doc(auth.currentUser.uid);
 
                 if (target.classList.contains("favorited")) {
-                    target.src = "goldStar.jpeg";
+                    target.src = "img/goldStar.jpeg";
 
                     await userRef.set({
                         favorites: firebase.firestore.FieldValue.arrayUnion({
@@ -251,7 +251,7 @@ function createClubs() {
                     }, { merge: true });
 
                 } else {
-                    target.src = "star.png";
+                    target.src = "img/star.png";
 
                     await userRef.set({
                         favorites: firebase.firestore.FieldValue.arrayRemove({
@@ -323,7 +323,7 @@ function showFavoritesOnly() {
 
         liElement.innerHTML = `
             <img 
-                src="goldStar.jpeg" 
+                src="img/star.png" 
                 alt="favorite star" 
                 class="favorite-star favorited" 
                 style="width:25px; height:25px; cursor:pointer;"
@@ -341,7 +341,7 @@ function showFavoritesOnly() {
             const target = e.target;
 
             if (!auth.currentUser) {
-                target.src = "star.png";
+                target.src = "img\star.png";
                 target.classList.remove("favorited");
                 userFavorites = updateLocalFavorites(favClub, 'remove');
 
@@ -352,7 +352,7 @@ function showFavoritesOnly() {
             try {
                 const userRef = db.collection('users').doc(auth.currentUser.uid);
 
-                target.src = "star.png";
+                target.src = "img\star.png";
                 target.classList.remove("favorited");
 
                 await userRef.set({
@@ -439,7 +439,7 @@ async function renderFavorites() {
         li.classList.add("club-box");
         li.innerHTML = `
             <img 
-                src="goldStar.jpeg" 
+                src="img\star.png" 
                 alt="favorite star" 
                 class="favorite-star" 
                 style="width:25px; height:25px; cursor:pointer;"
@@ -547,4 +547,25 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
+});
+
+function saveCheckboxStates() {
+    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            localStorage.setItem(checkbox.id, checkbox.checked);
+            createClubs();  
+        });
+    });
+}
+
+function loadCheckboxStates() {
+    document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+        const saved = localStorage.getItem(checkbox.id);
+        if (saved !== null) checkbox.checked = saved === 'true';
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadCheckboxStates();
+    saveCheckboxStates();
 });
