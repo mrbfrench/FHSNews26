@@ -386,7 +386,7 @@ body {
 }
 
 /*Filter*/
-#filterIcon {
+.filterIcon {
     position: relative;
     display: flex;
     margin: auto;
