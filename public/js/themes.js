@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkVisitsAndUnlockTheme('purple');
     });
 
-        // Event listener for the "Check Answer" button for the purple theme
+    // Event listener for the "Check Answer" button for the purple theme
     document.getElementById('check-answer-green').addEventListener('click', () => {
         checkVisitsAndUnlockTheme('green');
     });
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Event listener to submit on pressing the "Enter" key
-    document.addEventListener('keypress', function(event) {
+    document.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             // Check which puzzle is currently open
             const openedPuzzle = document.querySelector('.puzzle[style="display: block;"]');
@@ -112,8 +112,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeThemes(themeButtons) {
     const savedTheme = localStorage.getItem('selectedTheme') || 'default';
+    // Ensure core themes are always unlocked
     localStorage.setItem('themeUnlocked-default', true); // Ensure default theme is always unlocked
-    localStorage.setItem('themeUnlocked-dark', true); // Ensure default theme is always unlocked
+    localStorage.setItem('themeUnlocked-dark', true); // Ensure dark theme is always unlocked
+
+    // Unlock all other themes (useful for development / resetting state)
+        localStorage.setItem('themeUnlocked-blue', true); // Unlock blue theme
+        localStorage.setItem('themeUnlocked-forest', true); // Unlock forest theme
+        localStorage.setItem('themeUnlocked-gradient', true); // Unlock gradient theme
+        localStorage.setItem('themeUnlocked-green', true); // Unlock green theme
+        localStorage.setItem('themeUnlocked-hartley', true); // Unlock hartley theme
+        localStorage.setItem('themeUnlocked-lebron', true); // Unlock lebron theme
+        localStorage.setItem('themeUnlocked-lego', true); // Unlock lego theme
+        localStorage.setItem('themeUnlocked-library', true); // Unlock library theme
+        localStorage.setItem('themeUnlocked-magma', true); // Unlock magma theme
+        localStorage.setItem('themeUnlocked-midnight', true); // Unlock midnight theme
+        localStorage.setItem('themeUnlocked-mountain', true); // Unlock mountain theme
+        localStorage.setItem('themeUnlocked-ocean', true); // Unlock ocean theme
+        localStorage.setItem('themeUnlocked-purple', true); // Unlock purple theme
+        localStorage.setItem('themeUnlocked-shaded', true); // Unlock shaded theme
+        localStorage.setItem('themeUnlocked-snow', true); // Unlock snow theme
+        localStorage.setItem('themeUnlocked-space', true); // Unlock space theme
+        localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
+        localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
 
     themeButtons.forEach(button => {
         const theme = button.getAttribute('data-theme');
@@ -130,7 +151,7 @@ function initializeThemes(themeButtons) {
 
 function setupPuzzleAnswerCheckers() {
     document.querySelectorAll('.puzzle-answer-button').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const theme = button.getAttribute('data-theme');
             const part = button.getAttribute('data-part');
             const partIndex = part ? parseInt(part, 10) - 1 : 0; // Default to 0 if no part is provided
@@ -179,10 +200,10 @@ function getCorrectAnswerForThemePart(theme, partIndex) {
     // The partIndex is expected to start from 0 for the first part
     const themeInfo = beepBorpBoop[theme];
     if (themeInfo && themeInfo.parts[partIndex] !== undefined) {
-    return themeInfo.parts[partIndex];
+        return themeInfo.parts[partIndex];
     } else {
-    console.error('No answer found for the specified theme and part index.');
-    return null; // No answer found for this theme and part
+        console.error('No answer found for the specified theme and part index.');
+        return null; // No answer found for this theme and part
     }
 }
 function attachEventListenersToThemeButtons(themeButtons) {
@@ -536,7 +557,7 @@ function attachEventListenerToThemeSelector() {
     }
 
     // Add event listener to close the selector if clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const selectorMenu = document.getElementById('themes_selector');
         const puzzleModal = document.getElementById('puzzleModal');
         const clickedInsideSelector = selectorMenu.contains(event.target) || puzzleModal.contains(event.target) || selectorButton.contains(event.target);
@@ -564,7 +585,7 @@ function closeSelector() {
 }
 
 function attachEventListenerToModal() {
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === document.getElementById('puzzleModal')) {
             closePuzzle();
         }
@@ -594,10 +615,10 @@ function checkSpaceThemeUnlock() {
     }
 }
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     game = new Chess();
-    var board= new Chess();
+    var board = new Chess();
 
     function onSquareClick(square) {
         // If user clicked a square with a piece, we set it as the source
@@ -646,7 +667,7 @@ $(document).ready(function() {
     function evaluateBoard(game) {
         var totalEvaluation = 0;
 
-        game.SQUARES.forEach(function(square) {
+        game.SQUARES.forEach(function (square) {
             var piece = game.get(square);
             totalEvaluation += getPieceValue(piece);
         });
@@ -727,7 +748,7 @@ $(document).ready(function() {
         let bestMove = null;
         let bestValue = -9999;
 
-        newGameMoves.forEach(function(move) {
+        newGameMoves.forEach(function (move) {
             game.move(move);
             let boardValue = minimax(game, 1, -10000, 10000, false);
             game.undo();
@@ -787,7 +808,7 @@ $(document).ready(function() {
     });
 });
 
-function initialize2048 (){
+function initialize2048() {
     const container = document.getElementById('game2048-container-magma');
     let board = generateEmptyBoard();
 
