@@ -370,45 +370,59 @@ body {
 
 /* NEW CLUB PAGE CSS */
 /*Search Bar*/
-.searchBar {
+.blur {
+    margin-top: 20vh !important;
+    padding-top: 0 !important;
+}
+
+.search-filter-container {
     display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    justify-content: center;
+}
+.searchBar {
+    display: inline-flex;
+    align-items: center;
     position: relative;
     flex: 1;
-    margin: 0 1rem;
     padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
     font-size: 1.25rem;
     border-radius: 12px;
     border: none;
     outline: none;
     min-width: 120px;
-    max-width: 80%;
-    height: 3vw;
+    min-height: 20px;
+    max-width: 70%;
+    height: 2.5vw;
 }
 
 /*Filter*/
 .filterIcon {
     position: relative;
-    display: flex;
-    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0px;
     aspect-ratio: 1/1;
-    width: 3.75vw;
+    height: 3vw;
     cursor: pointer;
     border: none;
-    z-index: 999999999999;
     max-width: none;
     min-width: 30px;
+    min-height: 30px;
     background-color: transparent;
     border-radius: 12px;
     border: #000 solid 0px;
-    
+    top:100%;
+    margin-bottom: 0.5rem;
 }
 
-#mainFilterIcon {
-  filter: invert(100%);
+  #MainFilterIcon {
+    filter: invert(100%);
 }
-
-
 
 #filterOverlay {
     display: flex;
