@@ -53,6 +53,52 @@
 		</div>
 	</nav>
 </div>
+<body>
+    
+  <!-- <header>
+    <div class="clubs-title">Login</div>
+    <a href="/info">
+      <div>
+        <img src="../img/questionmark_white.png" alt="?" width="40" height="40">
+      </div>
+    </a>
+  </header> -->
+    <!--Main body starts here-->
+    <div class="mainBody blur" id="headBody">
+
+        <!--Note: signInBox refers to the box used for sign ins, logInBox refers to ALL of the boxes on the page-->
+        <!--Log in-->
+
+        <div class="logInBox" id="signInBox">
+            <h2>Login</h2>
+            <input type="email" placeholder="Email" id="emailLogin">
+            <input type="password" placeholder="Password" id="passLogin">
+            <button class="signInBtn" id="logInBtn">Login</button>
+            <button class="switchBtn" onclick="switchPageCreate()">Create Account</button>
+        </div>
+        <!--Staff account creation-->
+        <div class="logInBox" id="staffBox">
+            <h2>Create Club Staff Account</h2>
+            <input type="email" placeholder="Email" class="email" id = "emailInput">
+            <input type="password" placeholder="Password" class="password" id = "passwordInput">
+            <input type="password" placeholder="Confirm Password">
+            <h2 id="logError"></h2>
+            <button class="signInBtn" onclick = "createAccount()">Sign In as Club Staff</button>
+            <button class="switchBtn" onclick="switchPageCreate()">Create Regular Account</button>
+        </div>
+        <!--Standard account creation-->
+        <div class="logInBox" id="createAccountBox">
+            <h2>Create Account</h2>
+            <input type="email" placeholder="Email" class="email">
+            <input type="password" placeholder="Password" class="password">
+            <input type="password" placeholder="Confirm Password">
+            <button class="signInBtn">Create Account</button>
+            <button class="switchBtn" onclick="switchPageOwner()">Create Club Staff Account</button>
+            <button class="switchBtn" onclick="switchPageSign()">Login</button>
+        </div>
+    </div>
+
+</body>
 </body>
 </html>
 <script>
