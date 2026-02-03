@@ -372,6 +372,7 @@ body {
 /*Search Bar*/
 .blur {
     margin-top: 20vh !important;
+    padding-bottom: 15vh !important;
     padding-top: 0 !important;
 }
 
@@ -422,6 +423,10 @@ body {
 
   #MainFilterIcon {
     filter: invert(100%);
+}
+
+#favoriteFilterIcon {
+    filter: hue-rotate(180deg);
 }
 
 #filterOverlay {
