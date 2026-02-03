@@ -25,6 +25,11 @@ app.get('/clubs', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/clubs.html'));
 });
 
+// Specific route for /login
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/login.html'));
+});
+
 // Specific route for /info
 app.get('/info', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/info.html'));
