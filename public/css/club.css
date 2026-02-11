@@ -434,12 +434,12 @@ body {
     display: flex;
     width: 90%;
     height: auto;
-    background-color: #f3efef;
+    background-color: var(--container-background-color-no-alpha);
     position: absolute;
     right: 5px;
     top: 105%;
     border-radius: 12px;
-    border-color: #bb4a60;
+    border-color: var(--soft-color);
     border-width: .5rem;
     border-style: solid;
     padding: .75rem;
@@ -465,7 +465,7 @@ body {
 }
 
 .filter-catagory {
-    background: #f3efef;
+    background: var(--container-background-color-no-alpha);
     padding: .6rem;
     border-radius: .6rem;
     display: flex;
