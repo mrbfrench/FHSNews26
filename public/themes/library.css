@@ -6,6 +6,7 @@
   --background-image: url('../img/library.jpg');
   --secondary-background-color: rgb(210,210,210);
   --container-background-color: rgba(0, 0, 0, 0.5);
+   --container-background-color-no-alpha: rgb(0, 0, 0);
   --container-text-color: #fff;
   --countdown-text-color: #d2c6a5;
   --gallery-dot-color: #D3D3D3;

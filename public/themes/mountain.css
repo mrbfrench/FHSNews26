@@ -6,6 +6,7 @@
   --background-image: url('../img/mountain.jpg');
   --secondary-background-color: rgb(210,210,210);
   --container-background-color: rgba(0, 0, 0, 0.5);
+   --container-background-color-no-alpha: rgb(0, 0, 0);
   --container-text-color: #ccc;
   --countdown-text-color: #ccc;
   --gallery-dot-color: #D3D3D3;

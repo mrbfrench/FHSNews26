@@ -7,6 +7,7 @@
   --background-image: url('../img/lebron.png');
   --secondary-background-color: rgb(210,210,210);
   --container-background-color: rgba(0, 0, 0, 0.5);
+  --container-background-color-no-alpha: rgb(0, 0, 0);
   --container-text-color: #fff;
   --countdown-text-color: #b0a5d2;
   --gallery-dot-color: #D3D3D3;
