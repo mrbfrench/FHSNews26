@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 #pageName {
 	font-size: 42px;
 	font-family: robotobold;
@@ -493,5 +497,14 @@ body {
 #accountBtn{
   left: 0;
   filter: invert();
+}
+
+#rem{
+  position: fixed;
+  top: 50%;
+  right: -300px; /* hidden off screen */
+  width: 300px;
+  transform: translateY(-50%);
+  
 }
 

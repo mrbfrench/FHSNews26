@@ -36,15 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
         checkConsecutiveVisitsAndUnlockTheme('midnight');
     });
 
-    // Event listener for the "Check Answer" button for the midnight theme
+    // Event listener for the "Check Answer" button for the gradient theme
     document.getElementById('check-answer-gradient').addEventListener('click', () => {
         checkConsecutiveVisitsAndUnlockTheme('gradient');
     });
 
-    // Event listener for the "Check Answer" button for the midnight theme
+    // Event listener for the "Check Answer" button for the snow theme
     document.getElementById('check-answer-snow').addEventListener('click', () => {
         checkSnowThemeUnlock('snow');
     });
+
+
 
     // Event listener to submit on pressing the "Enter" key
     document.addEventListener('keypress', function (event) {
@@ -135,6 +137,7 @@ function initializeThemes(themeButtons) {
         localStorage.setItem('themeUnlocked-space', true); // Unlock space theme
         localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
         localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
+        localStorage.setItem('themeUnlocked-deltarune', true); // Unlocks deltarune theme
 
     themeButtons.forEach(button => {
         const theme = button.getAttribute('data-theme');
@@ -191,7 +194,11 @@ const beepBorpBoop = {
     },
     lebron: {
         parts: ['3']
+    },
+    deltarune:{
+        parts: ['toby fox']
     }
+
     // Add more themes and parts as needed
 };
 
