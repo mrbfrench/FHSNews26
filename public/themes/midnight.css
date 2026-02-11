@@ -6,6 +6,7 @@
   --background-color: #000;
   --secondary-background-color: rgb(45,45,45);
   --container-background-color: #222;
+  --container-background-color-no-alpha: #222;
   --container-text-color: #aaa;
   --countdown-text-color: #bbb;
   --gallery-dot-color: #555;
