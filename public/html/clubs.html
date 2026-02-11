@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="HandheldFriendly" content="true">
   <meta name="description" content="A list of clubs for Fishers High School.">
-
+  
   <title>Clubs</title>
   <link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
 
@@ -62,16 +62,27 @@
 		</div>
 	</nav>
   </section>
-
-    <div class="clubs-title">Clubs</div>
+    <div class="clubs-title">
+      <span>Club</span>
+    </div>
     <a href="/info">
       <div>
+        
         <img src="../img/questionmark_white.png" alt="?" width="40" height="40">
+        
+        
       </div>
     </a>
+    <a href = "/account">
+      <div id = accountBtn> 
+        <img src = "../img/AccountPageIcon.png" width = "44" height = "44"> 
+      </div>
+    </a>
+
+    
     <!-- everything inside this div is contained will be blurred when the filter overlay is active -->
     <div  class="search-filter-container">
-      <button id = "loginPageButton" onclick="location.href='/login'">Login</button>
+      
       <img src="\img\star.png" class="filterIcon" id = "starFilterIcon" onclick="createFavoritesPageClubs()" alt="Filter Icon">
       <input id="searchBar"class="searchBar" type="text" placeholder="Search for clubs">
       <img src="\img\filter-icon.webp" class="filterIcon" id = "mainFilterIcon" onclick="filterOverlay()" alt="Filter Icon">
@@ -207,7 +218,6 @@
     <!-- Overlay for club description -->
     <div id="descriptionOverlay" class="overlay hidden">
         <div class="overlay-content">
-            <span id="closeOverlay" class="close-btn">&times;</span>
             <h2 id="overlayTitle"></h2>
             <p id="overlayStaff"></p>
             <p id="overlayEmail"></p>

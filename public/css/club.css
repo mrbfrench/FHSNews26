@@ -93,18 +93,18 @@
 }
 
 .clubs-title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0px;
-    font-weight: bold;
-    position: relative;
-    padding: 7px 10px;
-    color: var(--header-text-color);
-	font-size: 42px;
-	user-select: none;
-	font-family: robotobold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 7px 2vw;
+  font-weight: bold;
+  font-size: 42px;
+  font-family: robotobold;
+  color: var(--header-text-color);
+  user-select: none;
 }
+
 
 /* Overlay */
 .modal {
@@ -488,3 +488,9 @@ body {
     font-size: 1.25em;
     padding-bottom: 5px;
 }
+
+#accountBtn{
+  left: 0;
+  filter: invert();
+}
+
