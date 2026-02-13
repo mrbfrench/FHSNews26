@@ -3,9 +3,9 @@
   --light-font: "robotolight";
   --bold-font: "robotobold";
 
-  --background-color: #000;
+  --background-image: url("../img/deltarunegif.gif");
   --secondary-background-color: rgb(45,45,45);
-  --container-background-color: #222;
+  --container-background-color: rgba(34, 34, 34, 0.5);
   --container-background-color-no-alpha: #222;
   --container-text-color: #aaa;
   --countdown-text-color: #bbb;

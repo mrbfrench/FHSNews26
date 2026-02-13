@@ -170,6 +170,8 @@
 					<a class="theme-button" data-theme="sunset" style="background-image: url('img/sunset.svg'); background-repeat: no-repeat; background-position: center; background-color: #ea720e;"></a>
 					<a class="theme-button" data-theme="shaded" style="background-image: url('img/shaded.svg'); background-repeat: no-repeat; background-position: center; background-color: #297585;"></a>
 					<a class="theme-button" data-theme="lebron" style="background-image: url('img/lebron.svg'); background-repeat: no-repeat; background-position: center; background-color: #6f2ead;"></a>
+					<a class="theme-button" data-theme="deltarune" style = "background-image: url('img/deltarune.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; background-color: #111;"></a>
+
 
                     <p id="consecutive-visit-counter">Current Streak: NaN</p>
 			</section>
@@ -319,6 +321,13 @@
 					<button data-theme="hartley" class="puzzle-answer-button">Unlock Theme</button>
 					<div id="feedback-message-hartley" class="feedback-message"></div>
 				</div>
+				<div id ="puzle-deltarune" class = "puzzle" data-theme = "deltarune">
+					<h2>Unlock Deltarune Theme</h2>
+					<p>🕈︎☟︎⚐︎ 👍︎☼︎☜︎✌︎❄︎☜︎👎︎ 👎︎☜︎☹︎❄︎✌︎☼︎🕆︎☠︎☜︎ ✌︎☠︎👎︎ 🕆︎☠︎👎︎☜︎☼︎❄︎✌︎☹︎☜︎✍︎ 🕿︎☹︎⚐︎🕈︎☜︎☼︎👍︎✌︎💧︎☜︎✆︎</p>
+					<input type="text" id="answer-deltarune" class="puzzle-answer" placeholder="Answer Here">
+					<button data-theme="deltarune" class="puzzle-answer-button">Unlock Theme</button>
+					<div id="feedback-message-deltarune" class="feedback-message"></div>
+				</div>
                 <div id="puzzle-sunset" class="puzzle" data-theme="sunset">
                     <h2>Unlock Sunset Theme</h2>
                     <p>How many squares of any size are in the diagram below?</p>
@@ -416,7 +425,7 @@
 			</a>
 		</section>
 		<!-- Place this button somewhere appropriate in your HTML -->
-		<button id="reset-themes-button" class="hidden">Reset Unlocked Themes</button>
+		<button id="reset-themes-button" class="">Reset Unlocked Themes</button>
 
 	</article>
 	<!-- Bottom bar -->

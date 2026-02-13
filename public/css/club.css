@@ -1,3 +1,7 @@
+html, body {
+  overflow-x: hidden;
+}
+
 #pageName {
 	font-size: 42px;
 	font-family: robotobold;
@@ -292,6 +296,7 @@ body {
   overflow-y: auto;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
   position: relative;
+  background-color: var(--container-background-color-no-alpha);
 }
 
 /* Close button */
@@ -492,5 +497,14 @@ body {
 #accountBtn{
   left: 0;
   filter: invert();
+}
+
+#rem{
+  position: fixed;
+  top: 50%;
+  right: -300px; /* hidden off screen */
+  width: 300px;
+  transform: translateY(-50%);
+  
 }
 
