@@ -6,9 +6,16 @@
 	<meta name="HandheldFriendly" content="true">
 	<title>FHS News</title>
 	<link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
-
+    		<!-- Inline script to set the theme immediately -->
+	<script>
+	(function() {
+	  var savedTheme = localStorage.getItem('selectedTheme') || 'default';
+	  document.write('<link rel="stylesheet" href="../themes/' + savedTheme + '.css" id="theme-style">');
+	})();
+	</script>
 	<!-- CSS files go here -->
 	<link rel="stylesheet" href="../css/global.css">
+	<link rel="stylesheet" href="../css/account.css">
 	<link rel="stylesheet" href="../css/account.css">
 
 	<!-- Current theme goes here -->

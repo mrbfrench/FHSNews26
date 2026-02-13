@@ -1,21 +1,22 @@
 .title {
     font-size: 42px;
     font-family: robotobold;
-    color: white;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
     margin-top: 7px;
 }
 
 .logInBox {
-    position: fixed;        /* fixes position relative to viewport */
+    position: fixed;/* fixes position relative to viewport */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000;          /* sits above everything else */
+    z-index: 1000;/* sits above everything else */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: white;
+    background: var(--container-background-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
