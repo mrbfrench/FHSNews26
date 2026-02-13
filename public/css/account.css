@@ -43,7 +43,7 @@
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: .75em;
+    font-size: .95em;
 }
 .signInBtn {
     width: 60%;
@@ -51,8 +51,8 @@
     margin-top: 15px;
     border: none;
     border-radius: 5px;
-    background-color: #99001c;
-    color: white;
+    background-color: var(--active-color);
+    color: var(--container-text-color);
     font-size: 1em;
     cursor: pointer;
     margin-bottom: 15px;
@@ -64,8 +64,8 @@
     margin-top: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #555;
-    color: white;
+    background-color: var(--active-color);
+    color: var(--container-text-color);
     font-size: .75em;
     cursor: pointer;
 }
