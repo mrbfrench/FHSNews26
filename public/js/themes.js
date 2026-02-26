@@ -138,7 +138,7 @@ function initializeThemes(themeButtons) {
         localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
         localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
         localStorage.setItem('themeUnlocked-deltarune', true); // Unlocks deltarune theme
-
+    ;
     themeButtons.forEach(button => {
         const theme = button.getAttribute('data-theme');
         if (localStorage.getItem(`themeUnlocked-${theme}`)) {
