@@ -27,9 +27,9 @@ app.get('/clubs', (req, res) => {
 });
 
 // Specific route for /account
-app.get('/account', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public/html/account.html'));
-});
+// app.get('/account', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public/html/account.html'));
+// });
 
 // Specific route for /info
 app.get('/info', (req, res) => {
