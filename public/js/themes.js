@@ -240,7 +240,10 @@ function attachEventListenersToThemeButtons(themeButtons) {
         });
     });
 
-    document.getElementById('reset-themes-button').addEventListener('click', resetUnlockedThemes);
+    const resetButton = document.getElementById('reset-themes-button');
+    if (resetButton) {
+        resetButton.addEventListener('click', resetUnlockedThemes);
+    }
 }
 
 function switchTheme(themeName) {
