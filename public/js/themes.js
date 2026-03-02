@@ -138,6 +138,14 @@ function initializeThemes(themeButtons) {
         localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
         localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
         localStorage.setItem('themeUnlocked-deltarune', true); // Unlocks deltarune theme
+        localStorage.setItem('themeUnlocked-deadlock', true); // Unlocks deadlock theme
+        localStorage.setItem('themeUnlocked-kart', true); //Unlocks mario kart theme
+        localStorage.setItem('themeUnlocked-lego', true); //Unlocks lego theme
+        localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
+        localStorage.setItem('themeUnlocked-colts', true); //Unlocks colts theme
+        localStorage.setItem('themeUnlocked-wheezer', true); //Unlocks weezeer theme
+        
+
 
     themeButtons.forEach(button => {
         const theme = button.getAttribute('data-theme');
@@ -197,6 +205,12 @@ const beepBorpBoop = {
     },
     deltarune:{
         parts: ['toby fox']
+    },
+    deadlock:{
+        parts: ['neon prime']
+    },
+    weezer:{
+        parts: ['weezer']
     }
 
     // Add more themes and parts as needed
@@ -941,9 +955,19 @@ function initialize2048() {
         drawBoard(); // Redraw the board
     });
 
+    window.kart = function () {
+  console.log("kart() ran");
+  localStorage.setItem('themeUnlocked-kart', 'true');
+};
+   
+
     // Initialization
     addRandomTile(board);
     addRandomTile(board);
     drawBoard();
+}
+
+module.exports = {
+    kart
 }
 

@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -37,6 +38,12 @@ app.get('/info', (req, res) => {
 
 // Redirect /kart to an external URL
 app.get('/kart', (req, res) => {
+
+  res.type('html').send(`
+    <script src="/js/themes.js"></script>
+    <script>kart()</script>
+  `);
+
     res.redirect('https://mkpc.malahieude.net/mariokart.php');
 });
 
