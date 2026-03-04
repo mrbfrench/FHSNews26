@@ -211,6 +211,9 @@ const beepBorpBoop = {
     },
     weezer:{
         parts: ['weezer']
+    },
+    colts:{
+        parts: ['lucas oil stadium']
     }
 
     // Add more themes and parts as needed

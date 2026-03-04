@@ -1,0 +1,50 @@
+:root {
+  --norm-font: "robotoregular";
+  --light-font: "robotolight";
+  --bold-font: "robotobold";
+
+  --background-image: url("../img/colts.jpg");
+  --secondary-background-color: #A2AAAD; /* Colts silver */
+  --container-background-color: rgba(255, 255, 255, 0.9);
+  --container-background-color-no-alpha: white;
+  --container-text-color: white; /* Colts blue */
+  --countdown-text-color: #002C5F;
+  --gallery-dot-color: #A2AAAD;
+
+  --button-background-color: #002C5F;
+  --button-text-color: white;
+  --button-text-color-alt: #002C5F;
+  --button-hover-background: #001F44;
+  --button-hover-background-alt: #A2AAAD;
+  --button-hover-text: white;
+  --button-active-color: #001F44;
+
+  --soft-color: #A2AAAD;
+
+  --calendar-red: #002C5F;
+  --calendar-green: #A2AAAD;
+  --calendar-blue: #4B92DB;
+  --calendar-yellow: #D6E4F0;
+  --calendar-silver: #A2AAAD;
+  --calendar-purple: #5A6E8C;
+  --calendar-gray: #D9D9D6;
+  --calendar-white: white;
+
+  --header-background-color: #002C5F;
+  --header-text-color: white;
+  --header-icon-color: white;
+  --navigation-background-color: white;
+  --navigation-icon-color: #A2AAAD;
+  --navigation-active-icon-color: #002C5F;
+
+  --error-bg: rgb(255,155,155);
+
+  --active-color: #002C5F;
+  --active-hover-color: #001F44;
+  --dark-color: #001F44;
+
+  --outline-color: #A2AAAD;
+
+  --anchor-color: #002C5F;
+  --anchor-hover: #001F44;
+}
