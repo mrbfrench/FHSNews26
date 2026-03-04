@@ -4,47 +4,56 @@
   --bold-font: "robotobold";
 
   --background-image: url("../img/colts.jpg");
-  --secondary-background-color: #A2AAAD; /* Colts silver */
-  --container-background-color: rgba(255, 255, 255, 0.9);
-  --container-background-color-no-alpha: white;
-  --container-text-color: white; /* Colts blue */
-  --countdown-text-color: #002C5F;
-  --gallery-dot-color: #A2AAAD;
 
-  --button-background-color: #002C5F;
-  --button-text-color: white;
-  --button-text-color-alt: #002C5F;
-  --button-hover-background: #001F44;
-  --button-hover-background-alt: #A2AAAD;
-  --button-hover-text: white;
-  --button-active-color: #001F44;
+  /* Softer layout like forest */
+  --secondary-background-color: rgb(210,210,210);
+  --container-background-color: rgba(255, 255, 255, 0.5);
+  --container-background-color-no-alpha: rgb(255,255,255);
+  --container-text-color: black;
+
+  /* Use Colts blue as the accent, similar to forest green usage */
+  --countdown-text-color: #002C5F;
+  --gallery-dot-color: #D3D3D3;
+
+  /* Light buttons by default like forest */
+  --button-background-color: white;
+  --button-text-color: black;
+  --button-text-color-alt: white;
+
+  --button-hover-background: rgba(162,170,173,0.5); /* soft Colts silver */
+  --button-hover-background-alt: #002C5F;
+  --button-hover-text: black;
+  --button-active-color: rgba(255,255,255,0.5);
 
   --soft-color: #A2AAAD;
 
-  --calendar-red: #002C5F;
-  --calendar-green: #A2AAAD;
-  --calendar-blue: #4B92DB;
-  --calendar-yellow: #D6E4F0;
-  --calendar-silver: #A2AAAD;
-  --calendar-purple: #5A6E8C;
-  --calendar-gray: #D9D9D6;
+  --calendar-red: lightcoral;
+  --calendar-green: lightgreen;
+  --calendar-blue: #9dd7e6;
+  --calendar-yellow: #ffffc0;
+  --calendar-silver: #e3e3e3;
+  --calendar-purple: #e3b0fb;
+  --calendar-gray: lightgrey;
   --calendar-white: white;
 
+  /* Header styled like forest but in Colts blue */
   --header-background-color: #002C5F;
   --header-text-color: white;
   --header-icon-color: white;
+
   --navigation-background-color: white;
-  --navigation-icon-color: #A2AAAD;
+  --navigation-icon-color: rgb(100,100,100);
   --navigation-active-icon-color: #002C5F;
 
-  --error-bg: rgb(255,155,155);
+  /* Match forest's softer feedback colors */
+  --error-bg: rgb(200,220,235);
 
   --active-color: #002C5F;
   --active-hover-color: #001F44;
   --dark-color: #001F44;
 
-  --outline-color: #A2AAAD;
+  --outline-color: rgb(180,180,180);
 
   --anchor-color: #002C5F;
-  --anchor-hover: #001F44;
+  --anchor-hover: black;
 }
