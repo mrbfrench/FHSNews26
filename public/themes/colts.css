@@ -5,22 +5,19 @@
 
   --background-image: url("../img/colts.jpg");
 
-  /* Softer layout like forest */
   --secondary-background-color: rgb(210,210,210);
   --container-background-color: rgba(255, 255, 255, 0.5);
   --container-background-color-no-alpha: rgb(255,255,255);
   --container-text-color: black;
 
-  /* Use Colts blue as the accent, similar to forest green usage */
   --countdown-text-color: #002C5F;
   --gallery-dot-color: #D3D3D3;
-
-  /* Light buttons by default like forest */
+ 
   --button-background-color: white;
   --button-text-color: black;
   --button-text-color-alt: white;
 
-  --button-hover-background: rgba(162,170,173,0.5); /* soft Colts silver */
+  --button-hover-background: rgba(162,170,173,0.5); 
   --button-hover-background-alt: #002C5F;
   --button-hover-text: black;
   --button-active-color: rgba(255,255,255,0.5);
@@ -36,7 +33,6 @@
   --calendar-gray: lightgrey;
   --calendar-white: white;
 
-  /* Header styled like forest but in Colts blue */
   --header-background-color: #002C5F;
   --header-text-color: white;
   --header-icon-color: white;
@@ -45,7 +41,6 @@
   --navigation-icon-color: rgb(100,100,100);
   --navigation-active-icon-color: #002C5F;
 
-  /* Match forest's softer feedback colors */
   --error-bg: rgb(200,220,235);
 
   --active-color: #002C5F;
