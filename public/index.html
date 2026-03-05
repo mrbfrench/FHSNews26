@@ -189,6 +189,14 @@
 
 					<p id="consecutive-visit-counter">Current Streak: NaN</p>
 				</section>
+					<a class="theme-button" data-theme="deltarune" 
+						style = "background-image: url('img/deltarune.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; background-color: #111;"></a>
+					<a class="theme-button" data-theme="snake" 
+						style="background-image: url('img/snowflake.svg'); background-repeat: no-repeat; background-position: center; background-color: #35f92b;"></a>					
+					<a class="theme-button" data-theme="pacers" 
+						style="background-image: url('img/snowflake.svg'); background-repeat: no-repeat; background-position: center; background-color: #FDBB30;"></a>					
+                    <p id="consecutive-visit-counter">Current Streak: NaN</p>
+			</section>
 
 				<div id="puzzleModal" class="modal">
 					<div class="modal-content">
@@ -393,27 +401,41 @@
                         background-size: 50px 50px;
                         margin: 0 auto;
                     "></div>
-							<input type="text" id="answer-sunset" class="puzzle-answer" placeholder="Answer Here">
-							<button data-theme="sunset" class="puzzle-answer-button">Unlock Theme</button>
-							<div id="feedback-message-sunset" class="feedback-message"></div>
-						</div>
-						<div id="puzzle-shaded" class="puzzle" data-theme="shaded">
-							<h2>Unlock Shaded Theme</h2>
-							<p>Unlock 10 different themes to unlock this theme.</p>
-							<p id="theme-counter-shaded">Themes Unlocked: NaN/10</p>
-							<button id="check-answer-shaded">Unlock Theme</button>
-							<div id="feedback-message-shaded" class="feedback-message"></div>
-						</div>
-						<div id="puzzle-lebron" class="puzzle" data-theme="lebron">
-							<h2>Unlock Lebron Theme</h2>
-							<p>How many points is a 3-pointer worth in basketball? (Number Only)</p>
-							<input type="text" id="answer-lebron" class="puzzle-answer" placeholder="Answer Here">
-							<button data-theme="lebron" class="puzzle-answer-button">Unlock Theme</button>
-							<div id="feedback-message-lebron" class="feedback-message"></div>
-						</div>
-					</div>
+                    <input type="text" id="answer-sunset" class="puzzle-answer" placeholder="Answer Here">
+                    <button data-theme="sunset" class="puzzle-answer-button">Unlock Theme</button>
+                    <div id="feedback-message-sunset" class="feedback-message"></div>
 				</div>
+                <div id="puzzle-shaded" class="puzzle" data-theme="shaded">
+					<h2>Unlock Shaded Theme</h2>
+					<p>Unlock 10 different themes to unlock this theme.</p>
+					<p id="theme-counter-shaded">Themes Unlocked: NaN/10</p>
+					<button id="check-answer-shaded">Unlock Theme</button>
+					<div id="feedback-message-shaded" class="feedback-message"></div>
+			    </div>
+                <div id="puzzle-lebron" class="puzzle" data-theme="lebron">
+					<h2>Unlock Lebron Theme</h2>
+					<p>How many points is a 3-pointer worth in basketball? (Number Only)</p>
+                    <input type="text" id="answer-lebron" class="puzzle-answer" placeholder="Answer Here">
+                    <button data-theme="lebron" class="puzzle-answer-button">Unlock Theme</button>
+					<div id="feedback-message-lebron" class="feedback-message"></div>
+			    </div>
+				<div id = "puzzle-snake" class="puzzle" data-theme="snake">
+					<h2>Unlock Snake Theme</h2>
+					<p>Get a high score of 100 in the snake game to unlock this theme.</p>
+					<div id="game-snake-container" class="game-container"></div>
+					<button id="startBtnSnake">Start New Game</button>
+					<div id="feedback-message-snake" class="feedback-message"></div>
+				</div>
+				<div id = "puzzle-pacers" class="puzzle" data-theme="pacers">
+					<h2>Unlock Pacers Theme</h2>
+					<p>Get a high score of 500 in the pacers game to unlock this theme.</p>
+					<div id="game-pacers-container" class="game-container"></div>
+					<button id="startBtnPacers">Start New Game</button>
+					<div id="feedback-message-pacers" class="feedback-message"></div>
+				</div>
+              </div>
 			</div>
+		</div>
 
 
 			<!-- Clock -->
@@ -453,35 +475,35 @@
 						<!-- three lunch code A,B,C
 				<button class="container hover lunch-btn" onclick="chooseLunch('A',this)">A</button><button class="container hover lunch-btn3" onclick="chooseLunch('B',this)">B</button><button class="container hover lunch-btn" onclick="chooseLunch('C',this)">C</button>
 				-->
-					</div>
-				</section>
-			</section>
-			<!-- Clock -->
-			<section class="block icon-buttons">
-				<a href="https://hse.instructure.com" target="_blank" class="icon-button">
-					<img src="img/canvas.png" alt="Canvas" />
-				</a>
-				<a href="https://sis.hse.k12.in.us/scripts/wsisa.dll/WService=wsEAplus/seplog01.w" target="_blank"
-					class="icon-button">
-					<img src="img/skyward.png" alt="Skyward" />
-				</a>
-				<a href="https://clever.com/in/hse/student/portal" target="_blank" class="icon-button">
-					<img src="img/clever.png" alt="Clever" />
-				</a>
-			</section>
-			<section class="block icon-buttons marginal">
-				<a href="https://fisherstigertimes.com/" target="_blank" class="icon-button">
-					<img src="img/The Tiger Times-logos.jpeg" alt="TigerTimes" />
-				</a>
-				<a href="https://www.youtube.com/@FHSRoar" target="_blank" class="icon-button">
-					<img src="img/fhsroar.jpg" alt="340" />
-				</a>
-				<a href="html/gpa.html" target="_blank" class="icon-button">
-					<img src="img/gpaPic.jpg" alt="gpa calculator" />
-				</a>
-			</section>
-			<!-- Place this button somewhere appropriate in your HTML -->
-			<button id="reset-themes-button" class="">Reset Unlocked Themes</button>
+			  </div>
+		  </section>
+		</section>
+		<!-- Clock -->
+		<section class="block icon-buttons">
+			<a href="https://hse.instructure.com" target="_blank" class="icon-button">
+				<img src="img/canvas.png" alt="Canvas" />
+			</a>
+			<a href="https://sis.hse.k12.in.us/scripts/wsisa.dll/WService=wsEAplus/seplog01.w" target="_blank" class="icon-button">
+				<img src="img/skyward.png" alt="Skyward" />
+			</a>
+			<a href="https://clever.com/in/hse/student/portal" target="_blank" class="icon-button">
+				<img src="img/clever.png" alt="Clever" />
+			</a>
+		</section>
+		<section class="block icon-buttons marginal">
+			<a href="https://fisherstigertimes.com/" target="_blank" class="icon-button">
+				<img src="img/The Tiger Times-logos.jpeg" alt="TigerTimes" />
+			</a>
+			<a href="https://www.youtube.com/@FHSRoar" target="_blank" class="icon-button">
+				<img src="img/fhsroar.jpg" alt="340" />
+			</a>
+			<a href="html/gpa.html" target="_blank" class="icon-button">
+				<img src="img/gpaPic.jpg" alt="gpa calculator" />
+			</a>
+		</section>
+		<!-- Place this button somewhere appropriate in your HTML -->
+		<button id="reset-themes-button" class="">Reset Unlocked Themes</button>
+		<button id="unlock-themes-button">Unlock all themes</button>
 
 		</article>
 		<!-- Bottom bar -->
