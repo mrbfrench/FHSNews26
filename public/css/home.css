@@ -431,7 +431,6 @@ p {
     padding: 0.5vw;
     border-radius: 10px;
     grid-auto-rows: 1fr;
-	justify-content: center;
 }
 
 .game-tile {

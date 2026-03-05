@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateVisitCounterDisplay(); // Update the display on page load
     updateThemeCounterDisplay(); // Update the display on page load
     checkConsecutiveVisits(); // Check and update consecutive visits for the midnight theme
-    updateConsecutiveVisitCounterDisplay(); // Update the display on pag e load
+    updateConsecutiveVisitCounterDisplay(); // Update the display on page load
     initialize2048();
-    renderPacersGame();
+
     // Event Listeners
     attachEventListenersToThemeButtons(themeButtons);
     attachEventListenerToThemeSelector();
@@ -117,6 +117,7 @@ function initializeThemes(themeButtons) {
     // Ensure core themes are always unlocked
     localStorage.setItem('themeUnlocked-default', true); // Ensure default theme is always unlocked
     localStorage.setItem('themeUnlocked-dark', true); // Ensure dark theme is always unlocked
+
     // Unlock all other themes (useful for development / resetting state)
         localStorage.setItem('themeUnlocked-blue', true); // Unlock blue theme
         localStorage.setItem('themeUnlocked-forest', true); // Unlock forest theme
@@ -147,7 +148,6 @@ function initializeThemes(themeButtons) {
 
 
     themeButtons.forEach(button => {
-
         const theme = button.getAttribute('data-theme');
         if (localStorage.getItem(`themeUnlocked-${theme}`)) {
             button.classList.add('unlocked');
