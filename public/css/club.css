@@ -214,8 +214,8 @@ body {
 
 /* Club email styling */
 .clubBoxesEmailSize {
-  font-size: clamp(12px, 3vw, 16px);
-}
+  font-size: clamp(8px, 3vw, 16px);
+hyphens: auto;}
 
 /* Favorite button styling */
 .favorite-btn {
