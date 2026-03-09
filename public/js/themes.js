@@ -189,7 +189,7 @@ const beepBorpBoop = {
         parts: ['a bird in the hand is messy']
     },
     library: {
-        parts: ['8']
+        parts: ['8'] 
     },
     mountain: {
         parts: ['china', 'sweden', 'spain']
@@ -210,10 +210,13 @@ const beepBorpBoop = {
         parts: ['neon prime']
     },
     weezer:{
-        parts: ['weezer']
+        parts: ['buddy holly']
     },
     colts:{
-        parts: ['lucas oil stadium']
+        parts: ['rca dome']
+    },
+    kart:{
+        parts:['feather']
     }
 
     // Add more themes and parts as needed
