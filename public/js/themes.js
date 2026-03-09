@@ -144,7 +144,7 @@ function initializeThemes(themeButtons) {
     //     localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
     //     localStorage.setItem('themeUnlocked-colts', true); //Unlocks colts theme
     //     localStorage.setItem('themeUnlocked-wheezer', true); //Unlocks weezeer theme
-        localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
+    //     localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
 
 
     themeButtons.forEach(button => {

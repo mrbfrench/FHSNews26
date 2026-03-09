@@ -19,7 +19,7 @@
   --button-hover-text: black;
   --button-active-color: white;
 
-  --soft-color: lightcoral;
+  --soft-color: #fdbb30;
 
   --calendar-red: lightcoral;
   --calendar-green: lightgreen;
@@ -41,8 +41,8 @@
 	--error-bg: rgb(255,155,155);
 
   --active-color: #002d62;
-  --active-hover-color: rgb(230,0,0);
-  --dark-color: darkred;
+  --active-hover-color: #a0720f;
+  --dark-color: #c3890c;
 
   --outline-color: rgb(180,180,180);
 
