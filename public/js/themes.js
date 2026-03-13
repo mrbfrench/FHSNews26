@@ -963,20 +963,11 @@ function initialize2048() {
         addRandomTile(board); // Add two random tiles
         drawBoard(); // Redraw the board
     });
-
-    window.kart = function () {
-  console.log("kart() ran");
-  localStorage.setItem('themeUnlocked-kart', 'true');
-};
    
-
     // Initialization
     addRandomTile(board);
     addRandomTile(board);
     drawBoard();
 }
 
-module.exports = {
-    kart
-}
 
