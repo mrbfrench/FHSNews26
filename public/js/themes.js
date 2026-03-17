@@ -118,6 +118,10 @@ function initializeThemes(themeButtons) {
     localStorage.setItem('themeUnlocked-default', true); // Ensure default theme is always unlocked
     localStorage.setItem('themeUnlocked-dark', true); // Ensure dark theme is always unlocked
 
+    //Check if the kart theme should be unlocked
+    if (localStorage.getItem('redirectedFromKart')) {
+        localStorage.setItem('themeUnlocked-kart', true); // Unlocks mario kart theme
+    }
     // // Unlock all other themes (useful for development / resetting state)
     //     localStorage.setItem('themeUnlocked-blue', true); // Unlock blue theme
     //     localStorage.setItem('themeUnlocked-forest', true); // Unlock forest theme

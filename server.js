@@ -35,16 +35,29 @@ app.get('/clubs', (req, res) => {
 app.get('/info', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/info.html'));
 });
-
+// Specific route for /gpa
+app.get('/gpa', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/gpa.html'));
+});
 // Redirect /kart to an external URL
 app.get('/kart', (req, res) => {
+    res.send(`<!DOCTYPE html>
+<html>
 
-  res.type('html').send(`
-    <script src="/js/themes.js"></script>
-    <script>kart()</script>
-  `);
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting…</title>
+</head>
 
-    res.redirect('https://mkpc.malahieude.net/mariokart.php');
+<body>
+    <script>
+        localStorage.setItem('redirectedFromKart', 'true');
+        window.location.href = 'https://mkpc.malahieude.net/mariokart.php';
+    </script>
+    <p>Redirecting…</p>
+</body>
+
+</html>`);
 });
 
 // Catch-all route to handle all other requests and return the index.html file
