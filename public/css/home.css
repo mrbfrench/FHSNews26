@@ -375,6 +375,12 @@ p {
 	margin: -10px auto 10px;
 }
 
+#basketball{
+	margin: -10px auto 10px;
+	width: 300px;
+	height: 300px;
+}
+
 .lunch-btn {
 	width: calc(25%); /* Divides the width into fourths */
 	height: 75px; /* Adjust this value if you want the buttons taller or shorter */
