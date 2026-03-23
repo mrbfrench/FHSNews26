@@ -109,7 +109,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
 
-<script src = "public\js\basketBallGame.js"></script>
 
 <body>
 	<!--hartley's birthday popup
@@ -142,6 +141,7 @@
 			</a>
 		</header>
 		<article id="main-content">
+			<div id = basketballdiv><canvas id = "basketball"></canvas></div> 
 			<section class="block" id="themes_shop_container">
 				<a id="theme_selector">Theme Selector</a>
 			</section>
@@ -280,12 +280,12 @@
 							<div id="chessboard"></div> <!-- This is where the chessboard will appear -->
 							<button id="startBtn">Start New Game</button>
 						</div>
-						<div id = "puzzle-pacers" class = "puzzle" data-theme = "pacers">	
+							<div id = "puzzle-pacers" class = "puzzle" data-theme = "pacers">	
 							<h2>Unlock Pacers Theme</h2>
 							<div id = basketballdiv><canvas id = "basketball"></canvas></div> 
-							 <!--This is where the game is -->
+							<script src="js/basketBallGame.js"></script>
 							<button id = "startBtn">Start New Game</button>
-						</div>
+						</div> 
 						<div id="puzzle-vaporwave" class="puzzle" data-theme="vaporwave">
 							<h2>Unlock Vaporwave Theme</h2>
 							<p class="small-text">The following is a simple substitution cryptogram in which a number

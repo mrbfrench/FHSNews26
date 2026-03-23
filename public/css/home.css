@@ -379,6 +379,16 @@ p {
 	margin: -10px auto 10px;
 	width: 400px;
 	height: 300px;
+	align-content: center;
+}
+#basketball{
+	margin: -10px auto 10px;
+	width: 400px;
+	height: 300px;
+	border: 1px solid grey;
+	position: absolute;
+	left: 40vw;
+	top: 20vh;
 }
 
 .lunch-btn {
