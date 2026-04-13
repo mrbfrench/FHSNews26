@@ -6,7 +6,7 @@
   --background-image: url('../img/weezer.jpg');
   --secondary-background-color: rgb(8, 146, 193);
   --container-background-color: rgba(0, 0, 0, 0.5);
-   --container-background-color-no-alpha: rgb(0, 0, 0);
+  --container-background-color-no-alpha: rgb(0, 0, 0);
   --container-text-color: #ccc;
   --countdown-text-color: #a6e1c2;
   --gallery-dot-color: #888;
