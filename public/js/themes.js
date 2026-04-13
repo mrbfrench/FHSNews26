@@ -221,6 +221,9 @@ const beepBorpBoop = {
     },
     kart:{
         parts:['feather']
+    },
+    pacers:{
+        parts:["rik smits"]
     }
 
     // Add more themes and parts as needed
