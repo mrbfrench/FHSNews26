@@ -419,14 +419,14 @@ function updateClock() {
 
 function initializeEndOfYearCountdown() {
     const endOfYearCountdown = document.getElementById("end_year_countdown");
-    const endOfYear = new Date(now.getFullYear(), 4, 29, 15, 0, 0); // May 29 at 3:00 PM
+    const endOfYear = new Date(now.getFullYear(), 4, 22, 15, 0, 0); // May 22 at 3:00 PM
 
     function updateEndOfYearCountdown() {
         now = new Date();
         let timeRemaining = (endOfYear - now) / 1000; // in seconds
 
         if (timeRemaining < 0) {
-            endOfYearCountdown.textContent = "00:00:00:00"; // Countdown ended
+            endOfYearCountdown.textContent = "Last day of School: 00:00:00:00"; // Countdown ended
         } else {
             const days = Math.floor(timeRemaining / 86400);
             timeRemaining %= 86400;
@@ -434,7 +434,7 @@ function initializeEndOfYearCountdown() {
             timeRemaining %= 3600;
             const minutes = Math.floor(timeRemaining / 60);
             const seconds = Math.floor(timeRemaining % 60);
-            endOfYearCountdown.textContent = `${days < 10 ? '0' : ''}${days}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+            endOfYearCountdown.textContent = `Last day of School: ${days < 10 ? '0' : ''}${days}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
     }
 

@@ -86,6 +86,7 @@ button:hover {
 
 #main-content {
 	margin: auto;
+	padding-top: 4vw;
 	padding: 2vw;
 	padding-bottom: 14vw;
 }

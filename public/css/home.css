@@ -164,7 +164,7 @@ body {
     position: relative;
     padding: 7px 10px;
     color: var(--button-text-color-alt);
-	font-size: 42px;
+	font-size: 4vh;
 	user-select: none;
 	font-family: robotobold;
 }
