@@ -102,114 +102,115 @@
         <h3></h3>
         <button onclick="toggleDiv()" style="font-weight: bold;">GPA Calculator</button>
     </div>
-    <!-- GPA : Input Grades -->
-    <div id="grades-section" class="input-section">
-        <h2>Input All Grades</h2>
-        <h3>Enter your grades below. Count all AP/Honors classes as <mark>2</mark> credits,
-            and input the number of classes you had that were honors or AP respectively at the bottom </h3>
-        <div id="inputGrid">
-            <div>
-                <label>Number of A+'s:</label>
-                <input type="number" id="aplus" value="0" min="0">
-            </div>
+        <!-- GPA : Input Grades -->
+        <div id="grades-section" class="input-section">
+            <h2>Input All Grades</h2>
+            <h3>Enter your grades below. Count all AP/Honors classes as <mark>2</mark> credits,
+                and input the number of classes you had that were honors or AP respectively at the bottom </h3>
+            <div id="inputGrid">
+                <div>
+                    <label>Number of A+'s:</label>
+                    <input type="number" id="aplus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of A's:</label>
-                <input type="number" id="a" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of A's:</label>
+                    <input type="number" id="a" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of A-'s:</label>
-                <input type="number" id="aminus" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of A-'s:</label>
+                    <input type="number" id="aminus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of B+'s:</label>
-                <input type="number" id="bplus" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of B+'s:</label>
+                    <input type="number" id="bplus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of B's:</label>
-                <input type="number" id="b" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of B's:</label>
+                    <input type="number" id="b" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of B-'s:</label>
-                <input type="number" id="bminus" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of B-'s:</label>
+                    <input type="number" id="bminus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of C+'s:</label>
-                <input type="number" id="cplus" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of C+'s:</label>
+                    <input type="number" id="cplus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of C's:</label>
-                <input type="number" id="c" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of C's:</label>
+                    <input type="number" id="c" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of C-'s:</label>
-                <input type="number" id="cminus" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of C-'s:</label>
+                    <input type="number" id="cminus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of D+'s:</label>
-                <input type="number" id="dplus" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of D+'s:</label>
+                    <input type="number" id="dplus" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of D's:</label>
-                <input type="number" id="d" value="0" min="0">
-            </div>
+                <div>
+                    <label>Number of D's:</label>
+                    <input type="number" id="d" value="0" min="0">
+                </div>
 
-            <div>
-                <label>Number of D-'s:</label>
-                <input type="number" id="dminus" value="0" min="0">
-            </div>
-            <!--I know this isn't the best way to do it but the empty divs here are to put F's on it's own row and move the other input's down-->
-            <div></div>
-            <div>
-                <label>Number of F's:</label>
-                <input type="number" id="f" value="0" min="0">
-            </div>
-            <div></div>
-            <div>
-                <label>Semesters Completed:</label>
-                <input type="number" id="semesters1" value="1" min="1">
-            </div>
+                <div>
+                    <label>Number of D-'s:</label>
+                    <input type="number" id="dminus" value="0" min="0">
+                </div>
+                <!--I know this isn't the best way to do it but the empty divs here are to put F's on it's own row and move the other input's down-->
+                <div></div>
+                <div>
+                    <label>Number of F's:</label>
+                    <input type="number" id="f" value="0" min="0">
+                </div>
+                <div></div>
+                <div>
+                    <label>Semesters Completed:</label>
+                    <input type="number" id="semesters1" value="1" min="1">
+                </div>
 
-            <div>
-                <label>Honors Classes (semesters):</label>
-                <input type="number" id="honors1" value="0" min="0">
-            </div>
+                <div>
+                    <label>Honors Classes (semesters):</label>
+                    <input type="number" id="honors1" value="0" min="0">
+                </div>
 
-            <div>
-                <label>AP Classes (semesters):</label>
-                <input type="number" id="ap1" value="0" min="0">
+                <div>
+                    <label>AP Classes (semesters):</label>
+                    <input type="number" id="ap1" value="0" min="0">
+                </div>
             </div>
+            <!-- Result -->
+            <div class="result" id="result"></div>
+            <button class="calculate" onclick="calculateGPA()" style="font-weight: bold;">Calculate GPA</button>
+
         </div>
-        <!-- Result -->
-        <div class="result" id="result"></div>
-        <button class="calculate" onclick="calculateGPA()" style="font-weight: bold;">Calculate GPA</button>
+        <div class="option-buttons">
+            <h1>Semester Grade after Final</h1>
+            <button style="font-weight: bold;" onclick="toggleDiv2()">Semester Grade with Final</button>
+        </div>
+        <!-- Final Grade  : Input Grades -->
+        <div id="semester-section" class="input-section">
+            <h2>Input Semester Grade</h2>
+            <label>Class grade for Semester:</label>
+            <input type="number" id="semGrade" value="0" min="0" max="100">
 
-    </div>
-    <div class="option-buttons">
-        <h1>Semester Grade after Final</h1>
-        <button style="font-weight: bold;" onclick="toggleDiv2()">Semester Grade with Final</button>
-    </div>
-    <!-- Final Grade  : Input Grades -->
-    <div id="semester-section" class="input-section">
-        <h2>Input Semester Grade</h2>
-        <label>Class grade for Semester:</label>
-        <input type="number" id="semGrade" value="0" min="0" max="100">
+            <label>Grade on Final:</label>
+            <input type="number" id="finalGrade" value="0" min="0" max="100">
 
-        <label>Grade on Final:</label>
-        <input type="number" id="finalGrade" value="0" min="0" max="100">
-
-        <!-- Result -->
-        <div class="result2" id="result2"></div>
-        <button class="calculate" onclick="finalGrade()" style="font-weight: bold;">Calculate Semester Grade</button>
+            <!-- Result -->
+            <div class="result2" id="result2"></div>
+            <button class="calculate" onclick="finalGrade()" style="font-weight: bold;">Calculate Semester Grade</button>
+        </div>
     </div>
 </div>
 </body>
