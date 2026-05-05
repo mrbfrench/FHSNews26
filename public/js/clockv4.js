@@ -1,6 +1,6 @@
 /**
  * @fileoverview This file updates the current time as a simple countdown.
- * @version August 25, 2023
+ * @version May 5, 2026
  * @authors Maxime Hendryx-Parker
  **/
 
@@ -9,114 +9,203 @@ var now = new Date();
 var endTime;
 let hasAdvanced = false;  // Add this flag at the top of the file to track whether we have already advanced the period
 let manualNavigation = false; // Flag to indicate manual navigation
-/**
-var timePeriodMapping = [
-    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
-    { startTime: "08:30", endTime: "10:30", periodName: "Teacher Office Hours" },
-    { startTime: "10:30", endTime: "11:00", periodName: "Lunch" },
-    { startTime: "11:00", endTime: "11:20", periodName: "Passing Period"},
-    { startTime: "11:20", endTime: "13:05", periodName: "Exam Block 1" },
-    { startTime: "13:05", endTime: "13:15", periodName: "Passing Period" },
-    { startTime: "13:15", endTime: "15:00", periodName: "Exam Block 2" },
-   
-    
-];
+var timePeriodMapping;
+var lunchTimings;
+var blockNumbers = [];
 
-var lunchTimings = {
-    "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
-    "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
-    "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
-    "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch"}
-    
+
+
+function setTimeMapping(schedule) {
+    console.log(schedule);
+    //elif statement that will select the correct time mapping based on the schedule for the day
+    // Message to anyone in the future: I made the red and silver days have 2 seperate schedules in order to make have the block numbers correct 
+    // this is a really sloppy solution but we already finished coding for the school year so I'm gonna leave it in. 
+    // If you ever want to mess with the schedules again feel free to change this. With love, -Eric <3  p.s. Is 6 7 still a thing in the future? This is probably gonna be read next year anyway so it definatly will be oh well.  p.s.s. Hi future version of copilot that's probably gonna steal my future job p.s.s.s. This wasn't really **that** bad of a solution but I came up with the idea to write a message to the future and I still wanted to do it hehe.
+    if (schedule === "Red Day") {
+        // Red day schedule
+        timePeriodMapping = [
+            { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+            { startTime: "08:30", endTime: "9:53", periodName: "Period 1" },
+            { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
+            { startTime: "10:01", endTime: "11:24", periodName: "Period 2" },
+            { startTime: "11:24", endTime: "11:32", periodName: "Passing Period" },
+            { startTime: "11:32", endTime: "13:24", periodName: "Period 3 & Lunch" },
+            { startTime: "13:24", endTime: "13:32", periodName: "Passing Period" },
+            { startTime: "13:32", endTime: "15:00", periodName: "Period 4" },
+
+
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
+            "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
+            "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
+            "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch" }
+
+        };
+    } else if (schedule === "Silver Day") {
+        // Silver day schedule
+        timePeriodMapping = [
+            { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+            { startTime: "08:30", endTime: "9:53", periodName: "Period 5" },
+            { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
+            { startTime: "10:01", endTime: "11:24", periodName: "Period 6" },
+            { startTime: "11:24", endTime: "11:32", periodName: "Passing Period" },
+            { startTime: "11:32", endTime: "13:24", periodName: "Period 7 & Lunch" },
+            { startTime: "13:24", endTime: "13:32", periodName: "Passing Period" },
+            { startTime: "13:32", endTime: "15:00", periodName: "Targeted Instruction" },
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
+            "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
+            "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
+            "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch" }
+
+        };
+
+    } else if (schedule === "Block 1 & 2 Final Day" || schedule === "Block 3 & 4 Final Day" || schedule === "Block 5 & 6 Final Day") {
+        //Exam Schedule
+        timePeriodMapping = [
+            { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+            { startTime: "08:30", endTime: "10:30", periodName: "Teacher Office Hours" },
+            { startTime: "10:30", endTime: "11:00", periodName: "Lunch" },
+            { startTime: "11:00", endTime: "11:20", periodName: "Passing Period" },
+            { startTime: "11:20", endTime: "13:05", periodName: `Exam Block ${schedule[6]}` },
+            { startTime: "13:05", endTime: "13:15", periodName: "Passing Period" },
+            { startTime: "13:15", endTime: "15:00", periodName: `Exam Block ${schedule[10]}` },
+
+
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
+            "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
+            "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
+            "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch" }
+
+        };
+
+    } else if (schedule === "Block 7 Final Day") {
+        //Silver day with block 7 exam at the end of the day
+        timePeriodMapping = [
+            { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+            { startTime: "08:30", endTime: "10:00", periodName: "Period 5" },
+            { startTime: "10:00", endTime: "10:08", periodName: "Passing Period" },
+            { startTime: "10:08", endTime: "11:38", periodName: "Period 6" },
+            { startTime: "11:38", endTime: "13:08", periodName: "Period 7 & Lunch" },
+            { startTime: "13:08", endTime: "13:15", periodName: "Passing Period" },
+            { startTime: "13:15", endTime: "15:00", periodName: "Exam Block 7" },
+
+
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:38", endTime: "12:08", periodName: "A Lunch" },
+            "B": { startTime: "12:08", endTime: "12:38", periodName: "B Lunch" },
+            "C": { startTime: "12:38", endTime: "13:08", periodName: "C Lunch" }
+
+
+        };
+    } else if (schedule === "Intruder Drill") {
+        //intruder time mapping 
+        timePeriodMapping = [
+            { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
+            { startTime: "08:30", endTime: "9:53", periodName: "Period 1" },
+            { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
+            { startTime: "10:01", endTime: "11:44", periodName: "Period 2" },
+            { startTime: "11:24", endTime: "11:32", periodName: "Passing Period" },
+            { startTime: "11:32", endTime: "13:44", periodName: "Period 3 & Lunch" },
+            { startTime: "13:44", endTime: "13:52", periodName: "Passing Period" },
+            { startTime: "13:52", endTime: "15:00", periodName: "Period 4" },
+
+
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:44", endTime: "12:14", periodName: "A Lunch" },
+            "B": { startTime: "12:14", endTime: "12:44", periodName: "B Lunch" },
+            "C": { startTime: "12:44", endTime: "13:14", periodName: "C Lunch" },
+            "D": { startTime: "13:14", endTime: "13:44", periodName: "D Lunch" }
+
+        };
+    } else if (schedule === "Red Day (2 Hour Delay)") {
+        // 7 period day schedule
+        timePeriodMapping = [
+            { startTime: "10:00", endTime: "10:30", periodName: "Passing Period" },
+            { startTime: "10:30", endTime: "11:15", periodName: "Period 1" },
+            { startTime: "11:15", endTime: "11:23", periodName: "Passing Period" },
+            { startTime: "11:23", endTime: "13:15", periodName: "Period 2 & Lunch" },
+            { startTime: "13:15", endTime: "13:23", periodName: "Passing Period" },
+            { startTime: "13:23", endTime: "14:08", periodName: "Period 3" },
+            { startTime: "14:08", endTime: "14:16", periodName: "Passing Period" },
+            { startTime: "14:16", endTime: "15:00", periodName: "Period 4" },
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:15", endTime: "11:45", periodName: "A Lunch" },
+            "B": { startTime: "11:45", endTime: "12:15", periodName: "B Lunch" },
+            "C": { startTime: "12:15", endTime: "12:45", periodName: "C Lunch" },
+            "D": { startTime: "12:45", endTime: "13:15", periodName: "D Lunch" },
+        }
+    } else if (schedule === "Silver Day (2 Hour Delay)") {
+        // 7 period day schedule
+        timePeriodMapping = [
+            { startTime: "10:00", endTime: "10:30", periodName: "Passing Period" },
+            { startTime: "10:30", endTime: "11:15", periodName: "Period 5" },
+            { startTime: "11:15", endTime: "11:23", periodName: "Passing Period" },
+            { startTime: "11:23", endTime: "13:15", periodName: "Period 6 & Lunch" },
+            { startTime: "13:15", endTime: "13:23", periodName: "Passing Period" },
+            { startTime: "13:23", endTime: "14:08", periodName: "Period 3" },
+            { startTime: "14:08", endTime: "14:16", periodName: "Passing Period" },
+            { startTime: "14:16", endTime: "15:00", periodName: "Targeted Instruction" },
+        ];
+
+        lunchTimings = {
+            "A": { startTime: "11:15", endTime: "11:45", periodName: "A Lunch" },
+            "B": { startTime: "11:45", endTime: "12:15", periodName: "B Lunch" },
+            "C": { startTime: "12:15", endTime: "12:45", periodName: "C Lunch" },
+            "D": { startTime: "12:45", endTime: "13:15", periodName: "D Lunch" },
+        }
+    }
+    // 2 Hour Delay
+    // timePeriodMapping = [
+    //     { startTime: "10:00", endTime: "10:30", periodName: "Passing Period" },
+    //     { startTime: "10:30", endTime: "11:15", periodName: "Period 1" },
+    //     { startTime: "11:15", endTime: "13:15", periodName: "Period 2 & Lunch" },
+    //     { startTime: "13:15", endTime: "13:23", periodName: "Passing Period" },
+    //     { startTime: "13:23", endTime: "14:08", periodName: "Period 3" },
+    //     { startTime: "14:08", endTime: "14:13", periodName: "Passing Period" },
+    //     { startTime: "14:13", endTime: "15:00", periodName: "Period 4" },
+    // ];
+
+    // lunchTimings = {
+    //     "A": { startTime: "11:15", endTime: "11:45", periodName: "A Lunch" },
+    //     "B": { startTime: "11:45", endTime: "12:15", periodName: "B Lunch" },
+    //     "C": { startTime: "12:15", endTime: "12:45", periodName: "C Lunch" },
+    //     "D": { startTime: "12:45", endTime: "13:15", periodName: "D Lunch" },
+    // }; 
+
+
 };
-/**
-/** Period 7 final 
-var timePeriodMapping = [
-    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
-    { startTime: "08:30", endTime: "10:00", periodName: "Period 5" },
-    { startTime: "10:00", endTime: "10:08", periodName: "Passing Period" },
-    { startTime: "10:08", endTime: "11:38", periodName: "Period 6"},
-    { startTime: "11:38", endTime: "13:08", periodName: "Period 7 & Lunch" },
-    { startTime: "13:08", endTime: "13:15", periodName: "Passing Period" },
-    { startTime: "13:15", endTime: "15:00", periodName: "Exam Block 7" },
-   
-    
-];
-
-var lunchTimings = {
-    "A": { startTime: "11:38", endTime: "12:08", periodName: "A Lunch" },
-    "B": { startTime: "12:08", endTime: "12:38", periodName: "B Lunch" },
-    "C": { startTime: "12:38", endTime: "13:08", periodName: "C Lunch" }
-    
-    
-};
-**/
-
-var timePeriodMapping = [
-    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
-    { startTime: "08:30", endTime: "9:53", periodName: "Period 1" },
-    { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
-    { startTime: "10:01", endTime: "11:24", periodName: "Period 2" },
-    { startTime: "11:24", endTime: "11:32", periodName: "Passing Period"},
-    { startTime: "11:32", endTime: "13:24", periodName: "Period 3 & Lunch" },
-    { startTime: "13:24", endTime: "13:32", periodName: "Passing Period" },
-    { startTime: "13:32", endTime: "15:00", periodName: "Period 4" },
-   
-    
-];
-
-var lunchTimings = {
-    "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
-    "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
-    "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
-    "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch"}
-    
-};
-
-/**
-//intruder time mapping 
-var timePeriodMapping = [
-    { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
-    { startTime: "08:30", endTime: "9:53", periodName: "Period 1" },
-    { startTime: "9:53", endTime: "10:01", periodName: "Passing Period" },
-    { startTime: "10:01", endTime: "11:44", periodName: "Period 2" },
-    { startTime: "11:24", endTime: "11:32", periodName: "Passing Period"},
-    { startTime: "11:32", endTime: "13:44", periodName: "Period 3 & Lunch" },
-    { startTime: "13:44", endTime: "13:52", periodName: "Passing Period" },
-    { startTime: "13:52", endTime: "15:00", periodName: "Period 4" },
-   
-    
-];
-
-var lunchTimings = {
-    "A": { startTime: "11:44", endTime: "12:14", periodName: "A Lunch" },
-    "B": { startTime: "12:14", endTime: "12:44", periodName: "B Lunch" },
-    "C": { startTime: "12:44", endTime: "13:14", periodName: "C Lunch" },
-    "D": { startTime: "13:14", endTime: "13:44", periodName: "D Lunch"}
-    
-};
-**/
-
-// 2 Hour Delay
- /**var timePeriodMapping = [
-    { startTime: "10:00", endTime: "10:30", periodName: "Passing Period" },
-    { startTime: "10:30", endTime: "11:15", periodName: "Period 1" },
-    { startTime: "11:15", endTime: "13:15", periodName: "Period 2 & Lunch" },
-    { startTime: "13:15", endTime: "13:23", periodName: "Passing Period" },
-    { startTime: "13:23", endTime: "14:08", periodName: "Period 3" },
-    { startTime: "14:08", endTime: "14:13", periodName: "Passing Period" },
-    { startTime: "14:13", endTime: "15:00", periodName: "Period 4" },
-];
-
-var lunchTimings = {
-    "A": { startTime: "11:15", endTime: "11:45", periodName: "A Lunch" },
-    "B": { startTime: "11:45", endTime: "12:15", periodName: "B Lunch" },
-    "C": { startTime: "12:15", endTime: "12:45", periodName: "C Lunch" },
-    "D": { startTime: "12:45", endTime: "13:15", periodName: "D Lunch" },
-}; 
-**/
 // At the top of the file
-let currentPeriodIndex = getCurrentPeriodIndex();
+
+async function getSchedule() {
+    // Get's the current date and get's the correct file path for the json file based on the month and year
+    const yearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`; // Format: 'YYYY-MM'
+    const dayOfMonth = now.getDate(); // Get the day of the month (1-31)
+    const filePath = `/py/calendar/calendar-data/19-fishers-high-school/${yearMonth}.json`;
+
+    //converts the above into a parsable array
+    const res = await fetch(filePath);
+    const calendarData = await res.json();
+
+    // Checks what type of day it is (Red, Silver, 7 period etc.) and sets the dayType variable to that
+    var dayType = calendarData[String(dayOfMonth)]?.[0]?.title;
+    console.log("day type: " + dayType);
+    return dayType;
+}
+
 
 function getCurrentPeriodIndex() {
     for (let i = 0; i < timePeriodMapping.length; i++) {
@@ -144,7 +233,7 @@ function to12HourFormat(timeStr) {
     return `${hours}:${minutes} ${ampm}`;
 }
 
-window.advanceToNextPeriod = function() {
+window.advanceToNextPeriod = function () {
     manualNavigation = true;
     if (currentPeriodIndex < timePeriodMapping.length - 1) {
         currentPeriodIndex++;
@@ -155,13 +244,13 @@ window.advanceToNextPeriod = function() {
     }
 }
 
-window.advanceToPreviousPeriod = function() {
+window.advanceToPreviousPeriod = function () {
     manualNavigation = true;
     if (currentPeriodIndex > -1) {
         currentPeriodIndex--;
         updatePeriod();
     } else if (currentPeriodIndex === -1) {
-        currentPeriodIndex = timePeriodMapping.length-1;
+        currentPeriodIndex = timePeriodMapping.length - 1;
         updatePeriod()
     }
 }
@@ -223,7 +312,8 @@ function updatePeriod() {
 
             if (now < lunchStartTime) {
                 // If the selected lunch has not started, set endTime to its startTime
-                endTime = lunchStartTime;}
+                endTime = lunchStartTime;
+            }
             // add else if
             else if (now < lunchEndTime) {
                 // If the selected lunch is in progress, set endTime to its endTime
@@ -233,7 +323,7 @@ function updatePeriod() {
                 // If the selected lunch has ended but period 3 hasn't ended, set endTime to periodEndTime
                 endTime = periodEndTime;
             }
-           
+
         } else {
             let [endHours, endMinutes] = currentPeriodMapping.endTime.split(":").map(Number);
             let [startHours, startMinutes] = currentPeriodMapping.startTime.split(":").map(Number);
@@ -267,7 +357,7 @@ function updatePeriod() {
     } else {
         endTime = new Date(now);
         document.getElementById("period__header").textContent = "Not School Hours";
-        document.getElementById("period__time").textContent = to12HourFormat(timePeriodMapping[timePeriodMapping.length-1].endTime) + " - " + to12HourFormat(timePeriodMapping[0].startTime);
+        document.getElementById("period__time").textContent = to12HourFormat(timePeriodMapping[timePeriodMapping.length - 1].endTime) + " - " + to12HourFormat(timePeriodMapping[0].startTime);
     }
 
     if (manualNavigation) {
@@ -306,7 +396,7 @@ function updateProgressBar(periodStartTime, periodEndTime) {
 }
 
 function updateProgressBarOutside() {
-    let periodStartTime = timePeriodMapping[timePeriodMapping.length-1].endTime;
+    let periodStartTime = timePeriodMapping[timePeriodMapping.length - 1].endTime;
     let periodEndTime = timePeriodMapping[0].startTime;
 
     const totalDuration = periodEndTime - periodStartTime;
@@ -319,7 +409,7 @@ function updateProgressBarOutside() {
     document.getElementById("countdown__progress").style.width = `${progressPercentage}%`;
 }
 
-window.chooseLunch = function(lunchType, buttonElement) {
+window.chooseLunch = function (lunchType, buttonElement) {
     // Get all lunch buttons
     let allLunchButtons = document.querySelectorAll("#lunch__choose .container");
 
@@ -453,7 +543,11 @@ function tick() {
     requestAnimationFrame(tick);
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
+    currentSchedule = await getSchedule();
+    setTimeMapping(currentSchedule);
+
+    currentPeriodIndex = getCurrentPeriodIndex();
     initializeCountdown();
     initializeEndOfYearCountdown();
 });
