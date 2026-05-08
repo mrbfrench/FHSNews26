@@ -123,32 +123,32 @@ function initializeThemes(themeButtons) {
         localStorage.setItem('themeUnlocked-kart', true); // Unlocks mario kart theme
     }
     // // Unlock all other themes (useful for development / resetting state)
-        localStorage.setItem('themeUnlocked-blue', true); // Unlock blue theme
-        localStorage.setItem('themeUnlocked-forest', true); // Unlock forest theme
-        localStorage.setItem('themeUnlocked-gradient', true); // Unlock gradient theme
-        localStorage.setItem('themeUnlocked-green', true); // Unlock green theme
-        localStorage.setItem('themeUnlocked-hartley', true); // Unlock hartley theme
-        localStorage.setItem('themeUnlocked-lebron', true); // Unlock lebron theme
-        localStorage.setItem('themeUnlocked-lego', true); // Unlock lego theme
-        localStorage.setItem('themeUnlocked-library', true); // Unlock library theme
-        localStorage.setItem('themeUnlocked-magma', true); // Unlock magma theme
-        localStorage.setItem('themeUnlocked-midnight', true); // Unlock midnight theme
-        localStorage.setItem('themeUnlocked-mountain', true); // Unlock mountain theme
-        localStorage.setItem('themeUnlocked-ocean', true); // Unlock ocean theme
-        localStorage.setItem('themeUnlocked-purple', true); // Unlock purple theme
-        localStorage.setItem('themeUnlocked-shaded', true); // Unlock shaded theme
-        localStorage.setItem('themeUnlocked-snow', true); // Unlock snow theme
-        localStorage.setItem('themeUnlocked-space', true); // Unlock space theme
-        localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
-        localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
-        localStorage.setItem('themeUnlocked-deltarune', true); // Unlocks deltarune theme
-        localStorage.setItem('themeUnlocked-deadlock', true); // Unlocks deadlock theme
-        localStorage.setItem('themeUnlocked-kart', true); //Unlocks mario kart theme
-        localStorage.setItem('themeUnlocked-lego', true); //Unlocks lego theme
-        localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
-        localStorage.setItem('themeUnlocked-colts', true); //Unlocks colts theme
-        localStorage.setItem('themeUnlocked-wheezer', true); //Unlocks weezeer theme
-        localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
+        // localStorage.setItem('themeUnlocked-blue', true); // Unlock blue theme
+        // localStorage.setItem('themeUnlocked-forest', true); // Unlock forest theme
+        // localStorage.setItem('themeUnlocked-gradient', true); // Unlock gradient theme
+        // localStorage.setItem('themeUnlocked-green', true); // Unlock green theme
+        // localStorage.setItem('themeUnlocked-hartley', true); // Unlock hartley theme
+        // localStorage.setItem('themeUnlocked-lebron', true); // Unlock lebron theme
+        // localStorage.setItem('themeUnlocked-lego', true); // Unlock lego theme
+        // localStorage.setItem('themeUnlocked-library', true); // Unlock library theme
+        // localStorage.setItem('themeUnlocked-magma', true); // Unlock magma theme
+        // localStorage.setItem('themeUnlocked-midnight', true); // Unlock midnight theme
+        // localStorage.setItem('themeUnlocked-mountain', true); // Unlock mountain theme
+        // localStorage.setItem('themeUnlocked-ocean', true); // Unlock ocean theme
+        // localStorage.setItem('themeUnlocked-purple', true); // Unlock purple theme
+        // localStorage.setItem('themeUnlocked-shaded', true); // Unlock shaded theme
+        // localStorage.setItem('themeUnlocked-snow', true); // Unlock snow theme
+        // localStorage.setItem('themeUnlocked-space', true); // Unlock space theme
+        // localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
+        // localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
+        // localStorage.setItem('themeUnlocked-deltarune', true); // Unlocks deltarune theme
+        // localStorage.setItem('themeUnlocked-deadlock', true); // Unlocks deadlock theme
+        // localStorage.setItem('themeUnlocked-kart', true); //Unlocks mario kart theme
+        // localStorage.setItem('themeUnlocked-lego', true); //Unlocks lego theme
+        // localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
+        // localStorage.setItem('themeUnlocked-colts', true); //Unlocks colts theme
+        // localStorage.setItem('themeUnlocked-wheezer', true); //Unlocks weezeer theme
+        // localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
 
 
     themeButtons.forEach(button => {
