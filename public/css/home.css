@@ -375,6 +375,25 @@ p {
 	margin: -10px auto 10px;
 }
 
+#basketballdiv{
+	margin-top: 50px;
+	/* margin: -10px auto 10px; */
+	width: 400px;
+	height: 350px;
+	align-content: center;
+}
+#basketball, #basketballBtn {
+	margin: -10px auto 10px;
+	width: 400px;
+	height: 350px;
+	border: 1px solid grey;
+	position: absolute;
+	left: 50%;
+	top: 54%;
+	transform: translateX(-50%) translateY(-50%);
+	background-color: lightskyblue;
+}
+
 .lunch-btn {
 	width: calc(25%); /* Divides the width into fourths */
 	height: 75px; /* Adjust this value if you want the buttons taller or shorter */
@@ -695,4 +714,34 @@ p {
 
 .shakeThemes {
   animation: shakeThemes 0.5s ease-in-out;
+}
+
+.games-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.game-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--active-color);
+  color: var(--button-text-color-alt);
+  border: 2px solid var(--dark-color);
+  border-radius: 5px;
+  font-family: var(--bold-font);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.game-button:hover {
+  background-color: var(--button-hover-background);
+  transform: translateY(-2px);
+}
+
+.game-button:active {
+  transform: translateY(0);
 }

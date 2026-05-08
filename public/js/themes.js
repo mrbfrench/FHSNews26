@@ -145,7 +145,6 @@ function initializeThemes(themeButtons) {
         // localStorage.setItem('themeUnlocked-deadlock', true); // Unlocks deadlock theme
         // localStorage.setItem('themeUnlocked-kart', true); //Unlocks mario kart theme
         // localStorage.setItem('themeUnlocked-lego', true); //Unlocks lego theme
-        // localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
         // localStorage.setItem('themeUnlocked-colts', true); //Unlocks colts theme
         // localStorage.setItem('themeUnlocked-wheezer', true); //Unlocks weezeer theme
         // localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
@@ -844,6 +843,22 @@ $(document).ready(function () {
         board.start();
     });
 });
+
+// Game wrapper functions for the game buttons
+function startChessGame() {
+    if (typeof game !== 'undefined' && typeof board !== 'undefined') {
+        game.reset();
+        board.start();
+    }
+}
+
+function startMagmaGame() {
+    // Find the magma game container and click the start button
+    const startBtnMagma = document.getElementById('startBtnMagma');
+    if (startBtnMagma) {
+        startBtnMagma.click();
+    }
+}
 
 function initialize2048() {
     const container = document.getElementById('game2048-container-magma');
