@@ -14,22 +14,23 @@
 
 html {
 	height: 100%;
+	overflow-x: hidden;
 }
 
 body {
-	height: 100%;
+	min-height: 100%;
 	background-image: var(--background-image);
 	background-color: var(--background-color);
 	background-size: cover; /* Updated this line */
 	background-attachment: fixed;
 	background-position: center center; /* Added this line */
-	overflow-y: scroll;
 	margin: 0;
 	font-family: var(--norm-font);
 	color: var(--container-text-color);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
+
 
 .hidden {
 	display: none !important;
@@ -84,7 +85,9 @@ button:hover {
 }
 
 #main-content {
+	top: 50%;
 	margin: auto;
+	padding-top: 12vw;
 	padding: 2vw;
 	padding-bottom: 14vw;
 }
@@ -278,7 +281,7 @@ header {
 	}
 
 	#main-content {
-		padding-top: 96px;
+		padding-top: 5vw;
 		padding-bottom: 75px;
 	}
 

@@ -9,9 +9,9 @@ var now = new Date();
 var endTime;
 let hasAdvanced = false;  // Add this flag at the top of the file to track whether we have already advanced the period
 let manualNavigation = false; // Flag to indicate manual navigation
-// The bell schedule comes from the server (/api/schedule), which an admin can
-// switch at /admin. These are the regular-day times, used until it loads or if
-// the server can't be reached.
+// The bell schedule comes from the server (/api/schedule): Red Day / Silver Day
+// from the FHS calendar, or whatever an admin picked at /admin. These are the
+// Red Day times, used only if the server can't be reached.
 var timePeriodMapping = [
     { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
     { startTime: "08:30", endTime: "09:53", periodName: "Period 1" },
@@ -32,6 +32,7 @@ var lunchTimings = {
 
 var lunchPeriodName = "Period 3 & Lunch"; // the period the lunch waves happen in
 var activeScheduleKey = null; // "<id>|<date>" of the schedule loaded from the server
+var noSchoolToday = false; // the calendar marks today as a day off (break, holiday)
 
 // At the top of the file
 let currentPeriodIndex = getCurrentPeriodIndex();
@@ -41,7 +42,7 @@ function isWeekend(date) {
 }
 
 function getCurrentPeriodIndex() {
-    if (isWeekend(now)) return -1;
+    if (isWeekend(now) || noSchoolToday) return -1;
 
     // Before the first bell it's not school hours yet
     let [startHours, startMinutes] = timePeriodMapping[0].startTime.split(":").map(Number);
@@ -103,6 +104,7 @@ window.advanceToPreviousPeriod = function() {
 function initializeCountdown() {
     countdown = document.getElementById("countdown__timer");
     now = new Date();
+    currentPeriodIndex = getCurrentPeriodIndex();
 
     if (!isSchoolHours() || getCurrentPeriodIndex() === -1) {
         manualNavigation = true
@@ -355,31 +357,28 @@ function updateClock() {
 function initializeEndOfYearCountdown() {
     const endOfYearCountdown = document.getElementById("end_year_countdown");
     if (!endOfYearCountdown) return; // the countdown isn't on this page
-    const endOfYear = new Date(now.getFullYear(), 4, 29, 15, 0, 0); // May 29 at 3:00 PM
+
+    // Last day of school: May 22 at 3:00 PM (next year's once this year's has passed)
+    let endOfYear = new Date(now.getFullYear(), 4, 22, 15, 0, 0);
+    if (now > endOfYear) endOfYear = new Date(now.getFullYear() + 1, 4, 22, 15, 0, 0);
+
+    function pad(n) {
+        return `${n < 10 ? '0' : ''}${n}`;
+    }
 
     function updateEndOfYearCountdown() {
-        now = new Date();
-        let timeRemaining = (endOfYear - now) / 1000; // in seconds
-
-        if (timeRemaining < 0) {
-            endOfYearCountdown.textContent = "00:00:00:00"; // Countdown ended
-        } else {
-            const days = Math.floor(timeRemaining / 86400);
-            timeRemaining %= 86400;
-            const hours = Math.floor(timeRemaining / 3600);
-            timeRemaining %= 3600;
-            const minutes = Math.floor(timeRemaining / 60);
-            const seconds = Math.floor(timeRemaining % 60);
-            endOfYearCountdown.textContent = `${days < 10 ? '0' : ''}${days}:${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        }
+        let timeRemaining = Math.max(0, (endOfYear - new Date()) / 1000); // in seconds
+        const days = Math.floor(timeRemaining / 86400);
+        timeRemaining %= 86400;
+        const hours = Math.floor(timeRemaining / 3600);
+        timeRemaining %= 3600;
+        const minutes = Math.floor(timeRemaining / 60);
+        const seconds = Math.floor(timeRemaining % 60);
+        endOfYearCountdown.textContent = `Last day of School: ${pad(days)}:${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
     }
 
-    function tickEndOfYear() {
-        updateEndOfYearCountdown();
-        requestAnimationFrame(tickEndOfYear);
-    }
-
-    tickEndOfYear();
+    updateEndOfYearCountdown();
+    setInterval(updateEndOfYearCountdown, 1000);
 }
 
 
@@ -413,32 +412,33 @@ function applySchedule(schedule) {
     timePeriodMapping = schedule.periods;
     lunchTimings = schedule.lunches || {};
     lunchPeriodName = schedule.lunchPeriod;
+    noSchoolToday = Boolean(schedule.noSchool);
     if (!lunchTimings[selectedLunchType]) selectedLunchType = null;
     buildLunchButtons();
 
-    // Show which special schedule is in effect (nothing on a normal day)
+    // Show the day's schedule (Red Day, Silver Day, 2 Hour Delay, ...) on school days
     const label = document.getElementById("schedule__name");
     if (label) {
-        label.textContent = schedule.isOverride || schedule.id !== "regular" ? schedule.name : "";
+        label.textContent = isWeekend(new Date()) ? "" : noSchoolToday ? "No School" : schedule.name;
         label.hidden = !label.textContent;
     }
 
     now = new Date();
     currentPeriodIndex = getCurrentPeriodIndex();
-    updatePeriod();
+    if (countdown) updatePeriod(); // before the first draw, initializeCountdown does this
 }
 
 // Ask the server which schedule is in effect today. Checked every few minutes,
 // so open pages pick up a change from the admin page (and the next day's schedule).
 function loadSchedule() {
     const today = localDateString(new Date());
-    return fetch(`/api/schedule?date=${today}`, { cache: "no-store" })
+    return fetch(`/api/schedule?date=${today}`, { cache: "no-store", signal: AbortSignal.timeout ? AbortSignal.timeout(5000) : undefined })
         .then(response => {
             if (!response.ok) throw new Error(response.status);
             return response.json();
         })
         .then(schedule => {
-            const key = `${schedule.id}|${today}`;
+            const key = `${schedule.id}|${schedule.source}|${today}`;
             if (key === activeScheduleKey || !Array.isArray(schedule.periods) || schedule.periods.length === 0) return;
             activeScheduleKey = key;
             applySchedule(schedule);
@@ -446,9 +446,10 @@ function loadSchedule() {
         .catch(error => console.warn("Using the built-in regular schedule:", error));
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
+    // Get today's schedule before drawing the clock, so a Silver Day doesn't flash Red Day times
+    await loadSchedule();
     initializeCountdown();
     initializeEndOfYearCountdown();
-    loadSchedule();
     setInterval(loadSchedule, 5 * 60 * 1000);
 });

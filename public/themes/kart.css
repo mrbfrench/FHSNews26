@@ -1,0 +1,56 @@
+:root {
+  --norm-font: "robotoregular";
+  --light-font: "robotolight";
+  --bold-font: "robotobold";
+
+  --background-image: url("../img/mariokartbackground.jpg");
+
+  --secondary-background-color: rgb(210,210,210);
+  --container-background-color: rgba(255, 255, 255, 0.55);
+  --container-background-color-no-alpha: rgb(255,255,255);
+  --container-text-color: black;
+
+  /* brighter Mario red */
+  --countdown-text-color: #e60012;
+  --gallery-dot-color: #D3D3D3;
+
+  --button-background-color: white;
+  --button-text-color: black;
+  --button-text-color-alt: white;
+
+  --button-hover-background: rgba(196,196,196,0.5);
+  --button-hover-background-alt: #e60012;
+  --button-hover-text: black;
+  --button-active-color: rgba(255,255,255,0.6);
+
+  /* softer accent */
+  --soft-color: #ff6b6b;
+
+  --calendar-red: lightcoral;
+  --calendar-green: lightgreen;
+  --calendar-blue: #9dd7e6;
+  --calendar-yellow: #ffe066; /* more Mario-like yellow */
+  --calendar-silver: #e3e3e3;
+  --calendar-purple: #e3b0fb;
+  --calendar-gray: lightgrey;
+  --calendar-white: white;
+
+  --header-background-color: #e60012;
+  --header-text-color: white;
+  --header-icon-color: white;
+
+  --navigation-background-color: white;
+  --navigation-icon-color: rgb(100,100,100);
+  --navigation-active-icon-color: #e60012;
+
+  --error-bg: rgb(255,155,155);
+
+  --active-color: #e60012;
+  --active-hover-color: #ff2a2a;
+  --dark-color: #a00000;
+
+  --outline-color: rgb(180,180,180);
+
+  --anchor-color: #e60012;
+  --anchor-hover: black;
+}

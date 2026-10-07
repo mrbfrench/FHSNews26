@@ -6,6 +6,7 @@
   --background-image: url('../img/magma.jpg');
   --secondary-background-color: rgb(210,210,210);
   --container-background-color: rgba(0, 0, 0, 0.5);
+   --container-background-color-no-alpha: rgb(0, 0, 0);
   --container-text-color: #ffffff;
   --countdown-text-color: #f3d1bb;
   --gallery-dot-color: #D3D3D3;

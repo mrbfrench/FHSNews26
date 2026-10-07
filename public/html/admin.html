@@ -153,8 +153,15 @@
             <section class="card">
                 <h2 id="today-heading">Today</h2>
                 <p class="today-status" id="today-status"></p>
-                <p class="hint">Pick today's schedule. It goes back to the default schedule automatically tomorrow.</p>
+                <p class="hint">Pick today's schedule. It goes back to normal automatically tomorrow.</p>
                 <div class="choices" id="today-choices"></div>
+            </section>
+
+            <!-- Coming up -->
+            <section class="card">
+                <h2>Next two weeks</h2>
+                <p class="hint">What the site will show on each school day.</p>
+                <ul class="plans" id="upcoming"></ul>
             </section>
 
             <!-- Plan ahead -->
@@ -178,7 +185,7 @@
             <!-- Default -->
             <section class="card">
                 <h2>Default schedule</h2>
-                <p class="hint">Used on every school day that doesn't have its own schedule set above.</p>
+                <p class="hint">Used on every school day that doesn't have its own schedule set above. "Automatic" follows the Red Day / Silver Day (and finals day) entries on the FHS calendar.</p>
                 <form id="default-form" class="row">
                     <div>
                         <label for="default-schedule">Schedule</label>
@@ -207,8 +214,11 @@
     </main>
 
     <script>
+        var AUTO = 'auto';
+        var SOURCE_LABELS = { override: 'set here', calendar: 'from the calendar', default: 'default', fallback: 'not on the calendar, using Red Day', 'no-school': 'no school on the calendar' };
         var schedules = {};
         var state = { default: null, overrides: {} };
+        var upcoming = [];
         var password = '';
         try { password = sessionStorage.getItem('adminPassword') || ''; } catch (e) {}
 
@@ -239,7 +249,7 @@
         }
 
         function api(method, body) {
-            return fetch('/api/admin/state', {
+            return fetch('/api/admin/state?date=' + localDate(new Date()), {
                 method: method,
                 headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
                 body: body ? JSON.stringify(body) : undefined,
@@ -256,8 +266,19 @@
             });
         }
 
-        function fillSelect(select, selected) {
+        function defaultName(id) {
+            return id === AUTO ? 'Automatic (from the calendar)' : schedules[id].name;
+        }
+
+        function fillSelect(select, selected, includeAuto) {
             select.innerHTML = '';
+            if (includeAuto) {
+                var auto = document.createElement('option');
+                auto.value = AUTO;
+                auto.textContent = defaultName(AUTO);
+                auto.selected = selected === AUTO;
+                select.appendChild(auto);
+            }
             Object.keys(schedules).forEach(function (id) {
                 var option = document.createElement('option');
                 option.value = id;
@@ -269,22 +290,50 @@
 
         function render() {
             var today = localDate(new Date());
-            var todayId = state.overrides[today] || state.default;
+            var todayInfo = upcoming.filter(function (d) { return d.date === today; })[0];
+            var todayId = todayInfo ? todayInfo.id : null;
 
             // Today
             $('today-heading').textContent = 'Today: ' + prettyDate(today);
             $('today-status').innerHTML = '';
-            $('today-status').append('The site is showing ');
-            var name = document.createElement('strong');
-            name.textContent = schedules[todayId].name;
-            $('today-status').append(name, state.overrides[today] ? ' (set for today only).' : ' (the default).');
+            if (todayId) {
+                $('today-status').append('The site is showing ');
+                var name = document.createElement('strong');
+                name.textContent = todayInfo.source === 'no-school' ? 'No School' : schedules[todayId].name;
+                $('today-status').append(name, ' (' + SOURCE_LABELS[todayInfo.source] + ').');
+            } else {
+                $('today-status').append('No school today (weekend).');
+            }
+
+            // Next two weeks
+            var list = $('upcoming');
+            list.innerHTML = '';
+            upcoming.forEach(function (day) {
+                var item = document.createElement('li');
+                var text = document.createElement('span');
+                text.textContent = prettyDate(day.date) + ': ' + (day.source === 'no-school' ? 'No School' : schedules[day.id].name);
+                var source = document.createElement('small');
+                source.textContent = SOURCE_LABELS[day.source];
+                source.style.color = 'var(--muted)';
+                item.append(text, source);
+                list.appendChild(item);
+            });
 
             var choices = $('today-choices');
             choices.innerHTML = '';
+            var normal = document.createElement('button');
+            normal.type = 'button';
+            normal.className = 'choice' + (todayInfo && todayInfo.source !== 'override' ? ' active' : '');
+            normal.textContent = 'Normal';
+            var normalSmall = document.createElement('small');
+            normalSmall.textContent = state.default === AUTO ? 'Follow the calendar' : defaultName(state.default);
+            normal.appendChild(normalSmall);
+            normal.addEventListener('click', function () { setDay(today, null); });
+            choices.appendChild(normal);
             Object.keys(schedules).forEach(function (id) {
                 var button = document.createElement('button');
                 button.type = 'button';
-                button.className = 'choice' + (id === todayId ? ' active' : '');
+                button.className = 'choice' + (todayInfo && todayInfo.source === 'override' && id === todayId ? ' active' : '');
                 button.textContent = schedules[id].name;
                 var periods = schedules[id].periods;
                 var small = document.createElement('small');
@@ -316,9 +365,9 @@
                 plans.appendChild(item);
             });
 
-            fillSelect($('default-schedule'), state.default);
-            if (!$('plan-schedule').options.length) fillSelect($('plan-schedule'), Object.keys(schedules)[1]);
-            if (!$('preview-schedule').options.length) fillSelect($('preview-schedule'), todayId);
+            fillSelect($('default-schedule'), state.default, true);
+            if (!$('plan-schedule').options.length) fillSelect($('plan-schedule'), Object.keys(schedules)[2]);
+            if (!$('preview-schedule').options.length) fillSelect($('preview-schedule'), todayId || Object.keys(schedules)[0]);
             renderPreview();
         }
 
@@ -349,6 +398,7 @@
                 .then(function (data) {
                     schedules = data.schedules;
                     state = data.state;
+                    upcoming = data.upcoming || [];
                     render();
                     showMessage(successText);
                 })
@@ -361,9 +411,9 @@
         // Set (or with id = null, clear) the schedule for one date
         function setDay(date, id) {
             var overrides = Object.assign({}, state.overrides);
-            if (id && id !== state.default) overrides[date] = id;
+            if (id) overrides[date] = id;
             else delete overrides[date];
-            var label = id ? schedules[id].name : schedules[state.default].name + ' (default)';
+            var label = id ? schedules[id].name : 'back to normal (' + defaultName(state.default) + ')';
             save({ default: state.default, overrides: overrides }, prettyDate(date) + ' is now ' + label + '.');
         }
 
@@ -376,6 +426,7 @@
             return api('GET').then(function (data) {
                 schedules = data.schedules;
                 state = data.state;
+                upcoming = data.upcoming || [];
                 try { sessionStorage.setItem('adminPassword', password); } catch (e) {}
                 $('login').hidden = true;
                 $('panel').hidden = false;
@@ -412,7 +463,7 @@
             var overrides = {};
             // Days set to the new default don't need their own entry anymore
             Object.keys(state.overrides).forEach(function (d) { if (state.overrides[d] !== id) overrides[d] = state.overrides[d]; });
-            save({ default: id, overrides: overrides }, 'Default schedule is now ' + schedules[id].name + '.');
+            save({ default: id, overrides: overrides }, 'Default schedule is now ' + defaultName(id) + '.');
         });
 
         $('preview-schedule').addEventListener('change', renderPreview);

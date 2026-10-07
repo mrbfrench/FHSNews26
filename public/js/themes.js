@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         checkVisitsAndUnlockTheme('purple');
     });
 
-        // Event listener for the "Check Answer" button for the purple theme
+    // Event listener for the "Check Answer" button for the purple theme
     document.getElementById('check-answer-green').addEventListener('click', () => {
         checkVisitsAndUnlockTheme('green');
     });
@@ -37,18 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
         checkConsecutiveVisitsAndUnlockTheme('midnight');
     });
 
-    // Event listener for the "Check Answer" button for the midnight theme
+    // Event listener for the "Check Answer" button for the gradient theme
     document.getElementById('check-answer-gradient').addEventListener('click', () => {
         checkConsecutiveVisitsAndUnlockTheme('gradient');
     });
 
-    // Event listener for the "Check Answer" button for the midnight theme
+    // Event listener for the "Check Answer" button for the snow theme
     document.getElementById('check-answer-snow').addEventListener('click', () => {
         checkSnowThemeUnlock('snow');
     });
 
+
+
     // Event listener to submit on pressing the "Enter" key
-    document.addEventListener('keypress', function(event) {
+    document.addEventListener('keypress', function (event) {
         if (event.key === 'Enter') {
             // Check which puzzle is currently open
             const modalOpen = document.getElementById('puzzleModal').style.display === 'block';
@@ -114,8 +116,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeThemes(themeButtons) {
     const savedTheme = localStorage.getItem('selectedTheme') || 'default';
+    // Ensure core themes are always unlocked
     localStorage.setItem('themeUnlocked-default', true); // Ensure default theme is always unlocked
-    localStorage.setItem('themeUnlocked-dark', true); // Ensure default theme is always unlocked
+    localStorage.setItem('themeUnlocked-dark', true); // Ensure dark theme is always unlocked
+
+    //Check if the kart theme should be unlocked
+    if (localStorage.getItem('redirectedFromKart')) {
+        localStorage.setItem('themeUnlocked-kart', true); // Unlocks mario kart theme
+    }
+    // // Unlock all other themes (useful for development / resetting state)
+        // localStorage.setItem('themeUnlocked-blue', true); // Unlock blue theme
+        // localStorage.setItem('themeUnlocked-forest', true); // Unlock forest theme
+        // localStorage.setItem('themeUnlocked-gradient', true); // Unlock gradient theme
+        // localStorage.setItem('themeUnlocked-green', true); // Unlock green theme
+        // localStorage.setItem('themeUnlocked-hartley', true); // Unlock hartley theme
+        // localStorage.setItem('themeUnlocked-lebron', true); // Unlock lebron theme
+        // localStorage.setItem('themeUnlocked-lego', true); // Unlock lego theme
+        // localStorage.setItem('themeUnlocked-library', true); // Unlock library theme
+        // localStorage.setItem('themeUnlocked-magma', true); // Unlock magma theme
+        // localStorage.setItem('themeUnlocked-midnight', true); // Unlock midnight theme
+        // localStorage.setItem('themeUnlocked-mountain', true); // Unlock mountain theme
+        // localStorage.setItem('themeUnlocked-ocean', true); // Unlock ocean theme
+        // localStorage.setItem('themeUnlocked-purple', true); // Unlock purple theme
+        // localStorage.setItem('themeUnlocked-shaded', true); // Unlock shaded theme
+        // localStorage.setItem('themeUnlocked-snow', true); // Unlock snow theme
+        // localStorage.setItem('themeUnlocked-space', true); // Unlock space theme
+        // localStorage.setItem('themeUnlocked-sunset', true); // Unlock s unset theme
+        // localStorage.setItem('themeUnlocked-vaporwave', true); // Unlock vaporwave theme
+        // localStorage.setItem('themeUnlocked-deltarune', true); // Unlocks deltarune theme
+        // localStorage.setItem('themeUnlocked-deadlock', true); // Unlocks deadlock theme
+        // localStorage.setItem('themeUnlocked-kart', true); //Unlocks mario kart theme
+        // localStorage.setItem('themeUnlocked-lego', true); //Unlocks lego theme
+        // localStorage.setItem('themeUnlocked-colts', true); //Unlocks colts theme
+        // localStorage.setItem('themeUnlocked-wheezer', true); //Unlocks weezeer theme
+        // localStorage.setItem('themeUnlocked-pacers', true); //Unlocks pacers theme
+
 
     themeButtons.forEach(button => {
         const theme = button.getAttribute('data-theme');
@@ -132,7 +167,7 @@ function initializeThemes(themeButtons) {
 
 function setupPuzzleAnswerCheckers() {
     document.querySelectorAll('.puzzle-answer-button').forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             const theme = button.getAttribute('data-theme');
             const part = button.getAttribute('data-part');
             const partIndex = part ? parseInt(part, 10) - 1 : 0; // Default to 0 if no part is provided
@@ -159,7 +194,7 @@ const beepBorpBoop = {
         parts: ['a bird in the hand is messy']
     },
     library: {
-        parts: ['8']
+        parts: ['8'] 
     },
     mountain: {
         parts: ['china', 'sweden', 'spain']
@@ -172,7 +207,26 @@ const beepBorpBoop = {
     },
     lebron: {
         parts: ['3']
+    },
+    deltarune:{
+        parts: ['toby fox']
+    },
+    deadlock:{
+        parts: ['neon prime']
+    },
+    weezer:{
+        parts: ['buddy holly']
+    },
+    colts:{
+        parts: ['rca dome']
+    },
+    kart:{
+        parts:['feather']
+    },
+    pacers:{
+        parts:["rik smits"]
     }
+
     // Add more themes and parts as needed
 };
 
@@ -181,10 +235,10 @@ function getCorrectAnswerForThemePart(theme, partIndex) {
     // The partIndex is expected to start from 0 for the first part
     const themeInfo = beepBorpBoop[theme];
     if (themeInfo && themeInfo.parts[partIndex] !== undefined) {
-    return themeInfo.parts[partIndex];
+        return themeInfo.parts[partIndex];
     } else {
-    console.error('No answer found for the specified theme and part index.');
-    return null; // No answer found for this theme and part
+        console.error('No answer found for the specified theme and part index.');
+        return null; // No answer found for this theme and part
     }
 }
 function attachEventListenersToThemeButtons(themeButtons) {
@@ -200,7 +254,10 @@ function attachEventListenersToThemeButtons(themeButtons) {
         });
     });
 
-    document.getElementById('reset-themes-button').addEventListener('click', resetUnlockedThemes);
+    const resetButton = document.getElementById('reset-themes-button');
+    if (resetButton) {
+        resetButton.addEventListener('click', resetUnlockedThemes);
+    }
 }
 
 function switchTheme(themeName) {
@@ -587,7 +644,7 @@ function attachEventListenerToThemeSelector() {
     }
 
     // Add event listener to close the selector if clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         const selectorMenu = document.getElementById('themes_selector');
         const puzzleModal = document.getElementById('puzzleModal');
         if (puzzleModal.style.display === 'block') return; // the puzzle closes via its own backdrop/close button
@@ -623,7 +680,7 @@ function closeSelector() {
 }
 
 function attachEventListenerToModal() {
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target === document.getElementById('puzzleModal')) {
             closePuzzle();
         }
@@ -653,7 +710,7 @@ function checkSpaceThemeUnlock() {
 }
 var chessBoard; // chessboard.js UI instance (resized when the puzzle opens)
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     game = new Chess();
     var engineThinking = false;
@@ -934,7 +991,23 @@ $(document).ready(function() {
     });
 });
 
-function initialize2048 (){
+// Game wrapper functions for the game buttons
+function startChessGame() {
+    if (typeof game !== 'undefined' && chessBoard) {
+        game.reset();
+        chessBoard.start();
+    }
+}
+
+function startMagmaGame() {
+    // Find the magma game container and click the start button
+    const startBtnMagma = document.getElementById('startBtnMagma');
+    if (startBtnMagma) {
+        startBtnMagma.click();
+    }
+}
+
+function initialize2048() {
     const container = document.getElementById('game2048-container-magma');
     let board = generateEmptyBoard();
     let won = false; // only unlock once per game
@@ -1066,10 +1139,11 @@ function initialize2048 (){
         addRandomTile(board); // Add two random tiles
         drawBoard(); // Redraw the board
     });
-
+   
     // Initialization
     addRandomTile(board);
     addRandomTile(board);
     drawBoard();
 }
+
 

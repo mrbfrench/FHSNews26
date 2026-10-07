@@ -3,9 +3,13 @@
  *
  * The schedules themselves live in data/schedules.json. Which one is active is
  * stored in data/schedule-state.json:
- *   { "default": "regular", "overrides": { "2026-10-09": "two-hour-delay" } }
+ *   { "default": "auto", "overrides": { "2026-10-09": "red-day-delay" } }
  * An override applies only on its date, so a one-day change (like a 2 hour
  * delay) switches back to the default on its own the next day.
+ *
+ * The "auto" default reads the day from the Fishers High School calendar
+ * (public/py/calendar/calendar-data): a day titled "Red Day", "Silver Day",
+ * "Block 7 Final Day", etc. uses the schedule whose calendarTitle matches.
  *
  * Changing the state requires the admin password, which is read from the
  * ADMIN_PASSWORD environment variable. If it isn't set, the admin page can't
@@ -20,6 +24,9 @@ const path = require('path');
 const DATA_DIR = path.join(__dirname, 'data');
 const SCHEDULES_FILE = path.join(DATA_DIR, 'schedules.json');
 const STATE_FILE = path.join(DATA_DIR, 'schedule-state.json');
+const CALENDAR_DIR = path.join(__dirname, 'public', 'py', 'calendar', 'calendar-data', '19-fishers-high-school');
+const AUTO = 'auto';
+const FALLBACK_SCHEDULE = 'red-day'; // a school day the calendar doesn't label
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
 // Lock out an address for 15 minutes after 5 wrong passwords
@@ -38,9 +45,8 @@ function loadState(schedules) {
     } catch (error) {
         // No state saved yet
     }
-    const firstId = Object.keys(schedules)[0];
     return {
-        default: schedules[state.default] ? state.default : firstId,
+        default: schedules[state.default] ? state.default : AUTO,
         overrides: state.overrides && typeof state.overrides === 'object' ? state.overrides : {},
     };
 }
@@ -58,10 +64,39 @@ function serverToday() {
     return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 }
 
+// Read a date's FHS calendar entries: the schedule it names (or null), and whether
+// it's marked as a day off (e.g. "Fall Break (No School)")
+function calendarDay(schedules, date) {
+    const [year, month, day] = date.split('-');
+    let events = [];
+    try {
+        const monthData = JSON.parse(fs.readFileSync(path.join(CALENDAR_DIR, `${year}-${month}.json`), 'utf8'));
+        events = monthData[String(Number(day))] || [];
+    } catch (error) {
+        return { id: null, noSchool: false }; // no calendar data for that month
+    }
+    const titles = events.map(e => (e && e.title ? e.title.trim().toLowerCase() : ''));
+    const id = Object.keys(schedules).find(key =>
+        schedules[key].calendarTitle && titles.includes(schedules[key].calendarTitle.toLowerCase())) || null;
+    return { id, noSchool: !id && titles.some(t => t.includes('no school')) };
+}
+
 function scheduleForDate(schedules, state, date) {
-    const isOverride = Boolean(schedules[state.overrides[date]]);
-    const id = isOverride ? state.overrides[date] : state.default;
-    return { id, date, isOverride, ...schedules[id] };
+    let id;
+    let source;
+    if (schedules[state.overrides[date]]) {
+        id = state.overrides[date];
+        source = 'override';
+    } else if (state.default !== AUTO) {
+        id = state.default;
+        source = 'default';
+    } else {
+        const day = calendarDay(schedules, date);
+        source = day.id ? 'calendar' : day.noSchool ? 'no-school' : 'fallback';
+        id = day.id || FALLBACK_SCHEDULE;
+    }
+    // On a day off, the periods are still sent so the clock can show the next school day's times
+    return { id, date, source, isOverride: source === 'override', noSchool: source === 'no-school', ...schedules[id] };
 }
 
 function hash(text) {
@@ -107,14 +142,30 @@ router.get('/schedule', (req, res) => {
 router.get('/admin/state', requireAdmin, (req, res) => {
     const schedules = loadSchedules();
     res.set('Cache-Control', 'no-store');
-    res.json({ schedules, state: loadState(schedules) });
+    // Also say what the next two weeks will look like, so the admin page can show it
+    const state = loadState(schedules);
+    res.json({ schedules, state, upcoming: upcomingDays(schedules, state, req.query.date) });
 });
+
+function upcomingDays(schedules, state, fromDate) {
+    const start = DATE_PATTERN.test(fromDate || '') ? fromDate : serverToday();
+    const [y, m, d] = start.split('-').map(Number);
+    const days = [];
+    for (let i = 0; i < 14; i++) {
+        const day = new Date(y, m - 1, d + i);
+        if (day.getDay() === 0 || day.getDay() === 6) continue;
+        const date = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`;
+        const { id, source } = scheduleForDate(schedules, state, date);
+        days.push({ date, id, source });
+    }
+    return days;
+}
 
 router.put('/admin/state', requireAdmin, (req, res) => {
     const schedules = loadSchedules();
     const body = req.body || {};
 
-    if (!schedules[body.default]) {
+    if (body.default !== AUTO && !schedules[body.default]) {
         return res.status(400).json({ error: 'Unknown default schedule.' });
     }
 
@@ -130,7 +181,7 @@ router.put('/admin/state', requireAdmin, (req, res) => {
 
     const state = { default: body.default, overrides };
     saveState(state);
-    res.json({ schedules, state });
+    res.json({ schedules, state, upcoming: upcomingDays(schedules, state, req.query.date) });
 });
 
 module.exports = router;
