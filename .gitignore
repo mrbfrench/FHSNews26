@@ -6,3 +6,7 @@ data/schedule-state.json.tmp
 
 # macOS folder metadata
 .DS_Store
+
+# Files the server (cPanel/Passenger) creates: restart trigger and error log
+tmp/
+stderr.log
