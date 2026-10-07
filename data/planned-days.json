@@ -1,0 +1,11 @@
+{
+    "_comment": "School days with a known special schedule. Deployed with the site; the admin page (/admin) can still override any of these.",
+    "2026-12-15": "finals-block-7",
+    "2026-12-16": "finals-blocks-1-2",
+    "2026-12-17": "finals-blocks-3-4",
+    "2026-12-18": "finals-blocks-5-6",
+    "2027-05-18": "finals-block-7",
+    "2027-05-19": "finals-blocks-1-2",
+    "2027-05-20": "finals-blocks-3-4",
+    "2027-05-21": "finals-blocks-5-6"
+}

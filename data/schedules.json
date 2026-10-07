@@ -355,16 +355,21 @@
             },
             {
                 "startTime": "08:30",
-                "endTime": "10:30",
-                "periodName": "Teacher Office Hours"
+                "endTime": "09:35",
+                "periodName": "Office Hours Block 1"
             },
             {
-                "startTime": "10:30",
-                "endTime": "11:00",
-                "periodName": "Lunch"
+                "startTime": "09:35",
+                "endTime": "09:45",
+                "periodName": "Passing Period"
             },
             {
-                "startTime": "11:00",
+                "startTime": "09:45",
+                "endTime": "11:10",
+                "periodName": "Office Hours Block 2 & Lunch"
+            },
+            {
+                "startTime": "11:10",
                 "endTime": "11:20",
                 "periodName": "Passing Period"
             },
@@ -384,8 +389,19 @@
                 "periodName": "Exam Block 2"
             }
         ],
-        "lunchPeriod": null,
-        "lunches": {}
+        "lunchPeriod": "Office Hours Block 2 & Lunch",
+        "lunches": {
+            "Upstairs": {
+                "startTime": "10:05",
+                "endTime": "10:35",
+                "periodName": "Upstairs Lunch"
+            },
+            "Downstairs": {
+                "startTime": "10:40",
+                "endTime": "11:10",
+                "periodName": "Downstairs Lunch"
+            }
+        }
     },
     "finals-blocks-3-4": {
         "name": "Block 3 & 4 Final Day",
@@ -398,16 +414,21 @@
             },
             {
                 "startTime": "08:30",
-                "endTime": "10:30",
-                "periodName": "Teacher Office Hours"
+                "endTime": "09:35",
+                "periodName": "Office Hours Block 3"
             },
             {
-                "startTime": "10:30",
-                "endTime": "11:00",
-                "periodName": "Lunch"
+                "startTime": "09:35",
+                "endTime": "09:45",
+                "periodName": "Passing Period"
             },
             {
-                "startTime": "11:00",
+                "startTime": "09:45",
+                "endTime": "11:10",
+                "periodName": "Office Hours Block 4 & Lunch"
+            },
+            {
+                "startTime": "11:10",
                 "endTime": "11:20",
                 "periodName": "Passing Period"
             },
@@ -427,8 +448,19 @@
                 "periodName": "Exam Block 4"
             }
         ],
-        "lunchPeriod": null,
-        "lunches": {}
+        "lunchPeriod": "Office Hours Block 4 & Lunch",
+        "lunches": {
+            "Upstairs": {
+                "startTime": "10:05",
+                "endTime": "10:35",
+                "periodName": "Upstairs Lunch"
+            },
+            "Downstairs": {
+                "startTime": "10:40",
+                "endTime": "11:10",
+                "periodName": "Downstairs Lunch"
+            }
+        }
     },
     "finals-blocks-5-6": {
         "name": "Block 5 & 6 Final Day",
@@ -441,16 +473,21 @@
             },
             {
                 "startTime": "08:30",
-                "endTime": "10:30",
-                "periodName": "Teacher Office Hours"
+                "endTime": "09:35",
+                "periodName": "Office Hours Block 5"
             },
             {
-                "startTime": "10:30",
-                "endTime": "11:00",
-                "periodName": "Lunch"
+                "startTime": "09:35",
+                "endTime": "09:45",
+                "periodName": "Passing Period"
             },
             {
-                "startTime": "11:00",
+                "startTime": "09:45",
+                "endTime": "11:10",
+                "periodName": "Office Hours Block 6 & Lunch"
+            },
+            {
+                "startTime": "11:10",
                 "endTime": "11:20",
                 "periodName": "Passing Period"
             },
@@ -470,8 +507,19 @@
                 "periodName": "Exam Block 6"
             }
         ],
-        "lunchPeriod": null,
-        "lunches": {}
+        "lunchPeriod": "Office Hours Block 6 & Lunch",
+        "lunches": {
+            "Upstairs": {
+                "startTime": "10:05",
+                "endTime": "10:35",
+                "periodName": "Upstairs Lunch"
+            },
+            "Downstairs": {
+                "startTime": "10:40",
+                "endTime": "11:10",
+                "periodName": "Downstairs Lunch"
+            }
+        }
     },
     "finals-block-7": {
         "name": "Block 7 Final Day",
@@ -484,21 +532,26 @@
             },
             {
                 "startTime": "08:30",
-                "endTime": "10:00",
+                "endTime": "09:46",
                 "periodName": "Period 5"
             },
             {
-                "startTime": "10:00",
-                "endTime": "10:08",
+                "startTime": "09:46",
+                "endTime": "09:54",
                 "periodName": "Passing Period"
             },
             {
-                "startTime": "10:08",
-                "endTime": "11:38",
+                "startTime": "09:54",
+                "endTime": "11:10",
                 "periodName": "Period 6"
             },
             {
-                "startTime": "11:38",
+                "startTime": "11:10",
+                "endTime": "11:18",
+                "periodName": "Passing Period"
+            },
+            {
+                "startTime": "11:18",
                 "endTime": "13:08",
                 "periodName": "Period 7 & Lunch"
             },
@@ -516,18 +569,18 @@
         "lunchPeriod": "Period 7 & Lunch",
         "lunches": {
             "A": {
-                "startTime": "11:38",
-                "endTime": "12:08",
+                "startTime": "11:35",
+                "endTime": "12:05",
                 "periodName": "A Lunch"
             },
             "B": {
-                "startTime": "12:08",
-                "endTime": "12:38",
+                "startTime": "12:05",
+                "endTime": "12:35",
                 "periodName": "B Lunch"
             },
             "C": {
-                "startTime": "12:38",
-                "endTime": "13:08",
+                "startTime": "12:35",
+                "endTime": "13:05",
                 "periodName": "C Lunch"
             }
         }

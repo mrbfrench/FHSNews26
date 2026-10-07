@@ -23,6 +23,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CALENDAR_DIR = path.join(__dirname, '..', 'public', 'py', 'calendar');
+const SCHEDULE_DATA_DIR = path.join(__dirname, '..', 'data'); // bell schedules and planned days (finals)
 const DATA_DIR = path.join(CALENDAR_DIR, 'calendar-data');
 const REQUEST_DELAY_MS = 250; // be polite to the school servers
 const USER_AGENT = 'FHS News calendar updater';
@@ -154,7 +155,7 @@ const MONTH_NUMBERS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, 
 
 // Varsity teams only: skip JV and freshman squads like "Soccer (Girls JV1)" or "Football (F)"
 function isVarsity(team) {
-    return !/\b(JV\d*|F)\)/.test(team);
+    return !/\b(JV ?\d*|F)\)/.test(team);
 }
 
 // Read varsity home games for the school year from the EventLink athletics site.
@@ -193,6 +194,7 @@ async function fetchSports(site, startYear) {
             const time = timeMatch ? timeMatch[1] + timeMatch[2].toLowerCase() : (when[1] || null);
 
             const opponent = details[0] || '';
+            if (/(^|: )JV\b/.test(opponent)) continue; // JV games inside a tournament entry
             months[yearMonth] = months[yearMonth] || {};
             (months[yearMonth][day] = months[yearMonth][day] || []).push({
                 title: `${decodeHtml(team[1])}${opponent ? ': ' + opponent : ''} (Home)`,
@@ -236,8 +238,25 @@ function addRecurringEvents(months, school) {
     }
 }
 
-// Mark school days as alternating Red Day / Silver Day, starting on the first day of school
+// Special days from data/planned-days.json (e.g. finals), as { "YYYY-MM-DD": "Schedule Name" }
+function plannedDayNames() {
+    try {
+        const schedules = JSON.parse(fs.readFileSync(path.join(SCHEDULE_DATA_DIR, 'schedules.json'), 'utf8'));
+        const planned = JSON.parse(fs.readFileSync(path.join(SCHEDULE_DATA_DIR, 'planned-days.json'), 'utf8'));
+        const names = {};
+        for (const [date, id] of Object.entries(planned)) {
+            if (schedules[id]) names[date] = schedules[id].calendarTitle || schedules[id].name;
+        }
+        return names;
+    } catch (error) {
+        return {};
+    }
+}
+
+// Mark school days as alternating Red Day / Silver Day, starting on the first day of school.
+// Planned days (finals) get their schedule's name instead and don't count in the rotation.
 function addRedSilverDays(months) {
+    const planned = plannedDayNames();
     let color = null;
     for (const yearMonth of Object.keys(months).sort()) {
         const [year, month] = yearMonth.split('-').map(Number);
@@ -247,6 +266,11 @@ function addRedSilverDays(months) {
             if (weekday === 0 || weekday === 6) continue;
 
             const events = months[yearMonth][day] || [];
+            const date = `${yearMonth}-${String(day).padStart(2, '0')}`;
+            if (planned[date]) {
+                months[yearMonth][day] = [{ title: planned[date], time: null, location: null }].concat(events);
+                continue;
+            }
             const titles = events.map(e => e.title.toLowerCase());
             if (titles.some(t => t.includes('first day of school'))) color = 'Red Day';
             if (titles.some(t => LAST_DAY_TITLES.some(l => t.includes(l)))) {

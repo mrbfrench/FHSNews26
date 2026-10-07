@@ -44,16 +44,6 @@
             "title": "Spring Break (No School) 🏖️",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 2): Zionsville Community High School (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
-            "title": "Baseball (JV 1): Zionsville (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
         }
     ],
     "9": [
@@ -70,19 +60,9 @@
     ],
     "10": [
         {
-            "title": "Baseball (JV 2): Pendleton Heights High School (Home)",
-            "time": "11:00am",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
             "title": "Baseball (V): Mt Vernon High School (Fortville) (Home)",
             "time": "11:00am",
             "location": "Fishers (FHS-AT-BaseballV)"
-        },
-        {
-            "title": "Baseball (JV 2): Pendleton Heights High School (Home)",
-            "time": "1:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
         },
         {
             "title": "Baseball (V): Mt Vernon High School (Fortville) (Home)",
@@ -119,16 +99,6 @@
             "title": "Silver Day",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 2): Noblesville High School (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
-            "title": "Baseball (JV 1): Noblesville (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
         },
         {
             "title": "Volleyball (Boys V): Cathedral High School (Home)",
@@ -242,21 +212,6 @@
             "location": "Fishers High School"
         },
         {
-            "title": "Baseball (JV 1): Noblesville (Home)",
-            "time": "11:00am",
-            "location": "Fishers High School"
-        },
-        {
-            "title": "Baseball (JV 2): Kokomo High School (Home)",
-            "time": "11:00am",
-            "location": "Fishers High School"
-        },
-        {
-            "title": "Baseball (JV 2): Kokomo High School (Home)",
-            "time": "1:00pm",
-            "location": "Fishers High School"
-        },
-        {
             "title": "Lacrosse (Girls V): Warren Central High School (Home)",
             "time": "2:00pm",
             "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
@@ -323,16 +278,6 @@
             "title": "Tennis (Girls V): Avon High School (Home)",
             "time": "6:00pm",
             "location": "Fishers High School (FHS-AT-Tennis Courts 1-6)"
-        },
-        {
-            "title": "Baseball (JV 2): Westfield High School (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
-            "title": "Baseball (JV 1): Westfield (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
         },
         {
             "title": "Track (Boys V): Carmel High School (Home)",
@@ -423,16 +368,6 @@
             "title": "Track (Unified V): Hamilton Heights, Noblesville (Home)",
             "time": "5:30pm",
             "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
-        },
-        {
-            "title": "Baseball (JV 1): Hamilton Southeastern (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        },
-        {
-            "title": "Baseball (JV 2): Hamilton Southeastern Royals (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
         }
     ],
     "30": [

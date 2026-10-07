@@ -403,6 +403,7 @@ function buildLunchButtons() {
         button.className = "container hover lunch-btn" + (letter === selectedLunchType ? " selected" : "");
         button.style.width = `${100 / letters.length}%`;
         button.textContent = letter;
+        if (letter.length > 1) button.style.fontSize = "1.4em"; // words like "Downstairs" instead of A-D
         button.addEventListener("click", () => chooseLunch(letter, button));
         container.appendChild(button);
     });

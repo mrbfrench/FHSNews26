@@ -1,15 +1,167 @@
 {
     "1": [
         {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
             "title": "Golf (Boys V): Fishers Invitational (Home)",
             "time": "12:30pm",
             "location": "Purgatory GC"
+        }
+    ],
+    "2": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "3": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "4": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "9": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "10": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "14": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "15": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "16": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "17": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
         }
     ],
     "19": [
         {
             "title": "Juneteenth",
             "time": "All Day",
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "22": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "25": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "28": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "29": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "30": [
+        {
+            "title": "Red Day",
+            "time": null,
             "location": null
         }
     ]

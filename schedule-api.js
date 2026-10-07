@@ -7,6 +7,9 @@
  * An override applies only on its date, so a one-day change (like a 2 hour
  * delay) switches back to the default on its own the next day.
  *
+ * data/planned-days.json lists known special days (like finals) by date. It's
+ * deployed with the site, and an override from the admin page still wins.
+ *
  * The "auto" default reads the day from the Fishers High School calendar
  * (public/py/calendar/calendar-data): a day titled "Red Day", "Silver Day",
  * "Block 7 Final Day", etc. uses the schedule whose calendarTitle matches.
@@ -24,6 +27,7 @@ const path = require('path');
 const DATA_DIR = path.join(__dirname, 'data');
 const SCHEDULES_FILE = path.join(DATA_DIR, 'schedules.json');
 const STATE_FILE = path.join(DATA_DIR, 'schedule-state.json');
+const PLANNED_FILE = path.join(DATA_DIR, 'planned-days.json');
 const CALENDAR_DIR = path.join(__dirname, 'public', 'py', 'calendar', 'calendar-data', '19-fishers-high-school');
 const AUTO = 'auto';
 const FALLBACK_SCHEDULE = 'red-day'; // a school day the calendar doesn't label
@@ -49,6 +53,14 @@ function loadState(schedules) {
         default: schedules[state.default] ? state.default : AUTO,
         overrides: state.overrides && typeof state.overrides === 'object' ? state.overrides : {},
     };
+}
+
+function loadPlannedDays() {
+    try {
+        return JSON.parse(fs.readFileSync(PLANNED_FILE, 'utf8'));
+    } catch (error) {
+        return {};
+    }
 }
 
 function saveState(state) {
@@ -84,9 +96,13 @@ function calendarDay(schedules, date) {
 function scheduleForDate(schedules, state, date) {
     let id;
     let source;
+    const planned = loadPlannedDays()[date];
     if (schedules[state.overrides[date]]) {
         id = state.overrides[date];
         source = 'override';
+    } else if (schedules[planned]) {
+        id = planned;
+        source = 'planned';
     } else if (state.default !== AUTO) {
         id = state.default;
         source = 'default';

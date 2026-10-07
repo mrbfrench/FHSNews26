@@ -1,16 +1,6 @@
 {
     "1": [
         {
-            "title": "Baseball (JV 2): Carmel High School (Home)",
-            "time": "10:00am",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        },
-        {
-            "title": "Baseball (JV 2): Carmel High School (Home)",
-            "time": "12:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        },
-        {
             "title": "Lacrosse (Girls V): Hamilton Southeastern High School (Home)",
             "time": "2:00pm",
             "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
@@ -21,11 +11,6 @@
             "title": "Red Day",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 1): Carmel (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School"
         },
         {
             "title": "Lacrosse (Girls V): Heritage Christian (Home)",
@@ -79,16 +64,6 @@
             "location": null
         },
         {
-            "title": "Baseball (JV 1): Avon (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        },
-        {
-            "title": "Baseball (JV 2): Avon High School (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
             "title": "Volleyball (Boys V): Avon High School (Home)",
             "time": "7:30pm",
             "location": "Fishers High School (FHS-AT-Gym Main)"
@@ -99,23 +74,6 @@
             "title": "Red Day",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 1): Lafayette Jeff (Home)",
-            "time": "6:30pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        }
-    ],
-    "8": [
-        {
-            "title": "Baseball (JV 2): Harrison (WL) (Home)",
-            "time": "12:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        },
-        {
-            "title": "Baseball (JV 2): Harrison (WL) (Home)",
-            "time": "2:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
         }
     ],
     "10": [
@@ -130,11 +88,6 @@
             "title": "Red Day",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 1): New Palestine (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School"
         },
         {
             "title": "Softball (V): Franklin Central High School (Home)",
@@ -164,16 +117,6 @@
             "title": "Red Day",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 2): Franklin Central High School (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
-            "title": "Baseball (JV 1): Franklin Central (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
         },
         {
             "title": "Volleyball (Boys V): IHSAA Sectional (Home)",
@@ -210,11 +153,6 @@
             "location": "Fishers High School (FHS-AT-Gym Main)"
         },
         {
-            "title": "Baseball (JV 1): Lawrence North (Home)",
-            "time": "11:00am",
-            "location": "Fishers High School (FHS-AT-BaseballV)"
-        },
-        {
             "title": "Volleyball (Boys V): IHSAA Sectional Championship (Home)",
             "time": "7:00pm",
             "location": "Fishers High School (FHS-AT-Gym Main)"
@@ -239,26 +177,16 @@
     ],
     "18": [
         {
-            "title": "Silver Day",
+            "title": "Block 7 Final Day",
             "time": null,
             "location": null
         }
     ],
     "19": [
         {
-            "title": "Red Day",
+            "title": "Block 1 & 2 Final Day",
             "time": null,
             "location": null
-        },
-        {
-            "title": "Baseball (JV 2): Brownsburg High School (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School"
-        },
-        {
-            "title": "Baseball (JV 1): Brownsburg (Home)",
-            "time": "6:00pm",
-            "location": "Fishers High School"
         },
         {
             "title": "Softball (V): Cathedral (Home)",
@@ -268,7 +196,7 @@
     ],
     "20": [
         {
-            "title": "Silver Day",
+            "title": "Block 3 & 4 Final Day",
             "time": null,
             "location": null
         },
@@ -285,31 +213,62 @@
     ],
     "21": [
         {
+            "title": "Block 5 & 6 Final Day",
+            "time": null,
+            "location": null
+        },
+        {
             "title": "Last Day for Students",
             "time": null,
             "location": null
         }
     ],
-    "22": [
-        {
-            "title": "Baseball (JV 2): Hamilton County/HCC Tournament (Home)",
-            "time": "10:00am",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        },
-        {
-            "title": "Baseball (JV 2): Hamilton County/HCC Tournament (Home)",
-            "time": "12:00pm",
-            "location": "Fishers High School (FHS-AT-BaseballJV)"
-        }
-    ],
     "24": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
         {
             "title": "Last Day for Teachers (Half Day)",
             "time": null,
             "location": null
         }
     ],
+    "25": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "27": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "28": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
     "31": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
         {
             "title": "Memorial Day",
             "time": "All Day",
