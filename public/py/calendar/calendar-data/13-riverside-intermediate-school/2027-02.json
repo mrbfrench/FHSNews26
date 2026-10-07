@@ -1,0 +1,125 @@
+{
+    "1": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "6th Grade Girls Basketball Game at Maxwell🏀",
+            "time": "5:30pm",
+            "location": "Maxwell"
+        }
+    ],
+    "5": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "6th Grade Girls Basketball Game vs Hamilton Heights🏀",
+            "time": null,
+            "location": "RSI Gym"
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "9": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm",
+            "location": "Media Center"
+        }
+    ],
+    "11": [
+        {
+            "title": "6th Grade Girls Basketball Game vs SCI🏀",
+            "time": "5:30pm",
+            "location": "RSI Gym"
+        }
+    ],
+    "12": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "14": [
+        {
+            "title": "Valentine's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "15": [
+        {
+            "title": "President's Day (No School) 🎩",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Presidents' Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "6th Grade Girls Basketball Game vs FCI🏀",
+            "time": "5:30pm",
+            "location": "RSI Gym"
+        }
+    ],
+    "19": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "20": [
+        {
+            "title": "6th Grade Girls Basketball District Tournament🏀",
+            "time": "9:00am",
+            "location": "HIJ"
+        }
+    ],
+    "22": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Best Buddies",
+            "time": "4:00pm - 5:00pm",
+            "location": "Cafeteria"
+        }
+    ],
+    "26": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ]
+}

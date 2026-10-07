@@ -1,0 +1,56 @@
+{
+    "7": [
+        {
+            "title": "Block Party",
+            "time": "5:30pm - 7:30pm",
+            "location": null
+        }
+    ],
+    "10": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm - 7:30pm",
+            "location": "SES Cafeteria"
+        }
+    ],
+    "20": [
+        {
+            "title": "Field Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "4th Grade Celebration",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Report Cards Posted (4th Quarter/2nd Semester)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

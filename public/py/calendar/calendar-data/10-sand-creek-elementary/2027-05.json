@@ -1,0 +1,44 @@
+{
+    "4": [
+        {
+            "title": "1st Grade Field Trip",
+            "time": null,
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "First Friday 👕",
+            "time": null,
+            "location": null
+        }
+    ],
+    "14": [
+        {
+            "title": "Field Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "4": [
+        {
+            "title": "All Pro Dads",
+            "time": "7:00am",
+            "location": "Hoosier Road Elementary Cafeteria"
+        },
+        {
+            "title": "Student Council Meeting",
+            "time": "2:10pm - 3:15pm",
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

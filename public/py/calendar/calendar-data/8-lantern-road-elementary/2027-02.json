@@ -1,0 +1,68 @@
+{
+    "1": [
+        {
+            "title": "4th Grade Math Bowl",
+            "time": "2:15pm - 3:15pm",
+            "location": "E105-Mr. Stage's room"
+        }
+    ],
+    "8": [
+        {
+            "title": "4th Grade Math Bowl",
+            "time": "2:15pm - 3:15pm",
+            "location": "E105-Mr. Stage's room"
+        },
+        {
+            "title": "Student Council meeting",
+            "time": "2:15pm - 3:15pm",
+            "location": "A101 Mrs. Bean's classrom"
+        }
+    ],
+    "14": [
+        {
+            "title": "Valentine's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "15": [
+        {
+            "title": "President's Day (No School) 🎩",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Presidents' Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "17": [
+        {
+            "title": "4th Grade Math Bowl",
+            "time": "2:15pm - 3:15pm",
+            "location": "E105-Mr. Stage's room"
+        }
+    ],
+    "22": [
+        {
+            "title": "4th Grade Math Bowl",
+            "time": "2:15pm - 3:15pm",
+            "location": "E105-Mr. Stage's room"
+        }
+    ],
+    "24": [
+        {
+            "title": "4th Grade field trip--Stage, Shahnavaz",
+            "time": "9:30am - 1:30pm",
+            "location": "Conner Prairie"
+        }
+    ],
+    "25": [
+        {
+            "title": "4th Grade field trip--Holt, Pedersen",
+            "time": "9:30am - 1:30pm",
+            "location": "Conner Prairie"
+        }
+    ]
+}

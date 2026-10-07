@@ -1,0 +1,99 @@
+{
+    "2": [
+        {
+            "title": "Mudsock Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        }
+    ],
+    "6": [
+        {
+            "title": "Veterans Day Program",
+            "time": "9:00am - 10:00am",
+            "location": "SES Gym"
+        },
+        {
+            "title": "International Festival",
+            "time": "6:00pm - 8:00pm",
+            "location": "LGI Space"
+        }
+    ],
+    "9": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm - 7:30pm",
+            "location": "SES Cafeteria"
+        }
+    ],
+    "11": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "Veterans Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Picture Retakes",
+            "time": null,
+            "location": null
+        }
+    ],
+    "13": [
+        {
+            "title": "Glow Party: Grades 1 & 2",
+            "time": "5:00pm - 6:30pm",
+            "location": "SES Gym"
+        },
+        {
+            "title": "Glow Party: Grades 3 & 4",
+            "time": "7:00pm - 8:30pm",
+            "location": "SES Gym"
+        }
+    ],
+    "16": [
+        {
+            "title": "State Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        }
+    ],
+    "18": [
+        {
+            "title": "Book Fair Family Night",
+            "time": "4:30pm - 6:30pm",
+            "location": "SES Gym"
+        }
+    ],
+    "25": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Thanksgiving Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ],
+    "27": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ]
+}

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Bell Schedule Admin</title>
+    <link rel="shortcut icon" type="image/ico" href="/img/favicon.ico">
+    <style>
+        :root {
+            --red: #d50000;
+            --red-dark: #a00000;
+            --ink: #1d1d1f;
+            --muted: #6b6b70;
+            --line: #dedee3;
+            --bg: #f2f2f5;
+            --card: #ffffff;
+            --ok: #1b7f3b;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+        }
+
+        header {
+            background: var(--red);
+            color: white;
+            padding: 16px;
+            text-align: center;
+        }
+
+        header h1 { margin: 0; font-size: 1.5rem; }
+        header a { color: white; font-size: 0.9rem; }
+
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .card h2 { margin: 0 0 4px; font-size: 1.15rem; }
+        .hint { margin: 0 0 12px; color: var(--muted); font-size: 0.9rem; }
+
+        label { display: block; font-weight: 600; margin: 8px 0 4px; }
+
+        input, select, button {
+            font: inherit;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+        }
+
+        input, select { width: 100%; background: white; }
+
+        button {
+            background: var(--red);
+            color: white;
+            border-color: var(--red);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover { background: var(--red-dark); }
+        button:disabled { opacity: 0.6; cursor: default; }
+        button.secondary { background: white; color: var(--ink); border-color: var(--line); }
+        button.secondary:hover { background: var(--bg); }
+
+        .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: end; }
+        .row > * { flex: 1 1 160px; }
+        .row > button { flex: 0 0 auto; }
+
+        /* One button per schedule for today */
+        .choices { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 8px; }
+        .choice {
+            text-align: left;
+            background: white;
+            color: var(--ink);
+            border: 2px solid var(--line);
+        }
+        .choice:hover { background: var(--bg); }
+        .choice.active { border-color: var(--red); background: #fff1f1; }
+        .choice small { display: block; color: var(--muted); font-weight: 400; margin-top: 2px; }
+
+        .today-status { font-size: 1.05rem; margin: 0 0 12px; }
+        .today-status strong { color: var(--red); }
+
+        ul.plans { list-style: none; margin: 8px 0 0; padding: 0; }
+        ul.plans li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            border-top: 1px solid var(--line);
+        }
+        ul.plans li button { padding: 6px 10px; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+        th, td { text-align: left; padding: 6px 4px; border-top: 1px solid var(--line); }
+        th { color: var(--muted); font-weight: 600; }
+        .table-wrap { overflow-x: auto; }
+
+        #message {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            margin: 0 0 16px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        #message.ok { background: #e3f5e8; color: var(--ok); }
+        #message.error { background: #fde7e7; color: var(--red-dark); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bell Schedule Admin</h1>
+        <a href="/">Back to the site</a>
+    </header>
+
+    <main>
+        <p id="message" hidden></p>
+
+        <!-- Sign in -->
+        <section class="card" id="login">
+            <h2>Sign in</h2>
+            <p class="hint">Enter the admin password to change the bell schedule for everyone.</p>
+            <form id="login-form" class="row">
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" autocomplete="current-password" required>
+                </div>
+                <button type="submit">Sign in</button>
+            </form>
+        </section>
+
+        <div id="panel" hidden>
+            <!-- Today -->
+            <section class="card">
+                <h2 id="today-heading">Today</h2>
+                <p class="today-status" id="today-status"></p>
+                <p class="hint">Pick today's schedule. It goes back to the default schedule automatically tomorrow.</p>
+                <div class="choices" id="today-choices"></div>
+            </section>
+
+            <!-- Plan ahead -->
+            <section class="card">
+                <h2>Plan a day</h2>
+                <p class="hint">Set the schedule for a future date, like a known 2 hour delay or finals day.</p>
+                <form id="plan-form" class="row">
+                    <div>
+                        <label for="plan-date">Date</label>
+                        <input type="date" id="plan-date" required>
+                    </div>
+                    <div>
+                        <label for="plan-schedule">Schedule</label>
+                        <select id="plan-schedule"></select>
+                    </div>
+                    <button type="submit">Add</button>
+                </form>
+                <ul class="plans" id="plans"></ul>
+            </section>
+
+            <!-- Default -->
+            <section class="card">
+                <h2>Default schedule</h2>
+                <p class="hint">Used on every school day that doesn't have its own schedule set above.</p>
+                <form id="default-form" class="row">
+                    <div>
+                        <label for="default-schedule">Schedule</label>
+                        <select id="default-schedule"></select>
+                    </div>
+                    <button type="submit">Save</button>
+                </form>
+            </section>
+
+            <!-- Preview -->
+            <section class="card">
+                <h2>Preview</h2>
+                <label for="preview-schedule">Schedule</label>
+                <select id="preview-schedule"></select>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Period</th><th>Start</th><th>End</th></tr></thead>
+                        <tbody id="preview-body"></tbody>
+                    </table>
+                </div>
+                <p class="hint" id="preview-lunches"></p>
+            </section>
+
+            <button class="secondary" id="sign-out">Sign out</button>
+        </div>
+    </main>
+
+    <script>
+        var schedules = {};
+        var state = { default: null, overrides: {} };
+        var password = '';
+        try { password = sessionStorage.getItem('adminPassword') || ''; } catch (e) {}
+
+        function $(id) { return document.getElementById(id); }
+
+        function localDate(date) {
+            return date.getFullYear() + '-' + String(date.getMonth() + 1).padStart(2, '0') + '-' + String(date.getDate()).padStart(2, '0');
+        }
+
+        function prettyDate(isoDate) {
+            var parts = isoDate.split('-').map(Number);
+            return new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+        }
+
+        // "13:24" -> "1:24 PM"
+        function prettyTime(time) {
+            var parts = time.split(':').map(Number);
+            return (parts[0] % 12 || 12) + ':' + String(parts[1]).padStart(2, '0') + (parts[0] >= 12 ? ' PM' : ' AM');
+        }
+
+        function showMessage(text, isError) {
+            var box = $('message');
+            box.textContent = text;
+            box.className = isError ? 'error' : 'ok';
+            box.hidden = false;
+            clearTimeout(showMessage.timer);
+            if (!isError) showMessage.timer = setTimeout(function () { box.hidden = true; }, 4000);
+        }
+
+        function api(method, body) {
+            return fetch('/api/admin/state', {
+                method: method,
+                headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
+                body: body ? JSON.stringify(body) : undefined,
+                cache: 'no-store'
+            }).then(function (response) {
+                return response.json().catch(function () { return {}; }).then(function (data) {
+                    if (!response.ok) {
+                        var error = new Error(data.error || 'Something went wrong (' + response.status + ').');
+                        error.status = response.status;
+                        throw error;
+                    }
+                    return data;
+                });
+            });
+        }
+
+        function fillSelect(select, selected) {
+            select.innerHTML = '';
+            Object.keys(schedules).forEach(function (id) {
+                var option = document.createElement('option');
+                option.value = id;
+                option.textContent = schedules[id].name;
+                option.selected = id === selected;
+                select.appendChild(option);
+            });
+        }
+
+        function render() {
+            var today = localDate(new Date());
+            var todayId = state.overrides[today] || state.default;
+
+            // Today
+            $('today-heading').textContent = 'Today: ' + prettyDate(today);
+            $('today-status').innerHTML = '';
+            $('today-status').append('The site is showing ');
+            var name = document.createElement('strong');
+            name.textContent = schedules[todayId].name;
+            $('today-status').append(name, state.overrides[today] ? ' (set for today only).' : ' (the default).');
+
+            var choices = $('today-choices');
+            choices.innerHTML = '';
+            Object.keys(schedules).forEach(function (id) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'choice' + (id === todayId ? ' active' : '');
+                button.textContent = schedules[id].name;
+                var periods = schedules[id].periods;
+                var small = document.createElement('small');
+                small.textContent = prettyTime(periods[0].startTime) + ' – ' + prettyTime(periods[periods.length - 1].endTime);
+                button.appendChild(small);
+                button.addEventListener('click', function () { setDay(today, id); });
+                choices.appendChild(button);
+            });
+
+            // Planned days (today and later)
+            var plans = $('plans');
+            plans.innerHTML = '';
+            var dates = Object.keys(state.overrides).filter(function (d) { return d >= today; }).sort();
+            if (dates.length === 0) {
+                var empty = document.createElement('li');
+                empty.textContent = 'No days planned.';
+                plans.appendChild(empty);
+            }
+            dates.forEach(function (date) {
+                var item = document.createElement('li');
+                var text = document.createElement('span');
+                text.textContent = prettyDate(date) + ': ' + schedules[state.overrides[date]].name;
+                var remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'secondary';
+                remove.textContent = 'Remove';
+                remove.addEventListener('click', function () { setDay(date, null); });
+                item.append(text, remove);
+                plans.appendChild(item);
+            });
+
+            fillSelect($('default-schedule'), state.default);
+            if (!$('plan-schedule').options.length) fillSelect($('plan-schedule'), Object.keys(schedules)[1]);
+            if (!$('preview-schedule').options.length) fillSelect($('preview-schedule'), todayId);
+            renderPreview();
+        }
+
+        function renderPreview() {
+            var schedule = schedules[$('preview-schedule').value];
+            var body = $('preview-body');
+            body.innerHTML = '';
+            schedule.periods.forEach(function (period) {
+                var row = document.createElement('tr');
+                [period.periodName, prettyTime(period.startTime), prettyTime(period.endTime)].forEach(function (value) {
+                    var cell = document.createElement('td');
+                    cell.textContent = value;
+                    row.appendChild(cell);
+                });
+                body.appendChild(row);
+            });
+            var lunches = Object.keys(schedule.lunches || {});
+            $('preview-lunches').textContent = lunches.length
+                ? 'Lunches during ' + schedule.lunchPeriod + ': ' + lunches.map(function (l) {
+                    return l + ' ' + prettyTime(schedule.lunches[l].startTime) + '–' + prettyTime(schedule.lunches[l].endTime);
+                }).join(', ')
+                : 'No lunch waves on this schedule.';
+        }
+
+        function save(newState, successText) {
+            document.querySelectorAll('#panel button').forEach(function (b) { b.disabled = true; });
+            return api('PUT', newState)
+                .then(function (data) {
+                    schedules = data.schedules;
+                    state = data.state;
+                    render();
+                    showMessage(successText);
+                })
+                .catch(handleError)
+                .finally(function () {
+                    document.querySelectorAll('#panel button').forEach(function (b) { b.disabled = false; });
+                });
+        }
+
+        // Set (or with id = null, clear) the schedule for one date
+        function setDay(date, id) {
+            var overrides = Object.assign({}, state.overrides);
+            if (id && id !== state.default) overrides[date] = id;
+            else delete overrides[date];
+            var label = id ? schedules[id].name : schedules[state.default].name + ' (default)';
+            save({ default: state.default, overrides: overrides }, prettyDate(date) + ' is now ' + label + '.');
+        }
+
+        function handleError(error) {
+            if (error.status === 401) signOut();
+            showMessage(error.message, true);
+        }
+
+        function signIn() {
+            return api('GET').then(function (data) {
+                schedules = data.schedules;
+                state = data.state;
+                try { sessionStorage.setItem('adminPassword', password); } catch (e) {}
+                $('login').hidden = true;
+                $('panel').hidden = false;
+                $('plan-date').min = localDate(new Date());
+                render();
+            });
+        }
+
+        function signOut() {
+            password = '';
+            try { sessionStorage.removeItem('adminPassword'); } catch (e) {}
+            $('panel').hidden = true;
+            $('login').hidden = false;
+            $('password').value = '';
+        }
+
+        $('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            password = $('password').value;
+            $('message').hidden = true;
+            signIn().catch(handleError);
+        });
+
+        $('plan-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var date = $('plan-date').value;
+            if (!date) return;
+            setDay(date, $('plan-schedule').value);
+        });
+
+        $('default-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var id = $('default-schedule').value;
+            var overrides = {};
+            // Days set to the new default don't need their own entry anymore
+            Object.keys(state.overrides).forEach(function (d) { if (state.overrides[d] !== id) overrides[d] = state.overrides[d]; });
+            save({ default: id, overrides: overrides }, 'Default schedule is now ' + schedules[id].name + '.');
+        });
+
+        $('preview-schedule').addEventListener('change', renderPreview);
+        $('sign-out').addEventListener('click', signOut);
+
+        // Stay signed in for this browser tab
+        if (password) signIn().catch(handleError);
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+{
+    "3": [
+        {
+            "title": "Open House 🏫",
+            "time": "4:30pm - 6:00pm",
+            "location": "FCI"
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Falcon Family Connection (5th Grade)",
+            "time": "5:30pm - 6:15pm",
+            "location": "FCI"
+        },
+        {
+            "title": "Falcon Family Connection (Related Arts)",
+            "time": "6:30pm - 7:00pm",
+            "location": "FCI"
+        },
+        {
+            "title": "Falcon Family Connection (6th Grade)",
+            "time": "7:15pm - 8:00pm",
+            "location": "FCI"
+        }
+    ],
+    "12": [
+        {
+            "title": "NWEA Testing - Reading",
+            "time": "9:15am - 11:15am",
+            "location": null
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "13": [
+        {
+            "title": "NWEA Testing - Math",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "19": [
+        {
+            "title": "Picture Day",
+            "time": "9:00am - 12:00pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ]
+}

@@ -1,0 +1,206 @@
+{
+    "2": [
+        {
+            "title": "Mudsock Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        },
+        {
+            "title": "Spell Bowl Practice",
+            "time": "8:10am - 9:00am",
+            "location": "Room 667"
+        }
+    ],
+    "6": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "9": [
+        {
+            "title": "Nature Club 🦋",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        },
+        {
+            "title": "6th Grade Boys Basketball Game vs Pendleton 🏀",
+            "time": "5:30pm",
+            "location": "RSI Gym"
+        }
+    ],
+    "10": [
+        {
+            "title": "PTO Meeting",
+            "time": null,
+            "location": "Media Center"
+        }
+    ],
+    "11": [
+        {
+            "title": "6th Grade Boys Basketball Game vs Mt Vernon 🏀",
+            "time": "5:30pm",
+            "location": "RSI Gym"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "Veterans Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        },
+        {
+            "title": "Leader in Me 🧭",
+            "time": "8:10am - 8:55am",
+            "location": null
+        },
+        {
+            "title": "Spell Bowl Practice",
+            "time": "8:10am - 9:00am",
+            "location": "Room 667"
+        },
+        {
+            "title": "6th Grade Boys Basketball Game vs FCI 🏀",
+            "time": "5:30pm",
+            "location": "RSI Gym"
+        }
+    ],
+    "13": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "16": [
+        {
+            "title": "State Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "6th Grade Boys Basketball Game at SCI 🏀",
+            "time": null,
+            "location": "SCI"
+        },
+        {
+            "title": "Best Buddies Friendsgiving 🦃",
+            "time": "6:00pm - 7:00pm",
+            "location": "Cafeteria"
+        }
+    ],
+    "19": [
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        }
+    ],
+    "20": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "6th Grade Boys Basketball Game vs HIJ 🏀",
+            "time": null,
+            "location": "RSI Gym"
+        },
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "8:10am - 9:00am",
+            "location": null
+        }
+    ],
+    "25": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Thanksgiving Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ],
+    "27": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ],
+    "30": [
+        {
+            "title": "Choir Rehearsal🎵",
+            "time": "7:30am - 9:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ]
+}

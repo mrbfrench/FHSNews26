@@ -1,0 +1,44 @@
+{
+    "3": [
+        {
+            "title": "PTO Meeting",
+            "time": "10:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "11": [
+        {
+            "title": "Orchestra Concert",
+            "time": "6:30pm",
+            "location": "Fall Creek Junior High"
+        }
+    ],
+    "17": [
+        {
+            "title": "Band Concert",
+            "time": "6:30pm",
+            "location": "Fall Creek Junior High"
+        }
+    ],
+    "21": [
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

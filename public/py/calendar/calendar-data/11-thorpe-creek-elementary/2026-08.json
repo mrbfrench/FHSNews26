@@ -1,0 +1,47 @@
+{
+    "3": [
+        {
+            "title": "Open House 🏫 (All Families)",
+            "time": "4:00pm - 5:00pm",
+            "location": "TCE"
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Meet the Teacher Night 🍎 (1st-4th)",
+            "time": "5:30pm - 6:00pm",
+            "location": "TCE"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "Meet the Teacher Night 🍎 (1st-4th)",
+            "time": "6:30pm - 7:00pm",
+            "location": "TCE"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ]
+}

@@ -1,0 +1,141 @@
+{
+    "1": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "New Year's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "4": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day Back from Winter Break",
+            "time": null,
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm",
+            "location": "Media Center"
+        }
+    ],
+    "13": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "14": [
+        {
+            "title": "6th Grade Girls Basketball Game at Pendleton🏀",
+            "time": "5:30pm",
+            "location": "Pendleton"
+        }
+    ],
+    "15": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "MLK Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "19": [
+        {
+            "title": "6th Grade Girls Basketball Game at Carmel🏀",
+            "time": "5:30pm",
+            "location": "Carmel"
+        }
+    ],
+    "20": [
+        {
+            "title": "6th Grade Girls Basketball Game at Mt. Vernon🏀",
+            "time": "5:30pm",
+            "location": "Mt. Vernon"
+        }
+    ],
+    "22": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "25": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "6th Grade Girls Basketball Game at Anderson🏀",
+            "time": "5:30pm",
+            "location": "Anderson"
+        }
+    ],
+    "27": [
+        {
+            "title": "Best Buddies",
+            "time": "4:00pm - 5:00pm",
+            "location": "Cafeteria"
+        },
+        {
+            "title": "6th Grade Girls Basketball Game vs HIJ🏀",
+            "time": "5:30pm",
+            "location": "RSI Gym"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "29": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ]
+}

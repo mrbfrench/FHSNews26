@@ -1,0 +1,207 @@
+{
+    "3": [
+        {
+            "title": "Parent Tech Night 💻",
+            "time": "5:30pm - 7:00pm",
+            "location": "HSE Admin Building"
+        }
+    ],
+    "4": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "6": [
+        {
+            "title": "Labor Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "Labor Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm",
+            "location": "Media Center"
+        }
+    ],
+    "9": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "10": [
+        {
+            "title": "Spell Bowl Try Outs",
+            "time": "8:10am",
+            "location": "Room 667"
+        }
+    ],
+    "11": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "14": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "16": [
+        {
+            "title": "Best Buddies Parent Information Meeting",
+            "time": "6:00pm",
+            "location": "Cafeteria"
+        }
+    ],
+    "17": [
+        {
+            "title": "Spell Bowl Practice",
+            "time": "8:10am - 9:00am",
+            "location": "Room 667"
+        },
+        {
+            "title": "ENL Family Night",
+            "time": "5:30pm - 6:30pm",
+            "location": "Cafeteria"
+        }
+    ],
+    "18": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "22": [
+        {
+            "title": "Referendum Virtual Lunch and Learn with HSE Student Services",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Description)"
+        },
+        {
+            "title": "Cross Country Meet 🏆",
+            "time": "5:30pm",
+            "location": "Riverside"
+        },
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Delaware Township Building"
+        }
+    ],
+    "23": [
+        {
+            "title": "Picture Retake Day 📸",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "24": [
+        {
+            "title": "Spell Bowl Practice",
+            "time": "8:10am - 9:00am",
+            "location": "Room 667"
+        }
+    ],
+    "25": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Hawk Party",
+            "time": "4:00pm - 5:30pm",
+            "location": null
+        }
+    ],
+    "28": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "29": [
+        {
+            "title": "Coffee & Conversation with Superintendent Kegley ☕",
+            "time": "8:00am - 9:00am",
+            "location": "Hub & Spoke (8100 E 106th St #260, Fishers, IN 46038)"
+        }
+    ],
+    "30": [
+        {
+            "title": "Best Buddies Match Party",
+            "time": "6:00pm - 7:30pm",
+            "location": "Cafeteria"
+        }
+    ]
+}

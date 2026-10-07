@@ -1,0 +1,37 @@
+{
+    "5": [
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "International Fair",
+            "time": "5:30am - 7:30am",
+            "location": null
+        }
+    ],
+    "17": [
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "1st Grade Music Performance",
+            "time": "6:30pm - 7:30pm",
+            "location": "Gym"
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ]
+}

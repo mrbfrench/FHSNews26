@@ -13,7 +13,6 @@
 	(function() {
 	  var savedTheme = localStorage.getItem('selectedTheme') || 'default';
 	  document.write('<link rel="stylesheet" href="themes/' + savedTheme + '.css" id="theme-style">');
-	  document.write('<link rel="preload" as="image" href="img/' + savedTheme + '.png">');
 	})();
 	</script>
 
@@ -21,8 +20,6 @@
 	<link rel="stylesheet" href="css/global.css">
 	<link rel="stylesheet" href="css/home.css">
 
-	<!-- Current theme goes here -->
-	<link rel="stylesheet" href="" id="theme-style"> <!-- default theme -->
 	<!-- Hartley js-->
 	<!--
 <script>
@@ -49,9 +46,6 @@
 	document.addEventListener('DOMContentLoaded', showBirthdayPopup);
 	</script>
 	-->
-	<!-- Include the Confetti.js library -->
-	
-	<script src="https://cdn.jsdelivr.net/npm/confetti-js/dist/index.min.js">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ50F79FHM"></script>
     <script>
@@ -89,16 +83,6 @@
 </style>
 </head>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XZ50F79FHM"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-XZ50F79FHM');
-    </script>
-
 	<!-- Scripts go here -->
 	<script src="js/DOM.js" charset="utf-8"></script>
 	<script src="js/clockv4.js" charset="utf-8"></script>
@@ -106,9 +90,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.2/chess.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js" integrity="sha512-WfASs5HtTgTL/eZsLaOftSN9wMQl7WZGlU5UiKx/yxTViMfGh9whWRwKAC27qH8VtZJqSMqDdbq2uUb1tY3jvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" integrity="sha512-TU/clvRaSqKB43MX6dvJPEWV8tEGDTbmT4mdxTs6DSYsBY9zKmiw4Qeykp0nS10ndH14HRNG2VWN+IjiMfA17Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />	<script src="https://cdn.jsdelivr.net/npm/stockfish"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" integrity="sha512-TU/clvRaSqKB43MX6dvJPEWV8tEGDTbmT4mdxTs6DSYsBY9zKmiw4Qeykp0nS10ndH14HRNG2VWN+IjiMfA17Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<script src="js/themes.js" charset="utf-8"></script>
+	<script src="js/connect4.js" charset="utf-8"></script>
+	<script src="js/todays-events.js" charset="utf-8"></script>
 
 	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
 <body>
@@ -144,6 +130,21 @@
 	<article id="main-content">
 		<section class="block" id="themes_shop_container">
 			<a id="theme_selector">Theme Selector</a>
+			<div id="games_menu_container">
+				<a id="games_selector">Games</a>
+				<div id="games_dropdown" class="hidden">
+					<a class="game-option" data-game="space">Chess</a>
+					<a class="game-option" data-game="magma">2048</a>
+					<a class="game-option" data-game="minecraft">Connect Four</a>
+				</div>
+			</div>
+			<div id="events_menu_container">
+				<a id="events_selector">Events</a>
+				<div id="events_dropdown" class="hidden">
+					<p id="events_date"></p>
+					<ul id="events_list"></ul>
+				</div>
+			</div>
 		</section>
 
 		<div class="hidden" id="themes_blur">
@@ -170,6 +171,7 @@
 					<a class="theme-button" data-theme="sunset" style="background-image: url('img/sunset.svg'); background-repeat: no-repeat; background-position: center; background-color: #ea720e;"></a>
 					<a class="theme-button" data-theme="shaded" style="background-image: url('img/shaded.svg'); background-repeat: no-repeat; background-position: center; background-color: #297585;"></a>
 					<a class="theme-button" data-theme="lebron" style="background-image: url('img/lebron.svg'); background-repeat: no-repeat; background-position: center; background-color: #6f2ead;"></a>
+					<a class="theme-button" data-theme="minecraft" style="background-image: url('img/grassblock.svg'); background-repeat: no-repeat; background-position: center; background-color: #5b8731;"></a>
 
                     <p id="consecutive-visit-counter">Current Streak: NaN</p>
 			</section>
@@ -251,8 +253,10 @@
 				  </div>
 				</div>
 				<div id="puzzle-space" class="puzzle" data-theme="space">
-					<h2>Unlock Space Theme</h2>
+					<h2 class="unlock-only">Unlock Space Theme</h2>
+					<h2 class="game-only">Chess</h2>
 					<div id="chessboard"></div> <!-- This is where the chessboard will appear -->
+					<div id="feedback-message-space" class="feedback-message"></div>
 					<button id="startBtn">Start New Game</button>
 	 			</div>
 				<div id="puzzle-vaporwave" class="puzzle" data-theme="vaporwave">
@@ -267,8 +271,9 @@
 					<div id="feedback-message-vaporwave" class="feedback-message"></div>
 				</div>
 				<div id="puzzle-magma" class="puzzle" data-theme="magma">
-					<h2>Unlock Magma Theme</h2>
-					<p>Get a 1024 block to unlock this theme.</p>
+					<h2 class="unlock-only">Unlock Magma Theme</h2>
+					<h2 class="game-only">2048</h2>
+					<p class="unlock-only">Get a 1024 block to unlock this theme.</p>
 					<p>Use your arrow keys to play the game.</p>
 					<div id="game2048-container-magma" class="game-container"></div>
                     <button id="startBtnMagma">Start New Game</button>
@@ -343,6 +348,14 @@
 					<button id="check-answer-shaded">Unlock Theme</button>
 					<div id="feedback-message-shaded" class="feedback-message"></div>
 			    </div>
+				<div id="puzzle-minecraft" class="puzzle" data-theme="minecraft">
+					<h2 class="unlock-only">Unlock Minecraft Theme</h2>
+					<h2 class="game-only">Connect Four</h2>
+					<p class="unlock-only">Beat the computer at Connect Four to unlock this theme.</p>
+					<div id="connect4-board"></div>
+					<div id="feedback-message-minecraft" class="feedback-message"></div>
+					<button id="startBtnMinecraft">Start New Game</button>
+				</div>
                 <div id="puzzle-lebron" class="puzzle" data-theme="lebron">
 					<h2>Unlock Lebron Theme</h2>
 					<p>How many points is a 3-pointer worth in basketball? (Number Only)</p>
@@ -360,6 +373,7 @@
 			<section class="row" id="period">
 				<button class="container arrow hover" id="prevPeriodBtn">&#8249;</button>
 				<div id="period__box" class="container">
+					<p id="schedule__name" hidden></p>
 					<p id="period__header"></p>
 					<p id="period__time">Not School Hours</p>
 					<!-- The gallery is the dots -->
@@ -384,11 +398,8 @@
 			  <div class="lunch" id="lunch__choose">
                 <!-- this is all one line because if it isn't then it will add white space between the buttons -->
                 <!-- regular lunch-->
+				<!-- The lunch buttons (A-D, or A-C on some schedules) are built by clockv4.js from the active schedule -->
 				<button class="container hover lunch-btn" onclick="chooseLunch('A',this)">A</button><button class="container hover lunch-btn" onclick="chooseLunch('B',this)">B</button><button class="container hover lunch-btn" onclick="chooseLunch('C',this)">C</button><button class="container hover lunch-btn" onclick="chooseLunch('D',this)">D</button>
-			
-				<!-- three lunch code A,B,C
-				<button class="container hover lunch-btn" onclick="chooseLunch('A',this)">A</button><button class="container hover lunch-btn3" onclick="chooseLunch('B',this)">B</button><button class="container hover lunch-btn" onclick="chooseLunch('C',this)">C</button>
-				-->
 			  </div>
 		  </section>
 		</section>

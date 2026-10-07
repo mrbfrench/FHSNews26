@@ -1,0 +1,75 @@
+{
+    "3": [
+        {
+            "title": "Open House 🏫",
+            "time": "4:00pm - 5:30pm",
+            "location": "SCE"
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "First Friday 👕",
+            "time": null,
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Meet the Teacher Night 🍎",
+            "time": "5:00pm",
+            "location": "SCE"
+        },
+        {
+            "title": "Meet the Teacher Night 🍎",
+            "time": "5:50pm",
+            "location": "SCE"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "19": [
+        {
+            "title": "SCE PTO Meeting",
+            "time": null,
+            "location": null
+        }
+    ],
+    "20": [
+        {
+            "title": "📸 Picture Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ],
+    "28": [
+        {
+            "title": "🎥 PTO Movie Night",
+            "time": null,
+            "location": null
+        }
+    ]
+}

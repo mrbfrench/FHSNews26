@@ -107,19 +107,19 @@ class Calendar {
             if (!event.time && !event.location) {
                 eventClass = 'green-background';
             }
-            if (event.title.toLowerCase() === 'red day') {
+            if ((event.title || '').toLowerCase() === 'red day') {
                 eventClass = 'red-background';
             }
-            if (event.title.toLowerCase() === 'silver day') {
+            if ((event.title || '').toLowerCase() === 'silver day') {
                 eventClass = 'silver-background';
             }
-            if (event.title.toLowerCase().includes('elearning')) {
+            if ((event.title || '').toLowerCase().includes('elearning')) {
                 eventClass = 'blue-background';
             }
-            if (event.title.toLowerCase().includes('teacher day')) {
+            if ((event.title || '').toLowerCase().includes('teacher day')) {
                 eventClass = 'yellow-background';
             }
-            if (event.title.toLowerCase().includes('psat') || event.title.toLowerCase().includes('sat')) {
+            if ((event.title || '').toLowerCase().includes('psat') || (event.title || '').toLowerCase().includes('sat')) {
                 eventClass = 'purple-background';
             }
 
@@ -169,11 +169,11 @@ class Calendar {
             for (const day in data) {
                 const events = data[day];
                 events.isAllDay = events.some(event => !event.time && !event.location);
-                events.isRedDay = events.some(e => e.title.toLowerCase() === 'red day');
-                events.isSilverDay = events.some(e => e.title.toLowerCase() === 'silver day');
-                events.isElearning = events.some(e => e.title.toLowerCase().includes('elearning'));
-                events.isTeacherDay = events.some(e => e.title.toLowerCase().includes('teacher day'));
-                events.isSAT = events.some(e => e.title.toLowerCase() === 'psat' || e.title.toLowerCase() === 'sat testing');
+                events.isRedDay = events.some(e => (e.title || '').toLowerCase() === 'red day');
+                events.isSilverDay = events.some(e => (e.title || '').toLowerCase() === 'silver day');
+                events.isElearning = events.some(e => (e.title || '').toLowerCase().includes('elearning'));
+                events.isTeacherDay = events.some(e => (e.title || '').toLowerCase().includes('teacher day'));
+                events.isSAT = events.some(e => (e.title || '').toLowerCase() === 'psat' || (e.title || '').toLowerCase() === 'sat testing');
             }
 
             // Hide the loading bar
@@ -346,14 +346,6 @@ class Calendar {
     }
 }
 
-// Update and regenerate calendar when buttons are clicked
-document.querySelectorAll('.calendar_head_btn').forEach(btn => {
-    btn.addEventListener("click", function() {
-        calendar.updateMonth(parseInt(this.value));
-        calendar.generateCalendar();
-    });
-});
-
 // Show the modal
 function showModal() {
     document.getElementById("eventModal").classList.remove("hidden");
@@ -436,17 +428,4 @@ document.addEventListener("DOMContentLoaded", () => {
             hideModal();
         }
     });
-});
-
-document.querySelector('.dropdown-header').addEventListener('click', function() {
-    const dropdownOptions = document.querySelector('.dropdown-options');
-    dropdownOptions.classList.toggle('hidden');
-});
-
-// Close the modal when the close button is clicked
-document.getElementById("eventModal").addEventListener("click", (event) => {
-    // Check if the click is outside the content box
-    if (event.target.id === "eventModal") {
-        document.getElementById("eventModal").classList.add("hidden");
-    }
 });

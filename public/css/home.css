@@ -273,7 +273,13 @@ p {
 	margin-top: -14px;
 	margin-bottom: 2px;
 	justify-self: center;
-	max-width: 400px;
+	max-width: min(480px, 100%);
+	/* Let the Theme/Games/Events buttons wrap onto a second row on narrow phones */
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	row-gap: 6px;
+	position: relative; /* the Events dropdown is centered under this row */
 	user-select: none;
 }
 
@@ -294,6 +300,199 @@ p {
 	border: 2px solid black;
 	margin-left: 5px;
 	margin-right: 5px;
+}
+
+#games_menu_container {
+	display: inline-block;
+	position: relative;
+}
+
+#games_selector {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+	text-decoration: none;
+	font-family: robotobold;
+	cursor: pointer;
+	color: var(--button-text-color-alt);
+	background-color: var(--header-background-color);
+	border: 2px solid black;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#games_dropdown {
+	position: absolute;
+	top: 100%;
+	left: 5px;
+	right: 5px;
+	z-index: 900;
+	background-color: var(--container-background-color);
+	border: 2px solid black;
+	border-top: none;
+}
+
+.game-option {
+	display: block;
+	padding: 4px 0;
+	font-size: 18px;
+	font-family: robotobold;
+	text-align: center;
+	cursor: pointer;
+	color: var(--container-text-color);
+}
+
+.game-option:hover {
+	background-color: var(--button-hover-background);
+}
+
+/* Name of a special bell schedule (2 Hour Delay, Finals, ...) above the period name */
+#schedule__name {
+	margin: 0 0 2px;
+	font-size: 16px;
+	font-family: robotobold;
+	color: var(--active-color);
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
+/* Today's events dropdown */
+#events_menu_container {
+	display: inline-block;
+}
+
+#events_selector {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	font-size: 20px;
+	text-align: center;
+	text-decoration: none;
+	font-family: robotobold;
+	cursor: pointer;
+	color: var(--button-text-color-alt);
+	background-color: var(--header-background-color);
+	border: 2px solid black;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+#events_dropdown {
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 900;
+	width: min(300px, calc(100vw - 32px));
+	max-height: 60vh;
+	overflow-y: auto;
+	box-sizing: border-box;
+	padding: 6px 10px;
+	text-align: left;
+	background-color: var(--container-background-color);
+	color: var(--container-text-color);
+	border: 2px solid black;
+	user-select: text;
+}
+
+#events_date {
+	margin: 2px 0 6px;
+	font-family: robotobold;
+	font-size: 16px;
+}
+
+#events_list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#events_list li {
+	padding: 6px 0;
+	font-size: 15px;
+	border-top: 1px solid var(--outline-color);
+}
+
+#events_list li strong,
+#events_list li span {
+	display: block;
+}
+
+#events_list li span {
+	font-size: 13px;
+	opacity: 0.8;
+}
+
+#events_list li.events-red-day strong {
+	color: #d32f2f;
+}
+
+#events_list li.events-silver-day strong {
+	color: #8a8a8a;
+}
+
+#events_list li.events-empty {
+	font-style: italic;
+}
+
+/* Connect Four (Minecraft theme puzzle) */
+#connect4-board {
+	display: flex;
+	gap: 4px;
+	width: 100%;
+	max-width: 350px;
+	aspect-ratio: 7 / 6;
+	margin: 0 auto 10px;
+	padding: 6px;
+	box-sizing: border-box;
+	background-color: #2f5fb3;
+	border-radius: 8px;
+}
+
+.c4-column {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.c4-column:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.c4-cell {
+	flex: 1;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.c4-cell.c4-player {
+	background-color: #e03131;
+}
+
+.c4-cell.c4-computer {
+	background-color: #f5c518;
+}
+
+.c4-cell.c4-winning {
+	box-shadow: 0 0 0 3px #39ff14 inset;
+}
+
+/* Games opened from the Games menu hide the "unlock" wording */
+.puzzle .game-only {
+	display: none;
+}
+
+#puzzleModal.game-mode .game-only {
+	display: block;
+}
+
+#puzzleModal.game-mode .unlock-only {
+	display: none;
 }
 
 /* Assuming a direct gradient definition for demonstration */

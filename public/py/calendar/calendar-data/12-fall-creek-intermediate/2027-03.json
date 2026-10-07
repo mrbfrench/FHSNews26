@@ -1,0 +1,42 @@
+{
+    "1": [
+        {
+            "title": "PTO Meeting",
+            "time": "10:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "5": [
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "17": [
+        {
+            "title": "ILEARN - Checkpoint 3 ELA",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "ILEARN - Checkpoint 3 Math",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ]
+}

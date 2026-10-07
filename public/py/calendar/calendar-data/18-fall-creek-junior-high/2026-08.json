@@ -1,0 +1,83 @@
+{
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "10": [
+        {
+            "title": "Meet the Teacher Night 🍎",
+            "time": "6:00pm - 8:30pm",
+            "location": "FCJ"
+        }
+    ],
+    "12": [
+        {
+            "title": "7th Grade Football Game",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        },
+        {
+            "title": "Cross Country Meet",
+            "time": "5:30pm",
+            "location": "HSE HS"
+        }
+    ],
+    "19": [
+        {
+            "title": "Volleyball Game",
+            "time": "5:30pm",
+            "location": "Falcon Main Gym"
+        }
+    ],
+    "20": [
+        {
+            "title": "Tennis Match",
+            "time": "5:00pm",
+            "location": "Tennis Courts"
+        }
+    ],
+    "25": [
+        {
+            "title": "Tennis Match",
+            "time": "5:00pm",
+            "location": "Tennis Courts"
+        },
+        {
+            "title": "8th Grade Football Game",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        },
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ],
+    "27": [
+        {
+            "title": "Girls Golf Match",
+            "time": "4:45pm",
+            "location": "Winding Ridge"
+        },
+        {
+            "title": "Cross Country Meet",
+            "time": "5:30pm",
+            "location": "HSE HS"
+        }
+    ]
+}

@@ -1,0 +1,131 @@
+{
+    "2": [
+        {
+            "title": "Mudsock Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        },
+        {
+            "title": "Choir rehearsal",
+            "time": "2:00pm - 3:25pm",
+            "location": "C100 Music Room"
+        },
+        {
+            "title": "4th Grade Spell Bowl Practice",
+            "time": "2:15pm - 3:00pm",
+            "location": "E105-Mr. Stage's room"
+        }
+    ],
+    "5": [
+        {
+            "title": "Handbell rehearsal",
+            "time": "2:15pm - 3:30pm",
+            "location": "C100 Music Room"
+        }
+    ],
+    "9": [
+        {
+            "title": "Choir rehearsal",
+            "time": "2:00pm - 3:25pm",
+            "location": "C100 Music Room"
+        },
+        {
+            "title": "4th Grade Spell Bowl Practice",
+            "time": "2:15pm - 3:00pm",
+            "location": "E105-Mr. Stage's room"
+        },
+        {
+            "title": "Student Council meeting",
+            "time": "2:15pm - 3:15pm",
+            "location": "A101 Mrs. Bean's classrom"
+        }
+    ],
+    "11": [
+        {
+            "title": "Veteran's Day program",
+            "time": "8:00am - 9:00am",
+            "location": "LRE Gymnasium"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "Veterans Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Handbell rehearsal",
+            "time": "2:15pm - 3:30pm",
+            "location": "C100 Music Room"
+        }
+    ],
+    "16": [
+        {
+            "title": "Spell Bowl Competition",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "State Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        },
+        {
+            "title": "Choir rehearsal",
+            "time": "2:00pm - 3:25pm",
+            "location": "C100 Music Room"
+        }
+    ],
+    "19": [
+        {
+            "title": "Handbell rehearsal",
+            "time": "2:15pm - 3:30pm",
+            "location": "C100 Music Room"
+        }
+    ],
+    "23": [
+        {
+            "title": "Choir rehearsal",
+            "time": "2:00pm - 3:25pm",
+            "location": "C100 Music Room"
+        }
+    ],
+    "25": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Thanksgiving Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ],
+    "27": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ],
+    "30": [
+        {
+            "title": "Choir rehearsal",
+            "time": "2:00pm - 3:25pm",
+            "location": "C100 Music Room"
+        }
+    ]
+}

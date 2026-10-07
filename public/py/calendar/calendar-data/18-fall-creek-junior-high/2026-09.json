@@ -1,0 +1,222 @@
+{
+    "1": [
+        {
+            "title": "Girls Golf",
+            "time": "4:45pm",
+            "location": "Winding Ridge"
+        },
+        {
+            "title": "Volleyball Game",
+            "time": "5:30pm",
+            "location": "Main Gym"
+        }
+    ],
+    "2": [
+        {
+            "title": "7th Grade Football",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        },
+        {
+            "title": "Volleyball Game",
+            "time": "5:30pm",
+            "location": "Main Gym"
+        }
+    ],
+    "3": [
+        {
+            "title": "Girls Golf",
+            "time": "4:45pm",
+            "location": "Winding Ridge"
+        },
+        {
+            "title": "Boys Tennis",
+            "time": "5:00pm",
+            "location": "Tennis Courts"
+        },
+        {
+            "title": "Parent Tech Night 💻",
+            "time": "5:30pm - 7:00pm",
+            "location": "HSE Admin Building"
+        }
+    ],
+    "6": [
+        {
+            "title": "Labor Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "Labor Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Boys Tennis",
+            "time": "5:30pm",
+            "location": "Tennis Courts"
+        },
+        {
+            "title": "Volleyball Game",
+            "time": "5:30pm",
+            "location": "Main Gym"
+        }
+    ],
+    "9": [
+        {
+            "title": "8th Grade Football",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "10": [
+        {
+            "title": "Boys Tennis",
+            "time": "5:00pm",
+            "location": "Tennis Courts"
+        }
+    ],
+    "14": [
+        {
+            "title": "Performing Arts Pledge Event",
+            "time": "6:30pm",
+            "location": null
+        }
+    ],
+    "15": [
+        {
+            "title": "Boys Basketball Open Gym",
+            "time": "4:15pm",
+            "location": null
+        }
+    ],
+    "16": [
+        {
+            "title": "Girls Golf",
+            "time": "4:45pm",
+            "location": "Winding Ridge"
+        },
+        {
+            "title": "Pack the Nest - 8th Grade Football",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        }
+    ],
+    "17": [
+        {
+            "title": "Boys Tennis",
+            "time": "5:30pm",
+            "location": "Tennis Courts"
+        }
+    ],
+    "18": [
+        {
+            "title": "PTO Meeting",
+            "time": "9:30am",
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Boys Basketball Open Gym",
+            "time": "4:15pm",
+            "location": null
+        }
+    ],
+    "22": [
+        {
+            "title": "Referendum Virtual Lunch and Learn with HSE Student Services",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Description)"
+        },
+        {
+            "title": "Girls Golf",
+            "time": "5:00pm",
+            "location": "Winding Ridge"
+        },
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Delaware Township Building"
+        },
+        {
+            "title": "Choir Concert",
+            "time": "7:00pm",
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Girls Golf",
+            "time": "4:45pm",
+            "location": "Winding Ridge"
+        },
+        {
+            "title": "Pack the Nest - 7th Grade Football",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "24": [
+        {
+            "title": "Cross Country Meet",
+            "time": "5:30pm",
+            "location": "HSE HS"
+        },
+        {
+            "title": "Volleyball",
+            "time": "5:30pm",
+            "location": "Main Gym"
+        }
+    ],
+    "28": [
+        {
+            "title": "County Volleyball Tournament",
+            "time": "5:30pm",
+            "location": "Main Gym"
+        }
+    ],
+    "29": [
+        {
+            "title": "Coffee & Conversation with Superintendent Kegley ☕",
+            "time": "8:00am - 9:00am",
+            "location": "Hub & Spoke (8100 E 106th St #260, Fishers, IN 46038)"
+        },
+        {
+            "title": "Referendum Presentation",
+            "time": "5:00pm",
+            "location": "Media Center"
+        },
+        {
+            "title": "Orchestra Concert",
+            "time": "6:30pm",
+            "location": null
+        }
+    ],
+    "30": [
+        {
+            "title": "Camp T Med Drop Off",
+            "time": "5:00pm - 7:00pm",
+            "location": null
+        },
+        {
+            "title": "8th Grade Football",
+            "time": "5:30pm",
+            "location": "Falcon Stadium"
+        }
+    ]
+}

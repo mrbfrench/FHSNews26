@@ -1,0 +1,37 @@
+{
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "10": [
+        {
+            "title": "Meet the Teacher Night 🍎",
+            "time": "6:30pm - 8:30pm",
+            "location": "RJH"
+        }
+    ],
+    "12": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "1": [
+        {
+            "title": "Drama Club (TBD)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "2": [
+        {
+            "title": "All Pro Dads",
+            "time": "7:00am",
+            "location": "Hoosier Road Elementary Cafeteria"
+        },
+        {
+            "title": "Student Council Meeting",
+            "time": "2:10pm - 3:15pm",
+            "location": null
+        }
+    ],
+    "4": [
+        {
+            "title": "Drama Club (all cast)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "Drama Club School Performance for Students",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "6": [
+        {
+            "title": "Drama Club Performance of Shrek Kids",
+            "time": "6:00pm",
+            "location": "Hoosier Road Elementary Gym"
+        }
+    ],
+    "7": [
+        {
+            "title": "Drama Club Performance of Shrek Kids",
+            "time": "2:00pm",
+            "location": "Hoosier Road Elementary Gym"
+        }
+    ],
+    "17": [
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ]
+}

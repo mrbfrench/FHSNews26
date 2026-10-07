@@ -1,6 +1,5 @@
 {
   "1-cumberland-road-elementary": "CUMBERLAND ROAD ELEMENTARY",
-  "2-durbin-elementary": "DURBIN ELEMENTARY",
   "3-fall-creek-elementary": "FALL CREEK ELEMENTARY",
   "4-fishers-elementary": "FISHERS ELEMENTARY",
   "5-geist-elementary": "GEIST ELEMENTARY",
@@ -14,10 +13,12 @@
   "13-riverside-intermediate-school": "RIVERSIDE INTERMEDIATE SCHOOL",
   "14-sand-creek-intermediate": "SAND CREEK INTERMEDIATE",
   "15-fishers-junior-high": "FISHERS JUNIOR HIGH",
-  "16-hamilton-southeastern-jr-high": "HAMILTON SOUTHEASTERN JR HIGH",
+  "16-hse-intermediate-junior-high": "HSE INTERMEDIATE & JUNIOR HIGH",
   "17-riverside-junior-high": "RIVERSIDE JUNIOR HIGH",
   "18-fall-creek-junior-high": "FALL CREEK JUNIOR HIGH",
   "19-fishers-high-school": "FISHERS HIGH SCHOOL",
   "20-hamilton-southeastern-high-school": "HAMILTON SOUTHEASTERN HIGH SCHOOL",
-  "21-brooks-school-elementary": "BROOKS SCHOOL ELEMENTARY"
+  "21-brooks-school-elementary": "BROOKS SCHOOL ELEMENTARY",
+  "22-deer-creek-elementary": "DEER CREEK ELEMENTARY",
+  "23-southeastern-elementary": "SOUTHEASTERN ELEMENTARY"
 }

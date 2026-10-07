@@ -1,0 +1,73 @@
+{
+    "2": [
+        {
+            "title": "Mudsock Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        }
+    ],
+    "3": [
+        {
+            "title": "First Grade Music Informance",
+            "time": "5:30pm",
+            "location": "Music Room"
+        }
+    ],
+    "4": [
+        {
+            "title": "First Grade Music Informance",
+            "time": "5:30pm",
+            "location": "Music Room"
+        }
+    ],
+    "11": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm - 7:30pm",
+            "location": "Cafeteria"
+        },
+        {
+            "title": "Veterans Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "16": [
+        {
+            "title": "State Spell Bowl ✏️🏅",
+            "time": null,
+            "location": "HHS"
+        }
+    ],
+    "25": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Thanksgiving Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ],
+    "27": [
+        {
+            "title": "Thanksgiving Break (No School) 🦃",
+            "time": null,
+            "location": null
+        }
+    ]
+}

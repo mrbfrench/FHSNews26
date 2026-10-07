@@ -1,7 +1,11 @@
 const express = require('express');
 const path = require('path');
+const scheduleApi = require('./schedule-api');
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Bell schedule API (which schedule is active, and the admin controls for it)
+app.use('/api', scheduleApi);
 
 // Serve static files from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
@@ -28,6 +32,16 @@ app.get('/clubs', (req, res) => {
 // Specific route for /info
 app.get('/info', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/html/info.html'));
+});
+
+// Admin page for switching the bell schedule
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/admin.html'));
+});
+
+// Specific route for /flicker
+app.get('/flicker', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public/html/flicker.html'));
 });
 
 // Redirect /kart to an external URL

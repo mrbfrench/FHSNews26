@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     attachEventListenersToThemeButtons(themeButtons);
     attachEventListenerToThemeSelector();
     attachEventListenerToModal();
+    attachEventListenersToGamesMenu();
     // Setup event listener for each Check Answer button
     setupPuzzleAnswerCheckers();
 
@@ -50,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             // Check which puzzle is currently open
-            const openedPuzzle = document.querySelector('.puzzle[style="display: block;"]');
+            const modalOpen = document.getElementById('puzzleModal').style.display === 'block';
+            const openedPuzzle = modalOpen && document.querySelector('.puzzle[style="display: block;"]');
             if (openedPuzzle && openedPuzzle.getAttribute('data-theme') === 'blue') {
                 checkAnswer('blue');
             }
@@ -243,11 +245,50 @@ function openPuzzle(theme) {
     }
     document.body.classList.add('modal-open'); // Prevent scrolling on the background
     modal.style.display = 'block';
+    if (theme === 'space' && chessBoard) chessBoard.resize(); // Board was measured while hidden
 }
 
 function closePuzzle() {
     document.body.classList.remove('modal-open'); // Prevent scrolling on the background
-    document.getElementById('puzzleModal').style.display = 'none';
+    const modal = document.getElementById('puzzleModal');
+    modal.style.display = 'none';
+
+    // Games opened from the Games menu have no theme selector behind them
+    if (modal.classList.contains('game-mode')) {
+        modal.classList.remove('game-mode');
+        closeSelector();
+    }
+}
+
+function attachEventListenersToGamesMenu() {
+    const gamesButton = document.getElementById('games_selector');
+    const gamesDropdown = document.getElementById('games_dropdown');
+
+    gamesButton.addEventListener('click', (event) => {
+        event.stopPropagation();
+        document.getElementById('events_dropdown').classList.add('hidden');
+        gamesDropdown.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.game-option').forEach(option => {
+        option.addEventListener('click', (event) => {
+            event.stopPropagation();
+            gamesDropdown.classList.add('hidden');
+            openGame(option.getAttribute('data-game'));
+        });
+    });
+
+    // Close the dropdown when clicking anywhere else
+    document.addEventListener('click', () => gamesDropdown.classList.add('hidden'));
+}
+
+// Open a puzzle game (chess or 2048) to play for fun, whether or not its theme is unlocked
+function openGame(theme) {
+    // The puzzle modal lives inside the theme selector's blur overlay
+    document.getElementById('themes_blur').classList.remove('hidden');
+    document.getElementById('themes_selector').classList.add('hidden');
+    document.getElementById('puzzleModal').classList.add('game-mode');
+    openPuzzle(theme);
 }
 
 function checkAnswer(theme, partIndex = 0) {
@@ -281,7 +322,7 @@ function checkAnswer(theme, partIndex = 0) {
             meepMorp(theme);
             runConfetti();
 
-            if (currentPartId > 0) {
+            if (partIndex > 0) {
                 const currentPartId = `part-${partIndex + 1}-${theme}`;
                 const startingPartId = `part-1-${theme}`;
                 document.getElementById(currentPartId).style.display = 'none';
@@ -345,7 +386,7 @@ function updateThemeCounterDisplay() {
 
     // Update the visit counter display
     if (visitCounterElement) {
-        visitCounterElement.textContent = `${getAllUnlockedThemes()}/10`;
+        visitCounterElement.textContent = `Themes Unlocked: ${getAllUnlockedThemes()}/10`;
     }
 }
 
@@ -394,9 +435,9 @@ function checkSnowThemeUnlock() {
 }
 
 function checkNumberOfUnlockedThemesShaded() {
-    const feedbackElement = document.getElementById(`feedback-message-shaded}`); // Ensure you have a unique feedback element for each theme
+    const feedbackElement = document.getElementById('feedback-message-shaded');
 
-    // If the user has visited the site on 5 different days
+    // If the user has unlocked 10 other themes
     if (getAllUnlockedThemes() >= 10) {
         localStorage.setItem('themeUnlocked-shaded', 'true'); // Unlock the theme
         meepMorp('shaded'); // Update the UI to reflect the unlocked theme
@@ -408,11 +449,13 @@ function checkNumberOfUnlockedThemesShaded() {
         setTimeout(() => modalContent.classList.remove('shakeThemes'), 500); // Remove class after animation
 
         // Clear the input box and show feedback
-        if (feedbackElement) feedbackElement.textContent = 'Not enough total visits.';
+        if (feedbackElement) feedbackElement.textContent = 'Not enough themes unlocked.';
     }
 }
 
+// Counts themes the user has earned (default and dark are free, shaded is the reward itself)
 function getAllUnlockedThemes() {
+    const notCounted = ['default', 'dark', 'shaded'];
     const unlockedThemes = [];
     // Loop through all the items in localStorage
     for (let i = 0; i < localStorage.length; i++) {
@@ -422,7 +465,7 @@ function getAllUnlockedThemes() {
             // Extract the theme name by removing the prefix
             const themeName = key.replace('themeUnlocked-', '');
             // Optionally, check if the theme is marked as true/unlocked
-            if (localStorage.getItem(key) === 'true') {
+            if (localStorage.getItem(key) === 'true' && !notCounted.includes(themeName)) {
                 unlockedThemes.push(themeName);
             }
         }
@@ -507,9 +550,17 @@ function checkConsecutiveVisitsAndUnlockTheme(theme) {
     }
 }
 
-function meepMorp(theme) {
+// Mark a theme as unlocked without switching to it
+function unlockTheme(theme) {
     localStorage.setItem(`themeUnlocked-${theme}`, true);
     document.querySelector(`.theme-button[data-theme="${theme}"]`).classList.remove('locked-theme');
+    updateThemeCounterDisplay();
+}
+
+function meepMorp(theme) {
+    unlockTheme(theme);
+    // Games opened from the Games menu are played for fun: keep the game and current theme
+    if (document.getElementById('puzzleModal').classList.contains('game-mode')) return;
     closePuzzle();
     updateThemeCounterDisplay();
     switchTheme(theme); // Switch to the newly unlocked theme
@@ -539,9 +590,12 @@ function attachEventListenerToThemeSelector() {
     document.addEventListener('click', function(event) {
         const selectorMenu = document.getElementById('themes_selector');
         const puzzleModal = document.getElementById('puzzleModal');
+        if (puzzleModal.style.display === 'block') return; // the puzzle closes via its own backdrop/close button
         const clickedInsideSelector = selectorMenu.contains(event.target) || puzzleModal.contains(event.target) || selectorButton.contains(event.target);
+        // A game may replace the clicked element while handling the click; that's not an outside click
+        const targetWasRemoved = !document.body.contains(event.target);
 
-        if (!clickedInsideSelector) {
+        if (!clickedInsideSelector && !targetWasRemoved) {
             closeSelector();
         }
     });
@@ -561,6 +615,11 @@ function closeSelector() {
 
     const blur = document.getElementById('themes_blur');
     blur.classList.add('hidden');
+
+    const modal = document.getElementById('puzzleModal');
+    modal.style.display = 'none';
+    modal.classList.remove('game-mode');
+    document.body.classList.remove('modal-open');
 }
 
 function attachEventListenerToModal() {
@@ -581,7 +640,6 @@ function checkSpaceThemeUnlock() {
     const feedbackElement = document.getElementById('feedback-message-space'); // Get the feedback element for snow theme
 
     if (game.in_checkmate() && game.turn() === 'b') {
-        localStorage.setItem('space', 'true'); // Unlock the theme
         meepMorp('space'); // Update the UI to reflect the unlocked theme
         runConfetti(); // Run the confetti effect
     } else {
@@ -593,203 +651,293 @@ function checkSpaceThemeUnlock() {
 
     }
 }
+var chessBoard; // chessboard.js UI instance (resized when the puzzle opens)
 
 $(document).ready(function() {
 
     game = new Chess();
-    var board= new Chess();
+    var engineThinking = false;
+    var statusElement = document.getElementById('feedback-message-space');
 
-    function onSquareClick(square) {
-        // If user clicked a square with a piece, we set it as the source
-        if (game.get(square) && !sourceSquare) {
-            sourceSquare = square;
-            return;
-        }
+    // ---- Engine tuning (targets roughly 1000 Elo) ----
+    // A shallow search with full captures sees simple tactics (free pieces,
+    // mate in one) but misses deeper combinations. Small random noise and an
+    // occasional "good but not best" move make it play like a club beginner.
+    var SEARCH_DEPTH = 2;          // plies of full search (engine move + reply)
+    var QUIESCENCE_DEPTH = 4;      // extra plies of captures only
+    var EVAL_NOISE = 40;           // +/- centipawns of randomness per root move
+    var INACCURACY_CHANCE = 0.15;  // chance to pick a weaker reasonable move
+    var INACCURACY_MARGIN = 120;   // how much worse (centipawns) that move may be
+    var MATE_SCORE = 100000;
 
-        // If the user clicked a destination square, we try to make the move
-        if (sourceSquare) {
-            var move = game.move({
-                from: sourceSquare,
-                to: square,
-                promotion: 'q' // Always promote to a queen for simplicity
-            });
+    var PIECE_VALUES = { p: 100, n: 320, b: 330, r: 500, q: 900, k: 0 };
 
-            // If the move is illegal, reset the source square
-            if (move === null) {
-                sourceSquare = undefined;
-                return;
+    // Piece-square tables from white's point of view (row 0 = rank 8)
+    var PST = {
+        p: [
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [50, 50, 50, 50, 50, 50, 50, 50],
+            [10, 10, 20, 30, 30, 20, 10, 10],
+            [ 5,  5, 10, 25, 25, 10,  5,  5],
+            [ 0,  0,  0, 20, 20,  0,  0,  0],
+            [ 5, -5,-10,  0,  0,-10, -5,  5],
+            [ 5, 10, 10,-20,-20, 10, 10,  5],
+            [ 0,  0,  0,  0,  0,  0,  0,  0]
+        ],
+        n: [
+            [-50,-40,-30,-30,-30,-30,-40,-50],
+            [-40,-20,  0,  0,  0,  0,-20,-40],
+            [-30,  0, 10, 15, 15, 10,  0,-30],
+            [-30,  5, 15, 20, 20, 15,  5,-30],
+            [-30,  0, 15, 20, 20, 15,  0,-30],
+            [-30,  5, 10, 15, 15, 10,  5,-30],
+            [-40,-20,  0,  5,  5,  0,-20,-40],
+            [-50,-40,-30,-30,-30,-30,-40,-50]
+        ],
+        b: [
+            [-20,-10,-10,-10,-10,-10,-10,-20],
+            [-10,  0,  0,  0,  0,  0,  0,-10],
+            [-10,  0,  5, 10, 10,  5,  0,-10],
+            [-10,  5,  5, 10, 10,  5,  5,-10],
+            [-10,  0, 10, 10, 10, 10,  0,-10],
+            [-10, 10, 10, 10, 10, 10, 10,-10],
+            [-10,  5,  0,  0,  0,  0,  5,-10],
+            [-20,-10,-10,-10,-10,-10,-10,-20]
+        ],
+        r: [
+            [ 0,  0,  0,  0,  0,  0,  0,  0],
+            [ 5, 10, 10, 10, 10, 10, 10,  5],
+            [-5,  0,  0,  0,  0,  0,  0, -5],
+            [-5,  0,  0,  0,  0,  0,  0, -5],
+            [-5,  0,  0,  0,  0,  0,  0, -5],
+            [-5,  0,  0,  0,  0,  0,  0, -5],
+            [-5,  0,  0,  0,  0,  0,  0, -5],
+            [ 0,  0,  0,  5,  5,  0,  0,  0]
+        ],
+        q: [
+            [-20,-10,-10, -5, -5,-10,-10,-20],
+            [-10,  0,  0,  0,  0,  0,  0,-10],
+            [-10,  0,  5,  5,  5,  5,  0,-10],
+            [ -5,  0,  5,  5,  5,  5,  0, -5],
+            [  0,  0,  5,  5,  5,  5,  0, -5],
+            [-10,  5,  5,  5,  5,  5,  0,-10],
+            [-10,  0,  5,  0,  0,  0,  0,-10],
+            [-20,-10,-10, -5, -5,-10,-10,-20]
+        ],
+        k: [
+            [-30,-40,-40,-50,-50,-40,-40,-30],
+            [-30,-40,-40,-50,-50,-40,-40,-30],
+            [-30,-40,-40,-50,-50,-40,-40,-30],
+            [-30,-40,-40,-50,-50,-40,-40,-30],
+            [-20,-30,-30,-40,-40,-30,-30,-20],
+            [-10,-20,-20,-20,-20,-20,-20,-10],
+            [ 20, 20,  0,  0,  0,  0, 20, 20],
+            [ 20, 30, 10,  0,  0, 10, 30, 20]
+        ]
+    };
+
+    // Static evaluation from the side to move's point of view
+    // (chess.js 0.10.2 has no board() method, so read the FEN placement field)
+    function evaluate() {
+        var placement = game.fen().split(' ')[0];
+        var score = 0;
+        var r = 0, c = 0;
+        for (var i = 0; i < placement.length; i++) {
+            var ch = placement.charAt(i);
+            if (ch === '/') {
+                r++;
+                c = 0;
+            } else if (ch >= '1' && ch <= '8') {
+                c += parseInt(ch, 10);
+            } else {
+                var type = ch.toLowerCase();
+                if (ch !== type) {
+                    score += PIECE_VALUES[type] + PST[type][r][c];
+                } else {
+                    score -= PIECE_VALUES[type] + PST[type][7 - r][c];
+                }
+                c++;
             }
-
-            // If the move is legal, update the board and reset the source square
-            board.position(game.fen());
-            sourceSquare = undefined;
-
-            // Make the best move for black
-            window.setTimeout(makeBestMove, 250);
         }
+        return game.turn() === 'w' ? score : -score;
     }
 
-    board = Chessboard('chessboard', config);
+    // Order moves so alpha-beta prunes well: promotions and good captures first
+    function moveOrderScore(move) {
+        var score = 0;
+        if (move.captured) score += 10 * PIECE_VALUES[move.captured] - PIECE_VALUES[move.piece];
+        if (move.promotion) score += PIECE_VALUES[move.promotion];
+        return score;
+    }
 
-    // Initialize an empty variable to store the source square
-    var sourceSquare;
+    function orderedMoves(movesList) {
+        return movesList.sort(function(a, b) { return moveOrderScore(b) - moveOrderScore(a); });
+    }
 
+    // Only look at captures so the engine doesn't stop mid-exchange
+    function quiescence(alpha, beta, depth) {
+        var standPat = evaluate();
+        if (depth === 0 || standPat >= beta) return standPat;
+        if (standPat > alpha) alpha = standPat;
+
+        var captures = orderedMoves(game.moves({ verbose: true }).filter(function(m) {
+            return m.captured || m.promotion;
+        }));
+
+        for (var i = 0; i < captures.length; i++) {
+            game.move(captures[i]);
+            var score = -quiescence(-beta, -alpha, depth - 1);
+            game.undo();
+            if (score >= beta) return score;
+            if (score > alpha) alpha = score;
+        }
+        return alpha;
+    }
+
+    function negamax(depth, alpha, beta, ply) {
+        var movesList = game.moves({ verbose: true });
+
+        if (movesList.length === 0) {
+            // Prefer faster mates and slower losses
+            return game.in_check() ? -MATE_SCORE + ply : 0;
+        }
+        if (game.insufficient_material()) return 0;
+        if (depth === 0) return quiescence(alpha, beta, QUIESCENCE_DEPTH);
+
+        var best = -Infinity;
+        orderedMoves(movesList);
+        for (var i = 0; i < movesList.length; i++) {
+            game.move(movesList[i]);
+            var score = -negamax(depth - 1, -beta, -alpha, ply + 1);
+            game.undo();
+            if (score > best) best = score;
+            if (score > alpha) alpha = score;
+            if (alpha >= beta) break;
+        }
+        return best;
+    }
+
+    function chooseEngineMove() {
+        var movesList = orderedMoves(game.moves({ verbose: true }));
+        var scored = [];
+
+        // Score every root move with a full window so the scores can be compared
+        for (var i = 0; i < movesList.length; i++) {
+            game.move(movesList[i]);
+            var score = -negamax(SEARCH_DEPTH - 1, -Infinity, Infinity, 1);
+            game.undo();
+            scored.push({ move: movesList[i], score: score });
+        }
+
+        scored.sort(function(a, b) { return b.score - a.score; });
+        var bestScore = scored[0].score;
+
+        // Never miss a forced mate it can see
+        if (bestScore > MATE_SCORE / 2) return scored[0].move;
+
+        // Occasionally play a slightly worse (but not losing) move
+        if (Math.random() < INACCURACY_CHANCE) {
+            var reasonable = scored.filter(function(s) {
+                return s.score >= bestScore - INACCURACY_MARGIN && s.score > -MATE_SCORE / 2;
+            });
+            if (reasonable.length > 0) {
+                return reasonable[Math.floor(Math.random() * reasonable.length)].move;
+            }
+        }
+
+        // Otherwise pick the best move after adding a little noise
+        var choice = scored[0];
+        var choiceScore = -Infinity;
+        scored.forEach(function(s) {
+            if (s.score < -MATE_SCORE / 2) return;
+            var noisy = s.score + (Math.random() * 2 - 1) * EVAL_NOISE;
+            if (noisy > choiceScore) {
+                choiceScore = noisy;
+                choice = s;
+            }
+        });
+        return choice.move;
+    }
+
+    function makeEngineMove() {
+        if (!game.game_over()) {
+            game.move(chooseEngineMove());
+            chessBoard.position(game.fen());
+        }
+        engineThinking = false;
+        updateStatus();
+    }
 
     function onDragStart(source, piece) {
-        // Do not pick up pieces if the game is over or if it's not that side's turn
-        if (game.game_over() || (game.turn() === 'b' && piece.search(/^w/) !== -1) ||
-            (game.turn() === 'w' && piece.search(/^b/) !== -1)) {
+        // Player is white; block moves while the engine is thinking or the game is over
+        if (game.game_over() || engineThinking || game.turn() !== 'w' || piece.search(/^b/) !== -1) {
             return false;
         }
     }
 
-    function evaluateBoard(game) {
-        var totalEvaluation = 0;
-
-        game.SQUARES.forEach(function(square) {
-            var piece = game.get(square);
-            totalEvaluation += getPieceValue(piece);
-        });
-
-        return totalEvaluation;
-    }
-
-    function getPieceValue(piece) {
-        if (piece === null) {
-            return 0;
-        }
-
-        var getAbsoluteValue = function (piece) {
-            if (piece.type === 'p') {
-                return 10;
-            } else if (piece.type === 'r') {
-                return 50;
-            } else if (piece.type === 'n') {
-                return 30;
-            } else if (piece.type === 'b') {
-                return 30;
-            } else if (piece.type === 'q') {
-                return 90;
-            } else if (piece.type === 'k') {
-                return 2000;
-            }
-            throw "Unknown piece type: " + piece.type;
-        };
-
-        var absoluteValue = getAbsoluteValue(piece);
-        return piece.color === 'w' ? absoluteValue : -absoluteValue;
-    }
-
-
-    function minimax(game, depth, alpha, beta, isMaximisingPlayer) {
-        if (depth === 0) {
-            return -evaluateBoard(game);
-        }
-
-        var newGameMoves = game.moves();
-
-        if (isMaximisingPlayer) {
-            let bestMove = -9999;
-            for (var i = 0; i < newGameMoves.length; i++) {
-                game.move(newGameMoves[i]);
-                bestMove = Math.max(bestMove, minimax(game, depth - 1, alpha, beta, !isMaximisingPlayer));
-                game.undo();
-                alpha = Math.max(alpha, bestMove);
-                if (beta <= alpha) {
-                    return bestMove;
-                }
-            }
-            return bestMove;
-        } else {
-            let bestMove = 9999;
-            for (var i = 0; i < newGameMoves.length; i++) {
-                game.move(newGameMoves[i]);
-                bestMove = Math.min(bestMove, minimax(game, depth - 1, alpha, beta, !isMaximisingPlayer));
-                game.undo();
-                beta = Math.min(beta, bestMove);
-                if (beta <= alpha) {
-                    return bestMove;
-                }
-            }
-            return bestMove;
-        }
-    }
-
-    function makeBestMove() {
-        var bestMove = getBestMove(game);
-        game.move(bestMove);
-        board.position(game.fen());
-        updateStatus();
-    }
-
-    function getBestMove(game) {
-        let newGameMoves = game.moves();
-        let bestMove = null;
-        let bestValue = -9999;
-
-        newGameMoves.forEach(function(move) {
-            game.move(move);
-            let boardValue = minimax(game, 1, -10000, 10000, false);
-            game.undo();
-            if (boardValue > bestValue) {
-                bestValue = boardValue;
-                bestMove = move;
-            }
-        });
-
-        return bestMove;
-    }
-
     function onDrop(source, target) {
-        // Attempt to move
-        let move = game.move({
+        var move = game.move({
             from: source,
             to: target,
             promotion: 'q' // NOTE: Always promote to a queen for simplicity
         });
 
-        // Illegal move
         if (move === null) return 'snapback';
 
-        // Make the best move for black
-        window.setTimeout(makeBestMove, 250);
+        updateStatus();
+        if (!game.game_over()) {
+            engineThinking = true;
+            // Let the board finish animating before the search blocks the page
+            window.setTimeout(makeEngineMove, 250);
+        }
     }
 
     function onSnapEnd() {
-        board.position(game.fen());
+        chessBoard.position(game.fen());
+    }
+
+    function setStatus(text) {
+        if (statusElement) statusElement.textContent = text;
     }
 
     function updateStatus() {
         if (game.in_checkmate()) {
-            // The player is in checkmate
             if (game.turn() === 'b') {
+                setStatus('Checkmate! You win!');
                 checkSpaceThemeUnlock();
+            } else {
+                setStatus('Checkmate. You lost - press Start New Game to try again.');
             }
         } else if (game.in_draw()) {
-            // The game is a draw
+            setStatus('Draw. Press Start New Game to try again.');
+        } else if (game.in_check()) {
+            setStatus(game.turn() === 'w' ? 'You are in check!' : 'Check! Thinking...');
+        } else {
+            setStatus(game.turn() === 'w' ? 'Your move (white).' : 'Thinking...');
         }
     }
 
-    var config = {
+    chessBoard = Chessboard('chessboard', {
         draggable: true,
         position: 'start',
         onDragStart: onDragStart,
         onDrop: onDrop,
-        onSnapEnd: onSnapEnd,
-        onSquareClick: onSquareClick
-    };
-
-    board = Chessboard('chessboard', config);
+        onSnapEnd: onSnapEnd
+    });
+    updateStatus();
 
     document.getElementById('startBtn').addEventListener('click', function () {
+        if (engineThinking) return;
         game.reset();
-        board.start();
+        chessBoard.start();
+        updateStatus();
     });
 });
 
 function initialize2048 (){
     const container = document.getElementById('game2048-container-magma');
     let board = generateEmptyBoard();
+    let won = false; // only unlock once per game
 
     function generateEmptyBoard() {
         return [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]];
@@ -798,10 +946,15 @@ function initialize2048 (){
     document.addEventListener('keydown', handleKeyPress);
 
     function handleKeyPress(e) {
+        // Only play while the 2048 puzzle is open
+        const modalOpen = document.getElementById('puzzleModal').style.display === 'block';
+        if (!modalOpen || document.getElementById('puzzle-magma').style.display !== 'block') return;
+
         let boardChanged = false;
         let originalBoard = JSON.parse(JSON.stringify(board)); // Deep copy of the board for comparison
 
         if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) {
+            e.preventDefault(); // don't scroll the page
             if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
                 board = transposeBoard(board); // Transpose for vertical movements
             }
@@ -827,8 +980,10 @@ function initialize2048 (){
             if (boardChanged) {
                 addRandomTile(board);
                 drawBoard();
-                if (checkWinCondition()) {
-                    meepMorp('magma')
+                if (!won && checkWinCondition()) {
+                    won = true;
+                    runConfetti();
+                    meepMorp('magma');
                 }
             }
         }
@@ -904,10 +1059,9 @@ function initialize2048 (){
     }
 
 
-    document.addEventListener('keydown', handleKeyPress);
-
     document.getElementById('startBtnMagma').addEventListener('click', function () {
         board = board.map(row => row.map(() => 0)); // Reset each tile to 0
+        won = false;
         addRandomTile(board);
         addRandomTile(board); // Add two random tiles
         drawBoard(); // Redraw the board

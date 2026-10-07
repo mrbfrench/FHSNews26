@@ -1,0 +1,28 @@
+{
+    "4": [
+        {
+            "title": "Independence Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "30": [
+        {
+            "title": "Kindergarten Meet the Teacher Night 🍎",
+            "time": "4:30pm - 5:30pm",
+            "location": "Deer Creek Elementary"
+        },
+        {
+            "title": "Before the Bell 🔔🎉",
+            "time": "5:30pm - 7:30pm",
+            "location": "Nickel Plate AMP (6 Municipal Drive)"
+        }
+    ]
+}

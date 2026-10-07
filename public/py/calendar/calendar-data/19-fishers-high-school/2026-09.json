@@ -1,0 +1,397 @@
+{
+    "1": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "2": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Soccer (Girls V): Noblesville (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "3": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Parent Tech Night 💻",
+            "time": "5:30pm - 7:00pm",
+            "location": "HSE Admin Building"
+        },
+        {
+            "title": "Soccer (Boys V): Carmel (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "4": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Football (V): Noblesville (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        }
+    ],
+    "6": [
+        {
+            "title": "Labor Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "Labor Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Football (Unified V): Noblesville (Home)",
+            "time": "6:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        },
+        {
+            "title": "Soccer (Boys V): Hamilton Southeastern (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "9": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Picture Re-Take Day",
+            "time": "7:30am - 3:30pm",
+            "location": "FHS Auditorium Lobby"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "10": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Volleyball (Girls V): Hamilton Southeastern (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Gym Main)"
+        },
+        {
+            "title": "Soccer (Boys V): Pendleton Heights (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "11": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Volleyball Fishers Invitational: FHS Aux 2 Ct 6 (Home)",
+            "time": "8:00am",
+            "location": "Fishers High School (FHS-AT-Gym AUX CT 6)"
+        },
+        {
+            "title": "Volleyball Fishers Invitational: FHS Aux 1 Ct 1 (Home)",
+            "time": "8:00am",
+            "location": "Fishers High School (FHS-AT-Gym AUX CT 1)"
+        },
+        {
+            "title": "Volleyball Fishers Invitational: FHS Aux 1 Ct 3 (Home)",
+            "time": "8:00am",
+            "location": "Fishers High School (FHS-AT-Gym AUX CT 3)"
+        },
+        {
+            "title": "Volleyball Fishers Invitational: FHS Aux 2 Ct 5 (Home)",
+            "time": "8:00am",
+            "location": "Fishers High School (FHS-AT-Gym AUX CT 5)"
+        },
+        {
+            "title": "Volleyball Fishers Invitational: FHS Aux 1 Ct 2 (Home)",
+            "time": "8:00am",
+            "location": "Fishers High School (FHS-AT-Gym AUX CT 2)"
+        },
+        {
+            "title": "Volleyball Fishers Invitational: FHS Aux 2 Ct 4 (Home)",
+            "time": "8:00am",
+            "location": "Fishers High School (FHS-AT-Gym AUX CT 4)"
+        },
+        {
+            "title": "Soccer Invitational: V Fishers vs Homestead (Home)",
+            "time": "10:00am",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        },
+        {
+            "title": "Soccer Invitational: JV Fishers vs Homestead (Home)",
+            "time": "10:00am",
+            "location": "Hamilton Southeastern High School"
+        },
+        {
+            "title": "Soccer (Girls V): Homestead (Home)",
+            "time": "10:00am",
+            "location": "Fishers High School"
+        },
+        {
+            "title": "Soccer Invitational: JV Center Grove vs Crown Point (Home)",
+            "time": "11:30am",
+            "location": "Hamilton Southeastern High School"
+        },
+        {
+            "title": "Soccer Invitational: V Center Grove vs Crown Point (Home)",
+            "time": "11:30am",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        },
+        {
+            "title": "Soccer Invitational: JV Center Grove vs Homestead (Home)",
+            "time": "4:00pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        },
+        {
+            "title": "Soccer Invitational: V Center Grove vs Homestead (Home)",
+            "time": "4:00pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        },
+        {
+            "title": "Soccer Invitational: JV Fishers vs Crown Point (Home)",
+            "time": "5:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        },
+        {
+            "title": "Soccer Invitational: V Fishers vs Crown Point (Home)",
+            "time": "5:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        },
+        {
+            "title": "Soccer (Girls V): Crown Point (Home)",
+            "time": "5:30pm",
+            "location": "Fishers High School"
+        }
+    ],
+    "14": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Football (Unified V): Westfield (Home)",
+            "time": "6:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        }
+    ],
+    "15": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "16": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Football (Unified V): Brownsburg (Home)",
+            "time": "6:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        },
+        {
+            "title": "Soccer (Girls V): Brownsburg (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "17": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Choir Concert",
+            "time": null,
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Homecoming Football Game Fishers vs. Brownsburg",
+            "time": "7:00pm",
+            "location": "FHS Stadium"
+        },
+        {
+            "title": "Football (V): Brownsburg (Home)",
+            "time": "7:00pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        }
+    ],
+    "19": [
+        {
+            "title": "Homecoming Dance",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Soccer (Boys V): Valparaiso (Home)",
+            "time": "1:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "21": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Tennis (Boys V): Cathedral (Home)",
+            "time": "6:00pm",
+            "location": "Fishers High School (FHS-AT-Tennis Courts 1-6)"
+        },
+        {
+            "title": "Soccer (Girls V): Bishop Chatard (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "22": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Referendum Virtual Lunch and Learn with HSE Student Services",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Description)"
+        },
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Delaware Township Building"
+        },
+        {
+            "title": "Volleyball (Girls V): Franklin Central (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Gym Main)"
+        },
+        {
+            "title": "Soccer (Boys V): Avon (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ],
+    "23": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "24": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Volleyball (Girls V): Avon (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Gym Main)"
+        }
+    ],
+    "25": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        }
+    ],
+    "28": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Football (Unified V): Hamilton Heights (Home)",
+            "time": "6:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium FB/ Track)"
+        }
+    ],
+    "29": [
+        {
+            "title": "Red Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Coffee & Conversation with Superintendent Kegley ☕",
+            "time": "8:00am - 9:00am",
+            "location": "Hub & Spoke (8100 E 106th St #260, Fishers, IN 46038)"
+        },
+        {
+            "title": "Volleyball (Girls V): Hamilton Heights (Home)",
+            "time": "7:30pm",
+            "location": "Hamilton Heights High School (FHS-AT-Gym Main)"
+        }
+    ],
+    "30": [
+        {
+            "title": "Silver Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Soccer (Boys V): Franklin Central (Home)",
+            "time": "7:30pm",
+            "location": "Fishers High School (FHS-AT-Stadium Soccer / Lacrosse)"
+        }
+    ]
+}

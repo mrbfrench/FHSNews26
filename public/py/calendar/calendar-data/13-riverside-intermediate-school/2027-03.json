@@ -1,0 +1,108 @@
+{
+    "1": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "9": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm",
+            "location": "Media Center"
+        }
+    ],
+    "12": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "15": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "17": [
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "19": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "22": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ],
+    "24": [
+        {
+            "title": "Best Buddies",
+            "time": "4:00pm - 5:00pm",
+            "location": "Gym"
+        }
+    ],
+    "26": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "29": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ]
+}

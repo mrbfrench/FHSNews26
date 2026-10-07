@@ -1,2 +1,8 @@
 /node_modules/
 node_modules
+# Which bell schedule is active (set from /admin; don't overwrite it on deploy)
+data/schedule-state.json
+data/schedule-state.json.tmp
+
+# macOS folder metadata
+.DS_Store

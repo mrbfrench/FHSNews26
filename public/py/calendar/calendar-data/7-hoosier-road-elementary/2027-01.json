@@ -1,0 +1,135 @@
+{
+    "1": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "New Year's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "4": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day Back from Winter Break",
+            "time": null,
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "Drama Club (all cast)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        },
+        {
+            "title": "Robotics Club",
+            "time": "2:10pm - 3:30pm",
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Drama Club (certain roles only)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Student Council Meeting",
+            "time": "2:10pm - 3:15pm",
+            "location": null
+        }
+    ],
+    "13": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "14": [
+        {
+            "title": "Drama Club (all cast)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        },
+        {
+            "title": "Robotics Club",
+            "time": "2:10pm - 3:30pm",
+            "location": null
+        }
+    ],
+    "18": [
+        {
+            "title": "MLK Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "20": [
+        {
+            "title": "Drama Club (certain roles only)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Drama Club (all cast)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        },
+        {
+            "title": "Robotics Club",
+            "time": "2:10pm - 3:30pm",
+            "location": null
+        }
+    ],
+    "27": [
+        {
+            "title": "3rd Grade Field Trip",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Drama Club (certain roles only)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "28": [
+        {
+            "title": "Drama Club (all cast)",
+            "time": "2:10pm - 3:45pm",
+            "location": null
+        },
+        {
+            "title": "Robotics Club",
+            "time": "2:10pm - 3:30pm",
+            "location": null
+        }
+    ],
+    "29": [
+        {
+            "title": "Preschool eLearning Day",
+            "time": null,
+            "location": null
+        }
+    ]
+}

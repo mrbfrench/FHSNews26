@@ -1,0 +1,77 @@
+{
+    "1": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "New Year's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "4": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day Back from Winter Break",
+            "time": null,
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Student Council meeting",
+            "time": "2:15pm - 3:15pm",
+            "location": "A101 Mrs. Bean's classrom"
+        }
+    ],
+    "13": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "14": [
+        {
+            "title": "3rd Grade Field Trip",
+            "time": "9:30am - 1:30pm",
+            "location": "Fishers Municipal Center"
+        }
+    ],
+    "18": [
+        {
+            "title": "MLK Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "20": [
+        {
+            "title": "4th Grade Math Bowl",
+            "time": "2:15pm - 3:15pm",
+            "location": "E105-Mr. Stage's room"
+        }
+    ],
+    "25": [
+        {
+            "title": "4th Grade Math Bowl",
+            "time": "2:15pm - 3:15pm",
+            "location": "E105-Mr. Stage's room"
+        }
+    ],
+    "27": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ]
+}

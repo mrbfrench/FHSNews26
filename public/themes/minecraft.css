@@ -1,0 +1,49 @@
+:root {
+  --norm-font: "robotoregular";
+  --light-font: "robotolight";
+  --bold-font: "robotobold";
+
+  --background-image: url('../img/minecraft.jpg');
+  --secondary-background-color: rgb(210,210,210);
+  --container-background-color: rgba(0, 0, 0, 0.5);
+  --container-text-color: #ffffff;
+  --countdown-text-color: #ffe08a;
+  --gallery-dot-color: #D3D3D3;
+
+  --button-background-color: #000000;
+  --button-text-color: #ffffff;
+  --button-text-color-alt: #ffffff;
+  --button-hover-background: rgba(0, 0, 0, 0.5);
+  --button-hover-background-alt: rgba(91, 135, 49, 0.8);
+  --button-hover-text: white;
+  --button-active-color: rgba(0, 0, 0, 0.5);
+
+  --soft-color: #8fbf5a;
+
+  --calendar-red: #c04040;
+  --calendar-green: #50be50;
+  --calendar-blue: #5da7b6;
+  --calendar-yellow: #cfcf80;
+  --calendar-silver: #a3a3a3;
+  --calendar-purple: #9360cb;
+  --calendar-gray: #737373;
+  --calendar-white: #ccc;
+
+  --header-background-color: #5b8731;
+  --header-text-color: white;
+  --header-icon-color: white;
+  --navigation-background-color: #3b2a1a;
+  --navigation-icon-color: rgb(100,100,100);
+  --navigation-active-icon-color: #7cbd3b;
+
+	--error-bg: rgb(160, 60, 50);
+
+  --active-color: #6aa236;
+  --active-hover-color: rgb(132, 190, 78);
+  --dark-color: #2e4a18;
+
+  --outline-color: rgb(180,180,180);
+
+  --anchor-color: #4c7a2a;
+  --anchor-hover: #000000;
+}

@@ -1,0 +1,98 @@
+{
+    "3": [
+        {
+            "title": "Open House 🏫 (All Families Welcome)",
+            "time": "4:30pm - 6:00pm",
+            "location": "HRE"
+        },
+        {
+            "title": "Kindergarten Meet the Teacher Night 🍎",
+            "time": "6:30pm - 7:15pm",
+            "location": "HRE"
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "1st-4th Grade Meet the Teacher Night Session One",
+            "time": "5:45pm",
+            "location": "11300 E. 121st St"
+        },
+        {
+            "title": "Meet the Teacher Night 🍎 (1st-4th)",
+            "time": "5:45pm - 6:15pm",
+            "location": "HRE"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "1st-4th Grade Meet the Teacher Night Session Two",
+            "time": "6:30pm",
+            "location": "11300 E. 121st St"
+        },
+        {
+            "title": "Meet the Teacher Night 🍎 (1st-4th)",
+            "time": "6:30pm - 7:00pm",
+            "location": "HRE"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ],
+    "27": [
+        {
+            "title": "Meet Mrs. Baker",
+            "time": "5:30pm",
+            "location": null
+        },
+        {
+            "title": "PTO General Meeting",
+            "time": "6:00pm - 7:00pm",
+            "location": "11300 E. 121st St"
+        }
+    ],
+    "28": [
+        {
+            "title": "3rd Grade Field Trip",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Picture Day!",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Girls Positivity Club",
+            "time": "2:10pm - 3:15pm",
+            "location": null
+        },
+        {
+            "title": "Spell Bowl",
+            "time": "2:10pm - 3:30pm",
+            "location": null
+        }
+    ]
+}

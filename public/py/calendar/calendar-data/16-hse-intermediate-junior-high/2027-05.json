@@ -1,0 +1,23 @@
+{
+    "21": [
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

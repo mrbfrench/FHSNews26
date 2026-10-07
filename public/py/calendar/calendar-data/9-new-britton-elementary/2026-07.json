@@ -1,0 +1,30 @@
+{
+    "4": [
+        {
+            "title": "Independence Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "8": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "22": [
+        {
+            "title": "Kindergarten Getting to Know You",
+            "time": "3:30pm - 6:15pm",
+            "location": "NBE"
+        }
+    ],
+    "30": [
+        {
+            "title": "Before the Bell 🔔🎉",
+            "time": "5:30pm - 7:30pm",
+            "location": "Nickel Plate AMP (6 Municipal Drive)"
+        }
+    ]
+}

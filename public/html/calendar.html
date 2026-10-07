@@ -138,35 +138,6 @@
 </script>
 
 <script type="text/javascript">
-    var calendarSection, scheduleSection, calendar;
-    document.onreadystatechange = () => {
-        if (document.readyState === 'complete') {
-            findElements(document.body, false, "#nav-tabs__cal").classList.toggle("selected");
-
-            calendarSection = findElements(document.body, false, "#calendar_container");
-            scheduleSection = findElements(document.body, false, "#schedule_section");
-            scheduleSection.classList = "hidden";
-            scheduleSection.onclick = (e) => {
-                scheduleSection.classList = "hidden";
-            }
-
-            //set days of the week along the calendar
-            let weekDayNames = findElements(calendarSection, true, ".weekday");
-            DAYS_OF_WEEK_ABR.forEach((item, i) => {
-                weekDayNames[i].innerHTML = item;
-            });
-            setCurrentMonthDisplay(); //show current month
-            //set arrow buttons to update calendar display
-            for (let btn of findElements(calendarSection, true, '.calendar_head_btn')) {
-                btn.onclick = function () {
-                    calendar.updateMonth(parseInt(btn.value))
-                    setCurrentMonthDisplay();
-                }
-            }
-
-        }
-    }
-
     // Function to switch the theme and save the choice in localStorage
 	function switchTheme(themeName) {
 	  const themeLink = document.getElementById('theme-style');

@@ -1,0 +1,103 @@
+{
+    "1": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "New Year's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "4": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day Back from Winter Break",
+            "time": null,
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "PTO Meeting",
+            "time": "10:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "12": [
+        {
+            "title": "Girls Basketball Game vs HIJH",
+            "time": "5:30pm",
+            "location": "Hamilton Southeastern Int./Jr. High School"
+        }
+    ],
+    "13": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "14": [
+        {
+            "title": "Girls Basketball Game vs Maxwell",
+            "time": "5:30pm",
+            "location": "Maxwell Intermediate"
+        }
+    ],
+    "18": [
+        {
+            "title": "MLK Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "19": [
+        {
+            "title": "ILEARN - Checkpoint 2 ELA",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "20": [
+        {
+            "title": "ILEARN - Checkpoint 2 Math",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "21": [
+        {
+            "title": "Girls Basketball Game vs Carmel",
+            "time": "5:30pm",
+            "location": "TBD"
+        },
+        {
+            "title": "Orchestra Concert & Picture Night",
+            "time": "6:30pm",
+            "location": "Fall Creek Junior High"
+        }
+    ],
+    "26": [
+        {
+            "title": "Girls Basketball Game vs Hamilton Heights",
+            "time": "5:30pm",
+            "location": "Hamilton Heights Middle School"
+        }
+    ],
+    "27": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ]
+}

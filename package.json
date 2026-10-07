@@ -3,7 +3,8 @@
   "version": "1.0.9",
   "description": "",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "update-calendar": "node scripts/update-calendar.js"
   },
   "keywords": [],
   "author": "Maxime Hendryx-Parker",

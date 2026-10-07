@@ -1,0 +1,30 @@
+{
+    "5": [
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "10": [
+        {
+            "title": "PTO Meeting",
+            "time": "6:30pm - 7:30pm",
+            "location": "Cafeteria"
+        }
+    ],
+    "17": [
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ]
+}

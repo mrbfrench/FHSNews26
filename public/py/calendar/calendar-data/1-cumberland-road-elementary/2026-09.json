@@ -1,0 +1,68 @@
+{
+    "3": [
+        {
+            "title": "Parent Tech Night 💻",
+            "time": "5:30pm - 7:00pm",
+            "location": "HSE Admin Building"
+        }
+    ],
+    "6": [
+        {
+            "title": "Labor Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "7": [
+        {
+            "title": "Labor Day (No School)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "9": [
+        {
+            "title": "Picture Day",
+            "time": "7:30am - 1:00pm",
+            "location": "Cumberland Road Elementary"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "17": [
+        {
+            "title": "CRE Literacy Night",
+            "time": "6:00pm - 7:30pm",
+            "location": "Cumberland Road Elementary"
+        }
+    ],
+    "22": [
+        {
+            "title": "Referendum Virtual Lunch and Learn with HSE Student Services",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Description)"
+        },
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Delaware Township Building"
+        }
+    ],
+    "23": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "29": [
+        {
+            "title": "Coffee & Conversation with Superintendent Kegley ☕",
+            "time": "8:00am - 9:00am",
+            "location": "Hub & Spoke (8100 E 106th St #260, Fishers, IN 46038)"
+        }
+    ]
+}

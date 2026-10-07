@@ -1,0 +1,56 @@
+{
+    "3": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Best Buddies",
+            "time": "4:00pm - 5:00pm",
+            "location": "Gym"
+        }
+    ],
+    "17": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Beginning Band Spring Concert 🎷",
+            "time": "7:00pm",
+            "location": "RSI"
+        }
+    ],
+    "18": [
+        {
+            "title": "Orchestra Concert",
+            "time": "6:00pm",
+            "location": "RSI Gym"
+        }
+    ],
+    "21": [
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

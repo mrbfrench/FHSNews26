@@ -1,0 +1,44 @@
+{
+    "3": [
+        {
+            "title": "Orchestra Preview Concert",
+            "time": "7:00pm",
+            "location": "Fishers Junior High Gym"
+        }
+    ],
+    "4": [
+        {
+            "title": "Choir Preview Concert",
+            "time": "7:00pm",
+            "location": "LGI"
+        }
+    ],
+    "5": [
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Band Preview Concert",
+            "time": "7:00pm",
+            "location": "Fishers Junior High Gym"
+        }
+    ],
+    "17": [
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ]
+}

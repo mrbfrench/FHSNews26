@@ -1,0 +1,102 @@
+{
+    "3": [
+        {
+            "title": "Open House 🏫",
+            "time": "4:30pm - 6:00pm",
+            "location": "RSI"
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "11": [
+        {
+            "title": "Meet the Teacher Night 🍎 (5th Grade)",
+            "time": "5:30pm - 6:20pm",
+            "location": "RSI"
+        },
+        {
+            "title": "Meet the Teacher Night 🍎 (6th Grade)",
+            "time": "6:40pm - 7:30pm",
+            "location": "RSI"
+        }
+    ],
+    "12": [
+        {
+            "title": "Picture Day",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "17": [
+        {
+            "title": "5th Grade Vision Screening",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "PTO Referendum Presentation",
+            "time": "6:30pm",
+            "location": "Media Center"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "24": [
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ],
+    "28": [
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Cross Country Practice 👟",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Nature Club 🦋",
+            "time": "8:00am",
+            "location": null
+        },
+        {
+            "title": "Robotics 🤖",
+            "time": "8:00am",
+            "location": null
+        }
+    ]
+}

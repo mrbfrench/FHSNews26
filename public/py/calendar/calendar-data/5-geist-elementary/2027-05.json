@@ -1,0 +1,30 @@
+{
+    "6": [
+        {
+            "title": "Kdg Music Performance",
+            "time": "6:00pm - 7:00pm",
+            "location": "Gym"
+        }
+    ],
+    "21": [
+        {
+            "title": "Last Day for Students",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Last Day for Teachers (Half Day)",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Memorial Day",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

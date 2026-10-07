@@ -1,0 +1,226 @@
+{
+    "1": [
+        {
+            "title": "Cross Country Meet",
+            "time": "5:30pm",
+            "location": "HSE HS Cross Country Course"
+        }
+    ],
+    "2": [
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "PTO Meeting",
+            "time": "10:15am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Student-Led Conferences",
+            "time": "4:30pm - 7:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "6": [
+        {
+            "title": "Student-Led Conferences",
+            "time": "4:30pm - 7:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "8": [
+        {
+            "title": "Student-Led Conferences",
+            "time": "4:30pm - 7:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "9": [
+        {
+            "title": "Literati Book Fair",
+            "time": "9:30am - 3:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "11": [
+        {
+            "title": "Indigenous People's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Spirit Week: Pajama Day",
+            "time": null,
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Literati Book Fair",
+            "time": "9:30am - 3:30pm",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Student-Led Conferences",
+            "time": "4:30pm - 7:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "13": [
+        {
+            "title": "Spirit Week: Duplicate Day",
+            "time": null,
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Literati Book Fair",
+            "time": "9:30am - 3:30pm",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Student-Led Conferences",
+            "time": "4:30pm - 7:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "14": [
+        {
+            "title": "Spirit Week: Jersey/Sports Day",
+            "time": null,
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Literati Book Fair",
+            "time": "9:30am - 3:30pm",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        },
+        {
+            "title": "Band Concert & Picture Night",
+            "time": "7:30pm",
+            "location": "Fall Creek Junior High"
+        }
+    ],
+    "15": [
+        {
+            "title": "Spirit Week: Crazy Hat & Hair Day",
+            "time": null,
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "ILEARN - Checkpoint practice test",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Literati Book Fair",
+            "time": "9:30am - 3:30pm",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Student-Led Conferences",
+            "time": "4:30pm - 7:30pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "16": [
+        {
+            "title": "Spirit Week: Monochrome Day",
+            "time": null,
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Kona Ice at FCI",
+            "time": "10:00am - 2:00pm",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "19": [
+        {
+            "title": "Fall Break (No School) 🍂",
+            "time": null,
+            "location": null
+        }
+    ],
+    "20": [
+        {
+            "title": "Fall Break (No School) 🍂",
+            "time": null,
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Fall Break (No School) 🍂",
+            "time": null,
+            "location": null
+        }
+    ],
+    "22": [
+        {
+            "title": "Fall Break (No School) 🍂",
+            "time": null,
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Fall Break (No School) 🍂",
+            "time": null,
+            "location": null
+        }
+    ],
+    "26": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Hub & Spoke"
+        }
+    ],
+    "27": [
+        {
+            "title": "ILEARN - Checkpoint 1 ELA",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "28": [
+        {
+            "title": "Picture Re-Take Day",
+            "time": "9:00am - 11:00am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "29": [
+        {
+            "title": "ILEARN - Checkpoint 1 Math",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Sensory Friendly Instrument Night",
+            "time": "6:00pm - 7:00pm",
+            "location": "Fall Creek Junior High School"
+        }
+    ],
+    "31": [
+        {
+            "title": "Halloween",
+            "time": "Evening",
+            "location": null
+        }
+    ]
+}

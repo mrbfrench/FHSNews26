@@ -1,0 +1,146 @@
+{
+    "1": [
+        {
+            "title": "NWEA Testing - Reading",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Boys Basketball Game vs Hamilton Heights",
+            "time": "5:30pm",
+            "location": "Hamilton Heights Middle School"
+        }
+    ],
+    "3": [
+        {
+            "title": "NWEA Testing - Math",
+            "time": "9:15am - 11:15am",
+            "location": "Fall Creek Intermediate"
+        },
+        {
+            "title": "Boys Basketball Game vs Carmel",
+            "time": "5:30pm",
+            "location": "TBD"
+        }
+    ],
+    "7": [
+        {
+            "title": "PTO Meeting",
+            "time": "10:15am",
+            "location": "Fall Creek Intermediate"
+        }
+    ],
+    "8": [
+        {
+            "title": "Boys Basketball Game vs Anderson",
+            "time": "5:30pm",
+            "location": "Anderson Intermediate School"
+        }
+    ],
+    "9": [
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "10": [
+        {
+            "title": "Boys Basketball Game vs Pendleton Elem./Int.",
+            "time": "5:30pm",
+            "location": "Pendleton Elem./Int. School"
+        }
+    ],
+    "12": [
+        {
+            "title": "Boys Basketball Intermediate Tournament",
+            "time": "9:00am",
+            "location": "Riverside Intermediate School"
+        }
+    ],
+    "18": [
+        {
+            "title": "Last Day Before Winter Break",
+            "time": null,
+            "location": null
+        }
+    ],
+    "21": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "22": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "24": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Christmas Eve",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "25": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Christmas Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "28": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "29": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "30": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        }
+    ],
+    "31": [
+        {
+            "title": "Winter Break (No School) ❄️",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "New Year's Eve",
+            "time": "All Day",
+            "location": null
+        }
+    ]
+}

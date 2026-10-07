@@ -1,0 +1,42 @@
+{
+    "4": [
+        {
+            "title": "3rd Grade Field Trip",
+            "time": null,
+            "location": null
+        }
+    ],
+    "5": [
+        {
+            "title": "First Friday 👕",
+            "time": null,
+            "location": null
+        },
+        {
+            "title": "Grading Period Ends",
+            "time": null,
+            "location": null
+        }
+    ],
+    "17": [
+        {
+            "title": "St. Patrick's Day",
+            "time": "All Day",
+            "location": null
+        }
+    ],
+    "19": [
+        {
+            "title": "PTO Beach Bash",
+            "time": null,
+            "location": null
+        }
+    ],
+    "23": [
+        {
+            "title": "Mudsock Math Bowl ✏️🏅",
+            "time": null,
+            "location": "FHS"
+        }
+    ]
+}

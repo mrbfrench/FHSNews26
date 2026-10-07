@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flicker</title>
+    <link rel="shortcut icon" type="image/ico" href="../img/favicon.ico">
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background-color: white;
+        }
+
+        body.pink {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Swap between white and pink every 0.3 seconds, unless the visitor's
+        // device asks for reduced motion (avoids flashing for sensitive users)
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setInterval(function () {
+                document.body.classList.toggle('pink');
+            }, 300);
+        }
+    </script>
+</body>
+</html>

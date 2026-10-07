@@ -1,0 +1,56 @@
+{
+    "3": [
+        {
+            "title": "Open House 🏫 (All Families)",
+            "time": "4:00pm - 5:00pm",
+            "location": "SES"
+        }
+    ],
+    "5": [
+        {
+            "title": "First Day of School 🎒",
+            "time": null,
+            "location": null
+        }
+    ],
+    "12": [
+        {
+            "title": "Meet the Teacher Night 🍎 (1st-4th)",
+            "time": "5:00pm - 6:00pm",
+            "location": "SES"
+        },
+        {
+            "title": "Board of Trustees Meeting 🏫",
+            "time": "6:00pm",
+            "location": "Admin Building (13485 Cumberland Road)"
+        }
+    ],
+    "18": [
+        {
+            "title": "Speak Up Be Safe: Parent Information Session",
+            "time": "12:00pm - 1:00pm",
+            "location": "Online (See Discription)"
+        }
+    ],
+    "25": [
+        {
+            "title": "Referendum Information Night",
+            "time": "6:00pm",
+            "location": "Fall Creek Township Building"
+        }
+    ],
+    "26": [
+        {
+            "title": "Popsicles on the Playground",
+            "time": "6:00pm - 8:00pm",
+            "location": "Southeastern Elementary Playground"
+        }
+    ],
+    "31": [
+        {
+            "title": "Classroom Coordinator Virtual Meeting",
+            "time": "6:00pm - 7:00pm",
+            "location": "Microsoft Teams"
+        }
+    ]
+}
