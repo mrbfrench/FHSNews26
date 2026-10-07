@@ -14,6 +14,10 @@
  * (public/py/calendar/calendar-data): a day titled "Red Day", "Silver Day",
  * "Block 7 Final Day", etc. uses the schedule whose calendarTitle matches.
  *
+ * The header countdown ("Fall Break in 7 school days") is also picked on the
+ * admin page; its date and the school days before it come from the FHS calendar,
+ * so it stays right each year.
+ *
  * Changing the state requires the admin password, which is read from the
  * ADMIN_PASSWORD environment variable. If it isn't set, the admin page can't
  * make changes.
@@ -31,6 +35,16 @@ const PLANNED_FILE = path.join(DATA_DIR, 'planned-days.json');
 const CALENDAR_DIR = path.join(__dirname, 'public', 'py', 'calendar', 'calendar-data', '19-fishers-high-school');
 const AUTO = 'auto';
 const FALLBACK_SCHEDULE = 'red-day'; // a school day the calendar doesn't label
+
+// Countdowns the admin can show in the site header, and how to find them on the calendar
+const COUNTDOWNS = {
+    'fall-break': { label: 'Fall Break', match: /^fall break/i },
+    'winter-break': { label: 'Winter Break', match: /^winter break/i },
+    'spring-break': { label: 'Spring Break', match: /^spring break/i },
+    'last-day': { label: 'Last Day of School', match: /last day (for students|of school)/i },
+};
+const COUNTDOWN_OFF = 'off';
+const DEFAULT_COUNTDOWN = 'last-day';
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
 // Lock out an address for 15 minutes after 5 wrong passwords
@@ -51,6 +65,7 @@ function loadState(schedules) {
     }
     return {
         default: schedules[state.default] ? state.default : AUTO,
+        countdown: COUNTDOWNS[state.countdown] || state.countdown === COUNTDOWN_OFF ? state.countdown : DEFAULT_COUNTDOWN,
         overrides: state.overrides && typeof state.overrides === 'object' ? state.overrides : {},
     };
 }
@@ -115,6 +130,93 @@ function scheduleForDate(schedules, state, date) {
     return { id, date, source, isOverride: source === 'override', noSchool: source === 'no-school', ...schedules[id] };
 }
 
+// The next date a countdown counts to: the first day of the next break (or the last
+// day of school) on or after `fromDate`, from the FHS calendar. Null if not found.
+function countdownDate(key, fromDate) {
+    const countdown = COUNTDOWNS[key];
+    if (!countdown) return null;
+
+    const dates = [];
+    let files = [];
+    try {
+        files = fs.readdirSync(CALENDAR_DIR).filter(f => /^\d{4}-\d{2}\.json$/.test(f));
+    } catch (error) {
+        return null;
+    }
+    for (const file of files) {
+        let monthData;
+        try {
+            monthData = JSON.parse(fs.readFileSync(path.join(CALENDAR_DIR, file), 'utf8'));
+        } catch (error) {
+            continue; // skip a broken month file
+        }
+        for (const [day, events] of Object.entries(monthData)) {
+            if (!Array.isArray(events) || !/^\d+$/.test(day)) continue;
+            if (events.some(e => e && e.title && countdown.match.test(e.title.trim()))) {
+                dates.push(`${file.slice(0, 7)}-${day.padStart(2, '0')}`);
+            }
+        }
+    }
+    dates.sort();
+
+    // A break covers several days; count to its first day. Days within 4 days of
+    // the previous one (a weekend in between) belong to the same break.
+    const starts = dates.filter((date, i) => i === 0 || daysBetween(dates[i - 1], date) > 4);
+    return starts.find(date => date >= fromDate) || null;
+}
+
+function daysBetween(from, to) {
+    const [y1, m1, d1] = from.split('-').map(Number);
+    const [y2, m2, d2] = to.split('-').map(Number);
+    return Math.round((Date.UTC(y2, m2 - 1, d2) - Date.UTC(y1, m1 - 1, d1)) / 86400000);
+}
+
+// Is this date a school day? Weekdays count unless the FHS calendar marks them as a
+// day off ("Labor Day (No School)", "Winter Break (No School)", "Spring Break", ...).
+function isSchoolDay(date, monthCache) {
+    const [year, month, day] = date.split('-').map(Number);
+    const weekday = new Date(year, month - 1, day).getDay();
+    if (weekday === 0 || weekday === 6) return false;
+
+    const monthKey = date.slice(0, 7);
+    if (!(monthKey in monthCache)) {
+        try {
+            monthCache[monthKey] = JSON.parse(fs.readFileSync(path.join(CALENDAR_DIR, `${monthKey}.json`), 'utf8'));
+        } catch (error) {
+            monthCache[monthKey] = {};
+        }
+    }
+    const events = monthCache[monthKey][String(day)] || [];
+    return !events.some(e => e && e.title && /no school|^(fall|thanksgiving|winter|spring) break/i.test(e.title.trim()));
+}
+
+// School days after today, up to and including the countdown date if it's a school
+// day itself (the last day of school is; the first day of a break isn't)
+function schoolDaysUntil(today, target) {
+    const [y, m, d] = today.split('-').map(Number);
+    const monthCache = {};
+    let count = 0;
+    for (let i = 1; i <= daysBetween(today, target); i++) {
+        const day = new Date(y, m - 1, d + i);
+        const date = `${day.getFullYear()}-${String(day.getMonth() + 1).padStart(2, '0')}-${String(day.getDate()).padStart(2, '0')}`;
+        if (isSchoolDay(date, monthCache)) count++;
+    }
+    return count;
+}
+
+function countdownFor(key, today) {
+    if (!COUNTDOWNS[key]) return { key: COUNTDOWN_OFF };
+    const date = countdownDate(key, today);
+    return {
+        key,
+        label: COUNTDOWNS[key].label,
+        date,
+        isToday: date === today,
+        todayIsSchoolDay: isSchoolDay(today, {}),
+        schoolDays: date ? schoolDaysUntil(today, date) : null,
+    };
+}
+
 function hash(text) {
     return crypto.createHash('sha256').update(String(text)).digest();
 }
@@ -154,14 +256,29 @@ router.get('/schedule', (req, res) => {
     res.json(scheduleForDate(schedules, state, date));
 });
 
+// The header countdown, e.g. { label: "Fall Break", date: "2026-10-19", days: 12 }
+router.get('/countdown', (req, res) => {
+    const state = loadState(loadSchedules());
+    const date = DATE_PATTERN.test(req.query.date || '') ? req.query.date : serverToday();
+    res.set('Cache-Control', 'no-store');
+    res.json(countdownFor(state.countdown, date));
+});
+
 // Everything the admin page shows. Nothing here is secret, but only admins need it.
 router.get('/admin/state', requireAdmin, (req, res) => {
     const schedules = loadSchedules();
     res.set('Cache-Control', 'no-store');
     // Also say what the next two weeks will look like, so the admin page can show it
     const state = loadState(schedules);
-    res.json({ schedules, state, upcoming: upcomingDays(schedules, state, req.query.date) });
+    res.json(adminView(schedules, state, req.query.date));
 });
+
+// What the admin page needs: schedules, settings, the next two weeks, and each countdown option
+function adminView(schedules, state, date) {
+    const today = DATE_PATTERN.test(date || '') ? date : serverToday();
+    const countdowns = Object.keys(COUNTDOWNS).map(key => countdownFor(key, today));
+    return { schedules, state, upcoming: upcomingDays(schedules, state, today), countdowns };
+}
 
 function upcomingDays(schedules, state, fromDate) {
     const start = DATE_PATTERN.test(fromDate || '') ? fromDate : serverToday();
@@ -184,6 +301,10 @@ router.put('/admin/state', requireAdmin, (req, res) => {
     if (body.default !== AUTO && !schedules[body.default]) {
         return res.status(400).json({ error: 'Unknown default schedule.' });
     }
+    const countdown = body.countdown === undefined ? loadState(schedules).countdown : body.countdown;
+    if (!COUNTDOWNS[countdown] && countdown !== COUNTDOWN_OFF) {
+        return res.status(400).json({ error: 'Unknown countdown.' });
+    }
 
     // Keep valid overrides, and drop ones more than a week old
     const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
@@ -195,9 +316,9 @@ router.put('/admin/state', requireAdmin, (req, res) => {
         if (date >= weekAgo) overrides[date] = id;
     }
 
-    const state = { default: body.default, overrides };
+    const state = { default: body.default, overrides, countdown };
     saveState(state);
-    res.json({ schedules, state, upcoming: upcomingDays(schedules, state, req.query.date) });
+    res.json(adminView(schedules, state, req.query.date));
 });
 
 module.exports = router;

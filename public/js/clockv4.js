@@ -354,31 +354,45 @@ function updateClock() {
     }
 }
 
+// Header countdown in school days ("Fall Break in 7 school days"). Which event it
+// counts to is picked on the admin page; the server works out the date and the
+// school days left from the FHS calendar.
 function initializeEndOfYearCountdown() {
-    const endOfYearCountdown = document.getElementById("end_year_countdown");
-    if (!endOfYearCountdown) return; // the countdown isn't on this page
+    const element = document.getElementById("end_year_countdown");
+    if (!element) return; // the countdown isn't on this page
 
-    // Last day of school: May 22 at 3:00 PM (next year's once this year's has passed)
-    let endOfYear = new Date(now.getFullYear(), 4, 22, 15, 0, 0);
-    if (now > endOfYear) endOfYear = new Date(now.getFullYear() + 1, 4, 22, 15, 0, 0);
-
-    function pad(n) {
-        return `${n < 10 ? '0' : ''}${n}`;
+    function show(countdown) {
+        if (!countdown || !countdown.date) {
+            element.textContent = "";
+            element.style.display = "none";
+            return;
+        }
+        const days = countdown.schoolDays;
+        if (countdown.isToday) {
+            element.textContent = `${countdown.label} is today!`;
+        } else if (days === 0 && countdown.todayIsSchoolDay) {
+            element.textContent = `Last school day before ${countdown.label}!`;
+        } else if (days === 0) {
+            // A weekend or day off right before it
+            const [year, month, day] = countdown.date.split("-").map(Number);
+            const weekday = new Date(year, month - 1, day).toLocaleDateString(undefined, { weekday: "long" });
+            element.textContent = `${countdown.label} starts ${weekday}!`;
+        } else {
+            element.textContent = `${countdown.label} in ${days} school ${days === 1 ? "day" : "days"}`;
+        }
+        // (the element has an inline display:block, so toggle display rather than `hidden`)
+        element.style.display = "block";
     }
 
-    function updateEndOfYearCountdown() {
-        let timeRemaining = Math.max(0, (endOfYear - new Date()) / 1000); // in seconds
-        const days = Math.floor(timeRemaining / 86400);
-        timeRemaining %= 86400;
-        const hours = Math.floor(timeRemaining / 3600);
-        timeRemaining %= 3600;
-        const minutes = Math.floor(timeRemaining / 60);
-        const seconds = Math.floor(timeRemaining % 60);
-        endOfYearCountdown.textContent = `Last day of School: ${pad(days)}:${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    function load() {
+        fetch(`/api/countdown?date=${localDateString(new Date())}`, { cache: "no-store" })
+            .then(response => (response.ok ? response.json() : null))
+            .then(show)
+            .catch(() => show(null));
     }
 
-    updateEndOfYearCountdown();
-    setInterval(updateEndOfYearCountdown, 1000);
+    load();
+    setInterval(load, 10 * 60 * 1000); // picks up admin changes and the next day
 }
 
 

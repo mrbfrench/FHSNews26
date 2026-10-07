@@ -157,6 +157,13 @@
                 <div class="choices" id="today-choices"></div>
             </section>
 
+            <!-- Header countdown -->
+            <section class="card">
+                <h2>Header countdown</h2>
+                <p class="hint">Shown under "FHS Bell Schedule" at the top of the site, counted in school days (weekends, breaks and days off don't count). Dates come from the FHS calendar.</p>
+                <div class="choices" id="countdown-choices"></div>
+            </section>
+
             <!-- Coming up -->
             <section class="card">
                 <h2>Next two weeks</h2>
@@ -219,6 +226,7 @@
         var schedules = {};
         var state = { default: null, overrides: {} };
         var upcoming = [];
+        var countdowns = [];
         var password = '';
         try { password = sessionStorage.getItem('adminPassword') || ''; } catch (e) {}
 
@@ -365,10 +373,44 @@
                 plans.appendChild(item);
             });
 
+            renderCountdowns();
+
             fillSelect($('default-schedule'), state.default, true);
             if (!$('plan-schedule').options.length) fillSelect($('plan-schedule'), Object.keys(schedules)[2]);
             if (!$('preview-schedule').options.length) fillSelect($('preview-schedule'), todayId || Object.keys(schedules)[0]);
             renderPreview();
+        }
+
+        function renderCountdowns() {
+            var choices = $('countdown-choices');
+            choices.innerHTML = '';
+            var options = countdowns.concat([{ key: 'off', label: 'Off' }]);
+            options.forEach(function (option) {
+                var button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'choice' + (state.countdown === option.key ? ' active' : '');
+                button.textContent = option.label;
+                var small = document.createElement('small');
+                if (option.key === 'off') {
+                    small.textContent = 'No countdown';
+                } else if (option.date) {
+                    var parts = option.date.split('-').map(Number);
+                    var when = new Date(parts[0], parts[1] - 1, parts[2]).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+                    small.textContent = when + ' · ' + (option.isToday ? 'today'
+                        : option.schoolDays === 0 ? 'last school day before it'
+                        : 'in ' + option.schoolDays + (option.schoolDays === 1 ? ' school day' : ' school days'));
+                } else {
+                    small.textContent = 'Not on the calendar yet';
+                    button.disabled = true;
+                    button.dataset.unavailable = 'true'; // stays disabled after a save
+                }
+                button.appendChild(small);
+                button.addEventListener('click', function () {
+                    save({ default: state.default, overrides: state.overrides, countdown: option.key },
+                        option.key === 'off' ? 'Header countdown turned off.' : 'Header now counts down to ' + option.label + '.');
+                });
+                choices.appendChild(button);
+            });
         }
 
         function renderPreview() {
@@ -399,12 +441,13 @@
                     schedules = data.schedules;
                     state = data.state;
                     upcoming = data.upcoming || [];
+                    countdowns = data.countdowns || [];
                     render();
                     showMessage(successText);
                 })
                 .catch(handleError)
                 .finally(function () {
-                    document.querySelectorAll('#panel button').forEach(function (b) { b.disabled = false; });
+                    document.querySelectorAll('#panel button').forEach(function (b) { b.disabled = Boolean(b.dataset.unavailable); });
                 });
         }
 
@@ -427,6 +470,7 @@
                 schedules = data.schedules;
                 state = data.state;
                 upcoming = data.upcoming || [];
+                countdowns = data.countdowns || [];
                 try { sessionStorage.setItem('adminPassword', password); } catch (e) {}
                 $('login').hidden = true;
                 $('panel').hidden = false;
