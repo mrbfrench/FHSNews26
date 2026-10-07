@@ -7,12 +7,17 @@ var scoreText;
 var timeText;
 var endScreen;
 var endText;
+var resultText;
 var frameNo = 0;
 var hitMarkSpeed = 10;
 var myBalls = [];
 var startFrame = 0;
 var score = 0;
 var isEnd = false;
+
+// Makes needed in 30 seconds to unlock the Pacers theme. 25 took near-perfect
+// timing on almost every shot; 15 is still a challenge but beatable.
+var WIN_SCORE = 15;
 
 var gameArea = {
   canvas: null,
@@ -98,9 +103,11 @@ function updateGameArea() {
 
 
   if (!isEnd) {
-    for (i = 0; i < myBalls.length; i++) {
+    // Drop balls that have left the court (looping backwards so removing one doesn't skip the next)
+    for (var i = myBalls.length - 1; i >= 0; i--) {
       if (myBalls[i].x > 400) {
         myBalls.splice(i, 1);
+        continue;
       }
       myBalls[i].angle += 4 * Math.PI / 180;
       myBalls[i].update();
@@ -148,6 +155,8 @@ function updateGameArea() {
     endScreen.update();
     endText.text = "Game Over! Final Score: " + score;
     endText.update();
+    resultText.text = score >= WIN_SCORE ? "You unlocked the Pacers theme!" : "Make " + WIN_SCORE + " to unlock the Pacers theme";
+    resultText.update();
   }
 }
 
@@ -159,18 +168,20 @@ function startGame() {
   isEnd = false;
   hoop = new component(150, 150, "hoop.png", 265, 150, "image");
   guy = new component(50, 100, "idle.png", 0, 200, "image");
-  hitBar = new component(400, 50, "hitbar.png", 0, 300, "image");
+  hitBar = new component(400, 50, "hitBar.png", 0, 300, "image"); // file name is case-sensitive on the server
   hitMark = new component(10, 50, "white", 20, 300, "rect");
   scoreText = new component(20, 20, "white", 10, 20, "text");
   timeText = new component(20, 20, "white", 300, 20, "text");
   endScreen = new component(400, 350, "black", 0, 0, "rect");
   endText = new component(30, 75, "white", 20, 175, "text");
+  resultText = new component(20, 75, "white", 20, 215, "text");
 
   hitMark.fillColor = "white";
   scoreText.fillColor = "white";
   timeText.fillColor = "white";
   endScreen.fillColor = "black";
   endText.fillColor = "white";
+  resultText.fillColor = "white";
   hitMark.speedX = hitMarkSpeed;
 
 
@@ -204,21 +215,15 @@ function shouldStopThrow() {
 }
 
 function endGame() {
-  if (score >= 25) {
-    localStorage.setItem('themeUnlocked-pacers', true);
-    switchTheme('pacers');
-    alert("Congratulations! You won the game with a score of " + score + "!");
-  }
   isEnd = true;
+  if (score >= WIN_SCORE) {
+    runConfetti();
+    // Unlock the theme; switch to it after a moment unless the game was opened just for fun
+    unlockTheme('pacers');
+    setTimeout(function () {
+      if (document.getElementById('puzzleModal').style.display === 'block') meepMorp('pacers');
+    }, 2000);
   }
-
-function switchTheme(themeName) {
-    const themeLink = document.getElementById('theme-style');
-    const newThemePath = `themes/${themeName}.css`;
-    if (themeLink.getAttribute('href') !== newThemePath) {
-        themeLink.setAttribute('href', newThemePath);
-    }
-    localStorage.setItem('selectedTheme', themeName);
 }
 
 

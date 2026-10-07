@@ -77,7 +77,6 @@
 
         button.addEventListener('click', function (event) {
             event.stopPropagation();
-            document.getElementById('games_dropdown').classList.add('hidden');
             dropdown.classList.toggle('hidden');
             // Reload each time so the list stays right if the page is left open overnight
             if (!dropdown.classList.contains('hidden')) loadEvents(list);

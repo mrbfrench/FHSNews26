@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     attachEventListenersToThemeButtons(themeButtons);
     attachEventListenerToThemeSelector();
     attachEventListenerToModal();
-    attachEventListenersToGamesMenu();
     // Setup event listener for each Check Answer button
     setupPuzzleAnswerCheckers();
 
@@ -310,40 +309,13 @@ function closePuzzle() {
     const modal = document.getElementById('puzzleModal');
     modal.style.display = 'none';
 
-    // Games opened from the Games menu have no theme selector behind them
-    if (modal.classList.contains('game-mode')) {
-        modal.classList.remove('game-mode');
-        closeSelector();
-    }
+    // Back to the theme selector after playing a game from its Games section
+    modal.classList.remove('game-mode');
 }
 
-function attachEventListenersToGamesMenu() {
-    const gamesButton = document.getElementById('games_selector');
-    const gamesDropdown = document.getElementById('games_dropdown');
-
-    gamesButton.addEventListener('click', (event) => {
-        event.stopPropagation();
-        document.getElementById('events_dropdown').classList.add('hidden');
-        gamesDropdown.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('.game-option').forEach(option => {
-        option.addEventListener('click', (event) => {
-            event.stopPropagation();
-            gamesDropdown.classList.add('hidden');
-            openGame(option.getAttribute('data-game'));
-        });
-    });
-
-    // Close the dropdown when clicking anywhere else
-    document.addEventListener('click', () => gamesDropdown.classList.add('hidden'));
-}
-
-// Open a puzzle game (chess or 2048) to play for fun, whether or not its theme is unlocked
+// Open a game from the theme selector's Games section to play for fun, whether or
+// not its theme is unlocked (winning still unlocks it, but doesn't switch themes)
 function openGame(theme) {
-    // The puzzle modal lives inside the theme selector's blur overlay
-    document.getElementById('themes_blur').classList.remove('hidden');
-    document.getElementById('themes_selector').classList.add('hidden');
     document.getElementById('puzzleModal').classList.add('game-mode');
     openPuzzle(theme);
 }

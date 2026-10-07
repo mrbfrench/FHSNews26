@@ -139,15 +139,6 @@
 		<article id="main-content">
 			<section class="block" id="themes_shop_container">
 				<a id="theme_selector">Theme Selector</a>
-				<div id="games_menu_container">
-					<a id="games_selector">Games</a>
-					<div id="games_dropdown" class="hidden">
-						<a class="game-option" data-game="space">Chess</a>
-						<a class="game-option" data-game="magma">2048</a>
-						<a class="game-option" data-game="minecraft">Connect Four</a>
-						<a class="game-option" data-game="pacers">Basketball</a>
-					</div>
-				</div>
 				<div id="events_menu_container">
 					<a id="events_selector">Events</a>
 					<div id="events_dropdown" class="hidden">
@@ -186,17 +177,16 @@
 					<a class="theme-button" data-theme="kart" style = "background-image: url('img/kart.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; background-color: #ff0000;"></a>
 					<a class="theme-button" data-theme="weezer" style = "background-image: url('img/musicnote.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; background-color: rgb(8, 146, 193);"></a>
 					<a class="theme-button" data-theme="colts" style = "background-image: url('img/colts.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; background-color: #002C5F;"></a>
-					<script src="js/basketBallGame.js"></script>	
 					<a class="theme-button" data-theme="pacers" onclick="startGame()" style = "background-image: url('img/basketball.svg'); background-repeat: no-repeat; background-position: center; background-size: contain; background-color: #fdbb30;"></a>
 					<a class="theme-button" data-theme="minecraft" style="background-image: url('img/grassblock.svg'); background-repeat: no-repeat; background-position: center; background-color: #5b8731;"></a>
 					
 					
 					<h2>Games</h2>
 					<div class="games-buttons-container">
-						<button class="game-button" onclick="openPuzzle('space')">Chess</button>
-						<button class="game-button" onclick="openPuzzle('magma')">2048</button>
-						<button class="game-button" onclick="openPuzzle('minecraft')">Connect Four</button>
-						<button class="game-button" onclick="openPuzzle('pacers')" onclick="startGame()">Basketball</button>
+						<button class="game-button" onclick="openGame('space')">Chess</button>
+						<button class="game-button" onclick="openGame('magma')">2048</button>
+						<button class="game-button" onclick="openGame('minecraft')">Connect Four</button>
+						<button class="game-button" onclick="openGame('pacers')">Basketball</button>
 					</div>
 					<p id="consecutive-visit-counter">Current Streak: NaN</p>
 				</section>
@@ -292,7 +282,7 @@
 							<div id = "puzzle-pacers" class = "puzzle" data-theme = "pacers">	
 							<h2 class="unlock-only">Unlock Pacers Theme</h2>
 							<h2 class="game-only">Basketball</h2>
-							<p class="unlock-only">Score 25 points in 30 seconds to unlock this theme</p>
+							<p class="unlock-only">Score 15 points in 30 seconds to unlock this theme</p>
 							<div id = basketballdiv><button id = "basketballBtn" onmousedown = "throwBall()">Play Basketball</button><canvas id = "basketball"></canvas></div> 
 							<script src="js/basketBallGame.js"></script>
 							<button id = "startBtn" onclick="startGame()">Start New Game</button>
