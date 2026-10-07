@@ -61,6 +61,11 @@
 	background-color: var(--calendar-purple);
 }
 
+/* Finals days: their own color so they don't look like days off (green) */
+.orange-day {
+	background-color: var(--calendar-orange, #ffc078);
+}
+
 .event-box {
     padding: 10px;
     border-radius: 5px;      /* rounded corners */
@@ -96,6 +101,11 @@
 .purple-background {
 	background-color: var(--calendar-purple);
 	border: 2px solid mediumpurple;
+}
+
+.orange-background {
+	background-color: var(--calendar-orange, #ffc078);
+	border: 2px solid darkorange;
 }
 
 p, button {

@@ -1,3 +1,13 @@
+// PSAT / SAT testing days (whole words, so "Saturday" doesn't count)
+function isTestingTitle(title) {
+    return /\b(psat|sat)\b/i.test(title || '');
+}
+
+// Finals days ("Block 7 Final Day", "Block 1 & 2 Final Day", ...)
+function isFinalsTitle(title) {
+    return /final day|semester exam/i.test(title || '');
+}
+
 class Calendar {
     constructor() {
         this.currentDate = new Date();
@@ -119,8 +129,11 @@ class Calendar {
             if ((event.title || '').toLowerCase().includes('teacher day')) {
                 eventClass = 'yellow-background';
             }
-            if ((event.title || '').toLowerCase().includes('psat') || (event.title || '').toLowerCase().includes('sat')) {
+            if (isTestingTitle(event.title)) {
                 eventClass = 'purple-background';
+            }
+            if (isFinalsTitle(event.title)) {
+                eventClass = 'orange-background';
             }
 
             return `
@@ -173,7 +186,8 @@ class Calendar {
                 events.isSilverDay = events.some(e => (e.title || '').toLowerCase() === 'silver day');
                 events.isElearning = events.some(e => (e.title || '').toLowerCase().includes('elearning'));
                 events.isTeacherDay = events.some(e => (e.title || '').toLowerCase().includes('teacher day'));
-                events.isSAT = events.some(e => (e.title || '').toLowerCase() === 'psat' || (e.title || '').toLowerCase() === 'sat testing');
+                events.isSAT = events.some(e => isTestingTitle(e.title));
+                events.isFinals = events.some(e => isFinalsTitle(e.title));
             }
 
             // Hide the loading bar
@@ -318,6 +332,9 @@ class Calendar {
                     }
                     if (eventData && eventData.isSAT) {
                         td.classList.add('purple-day');
+                    }
+                    if (eventData && eventData.isFinals) {
+                        td.classList.add('orange-day');
                     }
 
                     // Create a Date object with the current year, month, and date
