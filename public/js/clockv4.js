@@ -9,28 +9,28 @@ var now = new Date();
 var endTime;
 let hasAdvanced = false;  // Add this flag at the top of the file to track whether we have already advanced the period
 let manualNavigation = false; // Flag to indicate manual navigation
+let lastArrowClick = 0; // when someone last browsed periods with the arrows
 // The bell schedule comes from the server (/api/schedule): Red Day / Silver Day
 // from the FHS calendar, or whatever an admin picked at /admin. These are the
 // Red Day times, used only if the server can't be reached.
 var timePeriodMapping = [
     { startTime: "08:00", endTime: "08:30", periodName: "Passing Period" },
-    { startTime: "08:30", endTime: "09:53", periodName: "Period 1" },
-    { startTime: "09:53", endTime: "10:01", periodName: "Passing Period" },
-    { startTime: "10:01", endTime: "11:24", periodName: "Period 2" },
-    { startTime: "11:24", endTime: "11:32", periodName: "Passing Period"},
-    { startTime: "11:32", endTime: "13:24", periodName: "Period 3 & Lunch" },
-    { startTime: "13:24", endTime: "13:32", periodName: "Passing Period" },
-    { startTime: "13:32", endTime: "15:00", periodName: "Period 4" },
+    { startTime: "08:30", endTime: "09:51", periodName: "Block 1" },
+    { startTime: "09:51", endTime: "09:59", periodName: "Passing Period" },
+    { startTime: "09:59", endTime: "11:25", periodName: "Block 2" },
+    { startTime: "11:25", endTime: "11:33", periodName: "Passing Period" },
+    { startTime: "11:33", endTime: "13:31", periodName: "Block 3 & Lunch" },
+    { startTime: "13:31", endTime: "13:39", periodName: "Passing Period" },
+    { startTime: "13:39", endTime: "15:00", periodName: "Block 4" },
 ];
 
 var lunchTimings = {
-    "A": { startTime: "11:24", endTime: "11:54", periodName: "A Lunch" },
-    "B": { startTime: "11:54", endTime: "12:24", periodName: "B Lunch" },
-    "C": { startTime: "12:24", endTime: "12:54", periodName: "C Lunch" },
-    "D": { startTime: "12:54", endTime: "13:24", periodName: "D Lunch"}
+    "A": { startTime: "11:58", endTime: "12:28", periodName: "A Lunch" },
+    "B": { startTime: "12:28", endTime: "12:58", periodName: "B Lunch" },
+    "C": { startTime: "12:58", endTime: "13:28", periodName: "C Lunch" },
 };
 
-var lunchPeriodName = "Period 3 & Lunch"; // the period the lunch waves happen in
+var lunchPeriodName = "Block 3 & Lunch"; // the period the lunch waves happen in
 var activeScheduleKey = null; // "<id>|<date>" of the schedule loaded from the server
 var noSchoolToday = false; // the calendar marks today as a day off (break, holiday)
 
@@ -77,6 +77,7 @@ function to12HourFormat(timeStr) {
 
 window.advanceToNextPeriod = function() {
     manualNavigation = true;
+    lastArrowClick = Date.now();
     if (currentPeriodIndex < timePeriodMapping.length - 1) {
         currentPeriodIndex++;
         updatePeriod();
@@ -88,6 +89,7 @@ window.advanceToNextPeriod = function() {
 
 window.advanceToPreviousPeriod = function() {
     manualNavigation = true;
+    lastArrowClick = Date.now();
     if (currentPeriodIndex > -1) {
         currentPeriodIndex--;
         updatePeriod();
@@ -198,6 +200,7 @@ function updatePeriod() {
         updateProgressBar(periodStartTime, endTime);
     } else {
         endTime = new Date(now);
+        document.getElementById("lunch").classList.add("hidden"); // no lunch picker outside school hours
         document.getElementById("period__header").textContent = "Not School Hours";
         document.getElementById("period__time").textContent = to12HourFormat(timePeriodMapping[timePeriodMapping.length-1].endTime) + " - " + to12HourFormat(timePeriodMapping[0].startTime);
     }
@@ -330,6 +333,23 @@ function updateClock() {
     if (timeRemaining < 0) {
         location.reload();
     }
+
+    // Outside school hours (before the first bell, after the last, weekends, days off)
+    // show the time of day instead of a countdown to the next bell
+    const progressBar = document.getElementById("countdown__bar");
+    // When the first bell arrives, switch from the time of day to the first period
+    // (unless someone is browsing periods with the arrows right now)
+    if (currentPeriodIndex === -1 && getCurrentPeriodIndex() !== -1 && Date.now() - lastArrowClick > 60000) {
+        currentPeriodIndex = getCurrentPeriodIndex();
+        updatePeriod();
+        timeRemaining = getTimeRemaining();
+    }
+    if (currentPeriodIndex === -1) {
+        countdown.textContent = now.toLocaleTimeString([], { hour: "numeric", minute: "2-digit" });
+        if (progressBar) progressBar.style.visibility = "hidden";
+        return;
+    }
+    if (progressBar) progressBar.style.visibility = "visible";
 
     // Calculate hours, minutes, seconds
     let hours = Math.floor(timeRemaining / 3600);
