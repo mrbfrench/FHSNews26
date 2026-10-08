@@ -120,7 +120,7 @@
 		<header>
 			<div>
 				<div class="home-title">FHS Bell Schedule</div>
-				<div id="end_year_countdown" style="font-size: 1.2em; margin-bottom: 15px;display:block;width:100%;"></div>
+				<div id="end_year_countdown" style="font-size: min(1.2em, 3.8vw); margin-bottom: 15px; padding: 0 52px; box-sizing: border-box; display:block;width:100%;"></div>
 			</div>
 			
 			<!-- <a href="/fishers"></a> -->
@@ -493,6 +493,7 @@
 				</section>
 			</section>
 			<!-- Clock -->
+			<!-- Quick links: school tools on top (4), school life below (3) -->
 			<section class="block icon-buttons">
 				<a href="https://hse.instructure.com" target="_blank" class="icon-button">
 					<img src="img/canvas.png" alt="Canvas" />
@@ -504,16 +505,17 @@
 				<a href="https://clever.com/in/hse/student/portal" target="_blank" class="icon-button">
 					<img src="img/clever.png" alt="Clever" />
 				</a>
-			</section>
-			<section class="block icon-buttons marginal">
+				<a href="/gpa" class="icon-button">
+					<img src="img/gpaPic.jpg" alt="GPA Calculator" />
+				</a>
 				<a href="https://fisherstigertimes.com/" target="_blank" class="icon-button">
-					<img src="img/The Tiger Times-logos.jpeg" alt="TigerTimes" />
+					<img src="img/The Tiger Times-logos.jpeg" alt="The Tiger Times" />
 				</a>
 				<a href="https://www.youtube.com/@FHSRoar" target="_blank" class="icon-button">
-					<img src="img/fhsroar.jpg" alt="340" />
+					<img src="img/fhsroar.jpg" alt="FHS Roar" />
 				</a>
-				<a href="/gpa" class="icon-button">
-					<img src="img/gpaPic.jpg" alt="gpa calculator" />
+				<a href="https://www.shopfhs.com/" target="_blank" class="icon-button">
+					<img src="img/shopfhs.png" alt="ShopFHS spirit shop" />
 				</a>
 			</section>
 			<!-- Place this button somewhere appropriate in your HTML 
@@ -521,6 +523,18 @@
 			<!-- <button id="reset-themes-button" class="">Reset Unlocked Themes</button> -->
 
 		</article>
+		<script>
+			// Keep the page content just below the fixed header, whatever its height on this screen
+			(function () {
+				var header = document.querySelector('header');
+				function measure() {
+					document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+				}
+				measure();
+				if (window.ResizeObserver) new ResizeObserver(measure).observe(header);
+				else window.addEventListener('resize', measure);
+			})();
+		</script>
 		<!-- Bottom bar -->
 		<nav>
 			<div id="nav-tabs">

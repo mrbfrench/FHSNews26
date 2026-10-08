@@ -162,9 +162,10 @@ body {
     gap: 0px;
     font-weight: bold;
     position: relative;
-    padding: 7px 10px;
+    /* side padding keeps the title clear of the ? button on narrow phones */
+    padding: 7px 56px;
     color: var(--button-text-color-alt);
-	font-size: 4vh;
+	font-size: min(4vh, 7vw);
 	user-select: none;
 	font-family: robotobold;
 }
@@ -269,9 +270,10 @@ p {
   opacity: 0.5;
 }
 
-/* Start below the fixed header (title + "Last day of School" countdown, 83px tall) */
+/* Start just below the fixed header; --header-height is measured by a script in
+   index.html because the header's height depends on the screen size */
 #main-content {
-	padding-top: 92px;
+	padding-top: calc(var(--header-height, 83px) + 9px);
 }
 
 #themes_shop_container {
@@ -737,21 +739,28 @@ p {
 	margin-top: -20px;
 }
 
+/* Quick links: 4 tiles per row, all the same size; a shorter last row is centered */
 .icon-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px; /* Adjust the margin below the buttons as needed */
+	--icon-gap: 8px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: var(--icon-gap);
+	margin-bottom: 20px;
 }
 
 .icon-button {
 	background-color: var(--button-active-color) !important;
 	opacity: 1;
-	margin: 4px;
-    display: flex;
-	width: calc(100% / 3);
+	margin: 0;
+	display: flex;
+	align-items: center;
 	justify-content: center;
-    padding: 10px;
-    transition: background-color 0.3s ease;
+	box-sizing: border-box;
+	width: calc((100% - 3 * var(--icon-gap)) / 4);
+	height: 70px;
+	padding: 10px;
+	transition: background-color 0.3s ease;
 }
 
 .icon-button:hover {
@@ -759,8 +768,10 @@ p {
 }
 
 .icon-button img {
-    width: 50px; /* Adjust the width of the icon as needed */
-    height: auto;
+	max-width: 50px;
+	max-height: 50px;
+	width: auto;
+	height: auto;
 }
 
 @media screen and (min-width: 500px) {
