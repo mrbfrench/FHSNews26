@@ -266,61 +266,61 @@
             },
             {
                 "startTime": "08:30",
-                "endTime": "09:53",
-                "periodName": "Block 1"
+                "endTime": "09:51",
+                "periodName": "Block 5"
             },
             {
-                "startTime": "09:53",
-                "endTime": "10:01",
+                "startTime": "09:51",
+                "endTime": "09:59",
                 "periodName": "Passing Period"
             },
             {
-                "startTime": "10:01",
-                "endTime": "11:44",
-                "periodName": "Block 2"
+                "startTime": "09:59",
+                "endTime": "10:19",
+                "periodName": "Safe Schools Drill"
             },
             {
-                "startTime": "11:44",
-                "endTime": "11:52",
+                "startTime": "10:19",
+                "endTime": "11:40",
+                "periodName": "Block 6"
+            },
+            {
+                "startTime": "11:40",
+                "endTime": "11:48",
                 "periodName": "Passing Period"
             },
             {
-                "startTime": "11:52",
-                "endTime": "13:44",
-                "periodName": "Block 3 & Lunch"
+                "startTime": "11:48",
+                "endTime": "13:46",
+                "periodName": "Block 7 & Lunch"
             },
             {
-                "startTime": "13:44",
-                "endTime": "13:52",
+                "startTime": "13:46",
+                "endTime": "13:54",
                 "periodName": "Passing Period"
             },
             {
-                "startTime": "13:52",
+                "startTime": "13:54",
                 "endTime": "15:00",
-                "periodName": "Block 4"
+                "periodName": "Targeted Instruction"
             }
         ],
-        "lunchPeriod": "Block 3 & Lunch",
+        "lunchPeriod": "Block 7 & Lunch",
         "lunches": {
             "A": {
-                "startTime": "11:44",
-                "endTime": "12:14",
+                "startTime": "12:13",
+                "endTime": "12:43",
                 "periodName": "A Lunch"
             },
             "B": {
-                "startTime": "12:14",
-                "endTime": "12:44",
+                "startTime": "12:43",
+                "endTime": "13:13",
                 "periodName": "B Lunch"
             },
             "C": {
-                "startTime": "12:44",
-                "endTime": "13:14",
+                "startTime": "13:13",
+                "endTime": "13:43",
                 "periodName": "C Lunch"
-            },
-            "D": {
-                "startTime": "13:14",
-                "endTime": "13:44",
-                "periodName": "D Lunch"
             }
         }
     },
