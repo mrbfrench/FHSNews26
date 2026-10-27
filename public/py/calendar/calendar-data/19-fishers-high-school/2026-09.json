@@ -1,14 +1,14 @@
 {
     "1": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         }
     ],
     "2": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -20,7 +20,7 @@
     ],
     "3": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -37,7 +37,7 @@
     ],
     "4": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -63,7 +63,7 @@
     ],
     "8": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -80,7 +80,7 @@
     ],
     "9": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -97,7 +97,7 @@
     ],
     "10": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -114,7 +114,7 @@
     ],
     "11": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         }
@@ -183,7 +183,7 @@
     ],
     "14": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -195,14 +195,14 @@
     ],
     "15": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         }
     ],
     "16": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -219,7 +219,7 @@
     ],
     "17": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -231,7 +231,7 @@
     ],
     "18": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -260,7 +260,7 @@
     ],
     "21": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -277,7 +277,7 @@
     ],
     "22": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -304,7 +304,7 @@
     ],
     "23": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -316,7 +316,7 @@
     ],
     "24": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -328,14 +328,14 @@
     ],
     "25": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         }
     ],
     "28": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },
@@ -347,7 +347,7 @@
     ],
     "29": [
         {
-            "title": "Red Day",
+            "title": "Silver Day",
             "time": null,
             "location": null
         },
@@ -364,7 +364,7 @@
     ],
     "30": [
         {
-            "title": "Silver Day",
+            "title": "Red Day",
             "time": null,
             "location": null
         },

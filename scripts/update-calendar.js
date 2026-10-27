@@ -253,7 +253,7 @@ function plannedDayNames() {
     }
 }
 
-// Mark school days as alternating Red Day / Silver Day, starting on the first day of school.
+// Mark school days as alternating Silver Day / Red Day, starting on the first day of school.
 // Planned days (finals) get their schedule's name instead and don't count in the rotation.
 function addRedSilverDays(months) {
     const planned = plannedDayNames();
@@ -272,7 +272,7 @@ function addRedSilverDays(months) {
                 continue;
             }
             const titles = events.map(e => e.title.toLowerCase());
-            if (titles.some(t => t.includes('first day of school'))) color = 'Red Day';
+            if (titles.some(t => t.includes('first day of school'))) color = 'Silver Day';
             if (titles.some(t => LAST_DAY_TITLES.some(l => t.includes(l)))) {
                 color = null;
                 continue;
